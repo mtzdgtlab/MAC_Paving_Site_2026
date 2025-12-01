@@ -18,6 +18,11 @@ import Scripts from "@/components/Scripts.astro";
 import SocialMeta from "@/components/SocialMeta.astro";
 import WhyChooseUs from "@/components/WhyChooseUs.astro";
 import Flotante from "@/components/Flotante.astro";
+
+const lineStripingOgImage =
+  "https://macpavingandsealcoating.com/assets/imgs/service/sealer/line-striping-1.webp";
+const lineStripingOgAlt =
+  "Fresh parking lot line striping completed in North Jersey";
 ---
 
 <html lang="en">
@@ -50,7 +55,7 @@ import Flotante from "@/components/Flotante.astro";
         "name": "Line Striping & Pavement Markings NJ | MAC Paving",
         "url": "https://macpavingandsealcoating.com/services/sealer-services-nj/line-striping/",
         "logo": "https://macpavingandsealcoating.com/logo.png",
-        "image": "https://macpavingandsealcoating.com/og-image.png",
+        "image": "https://macpavingandsealcoating.com/assets/imgs/service/sealer/line-striping-1.webp",
         "description": "Professional line striping services to ensure clear, durable markings for parking lots, roads, and other asphalt surfaces, enhancing safety and organization.",
         "telephone": "+1-201-755-7836",
         "contactPoint": {
@@ -219,6 +224,8 @@ import Flotante from "@/components/Flotante.astro";
       title="Line Striping & Pavement Markings NJ | MAC Paving"
       description="Professional line striping services to ensure clear, durable markings for parking lots, roads, and other asphalt surfaces, enhancing safety and organization."
       url="https://macpavingandsealcoating.com/services/sealer-services-nj/line-striping/"
+      image={lineStripingOgImage}
+      imageAlt={lineStripingOgAlt}
     />
     <CSSbase />
   </head>

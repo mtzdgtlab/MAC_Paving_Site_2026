@@ -24,6 +24,11 @@ import Preloader from "@/components/Preloader.astro";
 import Scripts from "@/components/Scripts.astro";
 import SocialMeta from "@/components/SocialMeta.astro";
 import Flotante from "@/components/Flotante.astro";
+
+const sealerOgImage =
+  "https://macpavingandsealcoating.com/assets/imgs/bg/sealer-cover.webp";
+const sealerOgAlt =
+  "Sealcoating technician spraying asphalt protection in North Jersey";
 ---
 
 <html lang="en">
@@ -57,7 +62,7 @@ import Flotante from "@/components/Flotante.astro";
         "name": "Sealcoating & Asphalt Repair NJ | MAC Paving",
         "url": "https://macpavingandsealcoating.com/services/sealer-services-nj/",
         "logo": "https://macpavingandsealcoating.com/logo.png",
-        "image": "https://macpavingandsealcoating.com/og-image.png",
+        "image": "https://macpavingandsealcoating.com/assets/imgs/bg/sealer-cover.webp",
         "description": "Sealcoating, crack filling, pothole repair, and line striping for North Jersey driveways and small parking lots.",
         "telephone": "+1-201-755-7836",
         "contactPoint": {
@@ -227,6 +232,8 @@ import Flotante from "@/components/Flotante.astro";
       title="Sealcoating & Asphalt Repair NJ | MAC Paving"
       description="MAC Paving protects asphalt driveways and small parking lots with sealcoating, crack filling, pothole repair, and line striping across North Jersey counties."
       url="https://macpavingandsealcoating.com/services/sealer-services-nj/"
+      image={sealerOgImage}
+      imageAlt={sealerOgAlt}
     />
     <CSSbase />
   </head>

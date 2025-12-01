@@ -28,7 +28,9 @@ const pageMeta = {
     "https://macpavingandsealcoating.com/services/paving-services-nj/driveway-resurfacing/",
   keywords:
     "paving services NJ, driveway paving in Passaic, asphalt contractors New Jersey, driveway resurfacing NJ, asphalt overlay Bergen County, commercial paving restoration Essex County, residential driveway repair Morris County",
-  image: "https://macpavingandsealcoating.com/og-image.png",
+  image:
+    "https://macpavingandsealcoating.com/assets/imgs/service/asphalt-paving/resurfacing-1.webp",
+  imageAlt: "Driveway resurfacing overlay completed in North Jersey",
 };
 
 const countiesServed = [
@@ -49,6 +51,7 @@ const serviceSchema = {
   serviceType: "Driveway Paving Resurfacing",
   name: pageMeta.title,
   description: pageMeta.description,
+  image: pageMeta.image,
   areaServed: countiesServed.map((county) => ({
     "@type": "AdministrativeArea",
     name: county,
@@ -155,6 +158,7 @@ const serviceSchema = {
       description={pageMeta.description}
       url={pageMeta.url}
       image={pageMeta.image}
+      imageAlt={pageMeta.imageAlt}
     />
     <CSSbase />
   </head>

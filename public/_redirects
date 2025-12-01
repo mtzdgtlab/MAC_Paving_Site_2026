@@ -1,9 +1,9 @@
-# Redirect www to non-www (highest priority)
-https://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:splat 301!
+# Redirect www to non-www
+/www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:splat 301
 
 # Redirect http to https
-http://macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:splat 301!
-http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:splat 301!
+/macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:splat 301
+/www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:splat 301
 
 # Old service URLs with .html to new structure
 /installation.html /services/paving-services-nj/driveway-installation/ 301
@@ -45,7 +45,7 @@ http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:sp
 /power-wash /services/ 301
 /top-soil /services/ 301
 
-# Category redirects (old single word URLs)
+# Category redirects
 /asphalt-paving /services/paving-services-nj/ 301
 
 # Legacy service directory redirects
@@ -72,7 +72,7 @@ http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:sp
 /sealer /services/sealer-services-nj/ 301
 /landscaping /services/ 301
 
-# Missing service redirects (404s from Google Search Console)
+# Missing service redirects
 /seed-grass /services/ 301
 /seed-grass.html /services/ 301
 /gutters /services/ 301
@@ -89,7 +89,7 @@ http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:sp
 /winter-services /services 301
 /winter-services.html /services 301
 
-# URLs with underscores (old format)
+# URLs with underscores
 /line_striping /services/sealer-services-nj/line-striping/ 301
 /power_wash /services/ 301
 /winter_services /services 301
@@ -106,7 +106,7 @@ http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:sp
 # Broken URLs with special characters
 /K%7BSEOcanonical%7D%7D / 301
 
-# Concrete and Landscaping service page redirects
+# Concrete and Landscaping service redirects
 /services/concrete/ /services/ 301
 /services/concrete /services/ 301
 /services/concrete/walkways/ /services/ 301
@@ -128,5 +128,5 @@ http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:sp
 /services/landscaping/hauling/ /services/ 301
 /services/landscaping/hauling /services/ 301
 
-# Catch-all for any remaining .html files (lowest priority)
+# Catch-all .html
 /*.html / 301

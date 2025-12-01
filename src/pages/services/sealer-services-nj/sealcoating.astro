@@ -18,6 +18,11 @@ import Scripts from "@/components/Scripts.astro";
 import SocialMeta from "@/components/SocialMeta.astro";
 import WhyChooseUs from "@/components/WhyChooseUs.astro";
 import Flotante from "@/components/Flotante.astro";
+
+const sealcoatingOgImage =
+  "https://macpavingandsealcoating.com/assets/imgs/service/sealer/sealcoating-1.webp";
+const sealcoatingOgAlt =
+  "Sealcoating crew spraying asphalt protection in North Jersey";
 ---
 
 <html lang="en">
@@ -219,6 +224,8 @@ import Flotante from "@/components/Flotante.astro";
       title="Sealcoating Services North Jersey | MAC Paving"
       description="High-quality seal coating services to protect your asphalt surfaces from weather damage and wear, extending their lifespan."
       url="https://macpavingandsealcoating.com/services/sealer-services-nj/sealcoating/"
+      image={sealcoatingOgImage}
+      imageAlt={sealcoatingOgAlt}
     />
     <CSSbase />
   </head>

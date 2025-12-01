@@ -18,6 +18,11 @@ import Scripts from "@/components/Scripts.astro";
 import SocialMeta from "@/components/SocialMeta.astro";
 import TestimonialsSlider from "@/components/TestimonialsSlider.astro";
 import Flotante from "@/components/Flotante.astro";
+
+const belgiumOgImage =
+  "https://macpavingandsealcoating.com/assets/imgs/banner/stone-border-banner.webp";
+const belgiumOgAlt =
+  "Belgium block edging and apron installation in North Jersey";
 ---
 
 <html lang="en">
@@ -50,7 +55,7 @@ import Flotante from "@/components/Flotante.astro";
         "name": "Belgium Block Curbing NJ | MAC Paving",
         "url": "https://macpavingandsealcoating.com/services/belgium-blocks/",
         "logo": "https://macpavingandsealcoating.com/logo.png",
-        "image": "https://macpavingandsealcoating.com/og-image.png",
+        "image": "https://macpavingandsealcoating.com/assets/imgs/banner/stone-border-banner.webp",
         "description": "Quality Belgium block installation services to add a touch of elegance and durability to your landscaping projects.",
         "telephone": "+1-201-755-7836",
         "contactPoint": {
@@ -223,6 +228,8 @@ import Flotante from "@/components/Flotante.astro";
       title="Belgium Block Curbing NJ | MAC Paving"
       description="Quality Belgium block installation services to add a touch of elegance and durability to your landscaping projects."
       url="https://macpavingandsealcoating.com/services/belgium-blocks/"
+      image={belgiumOgImage}
+      imageAlt={belgiumOgAlt}
     />
     <CSSbase />
   </head>
