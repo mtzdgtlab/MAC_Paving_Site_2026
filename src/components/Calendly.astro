@@ -1,0 +1,68 @@
+---
+
+---
+
+<!-- Recursos de Calendar.google.com cargados de forma optimizada -->
+<link
+  rel="preload"
+  as="style"
+  href="https://calendar.google.com/calendar/scheduling-button-script.css"
+/>
+<link
+  href="https://calendar.google.com/calendar/scheduling-button-script.css"
+  rel="stylesheet"
+  media="print"
+  onload="this.media='all'"
+/>
+
+<style is:inline>
+  /* Estilos para mejorar la apariencia del widget de Calendar.google.com */
+  .calendly-inline-widget {
+    min-width: 320px;
+    height: 700px;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Placeholder mientras carga Calendar.google.com para evitar CLS */
+  .calendly-placeholder {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+</style>
+
+<!-- Calendly inline widget begin -->
+<div class="calendly-placeholder" id="calendly-loading"></div>
+<div
+  class="calendly-inline-widget"
+  data-url="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2f2-a8hsmFRdKAdT1bvjgeib5aUhRroNwmyM-fq0U3_9Y7cAp5Qw3vk9NztACX34Ggtqf1JxI-?gv=true"
+  style="min-width:320px;height:700px;opacity:0;"
+  id="calendly-widget"
+>
+</div>
+
+<!-- Carga optimizada de script Calendly -->
+<script>
+  // Cargar Calendly de forma diferida
+  document.addEventListener("DOMContentLoaded", function () {
+    // Crear elemento script
+    const script = document.createElement("script");
+    script.src = "https://calendar.google.com/calendar/scheduling-button-script.js";
+    script.type = "text/javascript";
+    script.onload = function () {
+      // Cuando el script se carga, mostrar el widget
+      setTimeout(() => {
+        const widget = document.getElementById("calendly-widget");
+        const loading = document.getElementById("calendly-loading");
+        if (widget) widget.style.opacity = "1";
+        if (loading) loading.style.display = "none";
+      }, 300);
+    };
+
+    // Añadir script al documento
+    document.body.appendChild(script);
+  });
+</script>
+<!-- Calendly inline widget end -->

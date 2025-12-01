@@ -1,0 +1,140 @@
+<!-- Botón flotante responsive -->
+<div id="floating-call" class="floating-call-btn" aria-hidden="true">
+    <a href="tel:+12017557836" class="call-btn">
+      <span class="call-text-desktop">CALL US&nbsp; | &nbsp;<i class="fas fa-phone"></i></span>
+      <span class="call-text-mobile">
+        <span class="top">CALL US</span>
+        <span class="bottom">NOW&nbsp;|&nbsp;<i class="fas fa-phone"></i></span>
+      </span>
+    </a>
+  </div>
+  
+  <style>
+    .floating-call-btn {
+      position: fixed;
+      top: 50%;
+      right: 24px;
+      transform: translateY(-50%);
+      z-index: 1000; /* inferior al preloader */
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+  
+    .floating-call-btn.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  
+    /* Estilo general (desktop) */
+    .call-btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: #0069ff;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+  
+    .call-btn i {
+      margin-left: 6px;
+      font-size: 16px;
+    }
+  
+    /* Oculta la versión móvil por defecto */
+    .call-text-mobile {
+      display: none;
+    }
+  
+    /* Versión móvil */
+    @media (max-width: 768px) {
+      .floating-call-btn {
+        top: 50%;
+        bottom: auto;
+        right: 24px;
+        transform: translateY(-50%);
+      }
+  
+      .call-btn {
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        padding: 10px 18px;
+        border-radius: 12px;
+        text-align: center;
+        font-size: 11px;
+        line-height: 1.1;
+        white-space: nowrap;
+      }
+  
+      .call-text-desktop {
+        display: none;
+      }
+  
+      .call-text-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4px;
+      }
+  
+      .call-text-mobile .top {
+        font-size: 11px;
+        font-weight: 700;
+        margin-bottom: 3px;
+      }
+  
+      .call-text-mobile .bottom {
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+  
+      .call-btn i {
+        margin-left: 0;
+        font-size: 14px;
+      }
+    }
+  
+    /* Si el preloader está activo, oculta el botón completamente */
+    body.preloader-active .floating-call-btn {
+      display: none !important;
+    }
+  </style>
+  
+  <script>
+    (function () {
+      var btn = document.getElementById('floating-call');
+      var shown = false;
+  
+      // Mantiene el botón oculto al inicio
+      btn.classList.remove('is-visible');
+      btn.setAttribute('aria-hidden', 'true');
+  
+      function onScroll() {
+        if (window.scrollY > 10) {
+          if (!shown) {
+            btn.classList.add('is-visible');
+            btn.setAttribute('aria-hidden', 'false');
+            shown = true;
+          }
+        } else if (shown) {
+          btn.classList.remove('is-visible');
+          btn.setAttribute('aria-hidden', 'true');
+          shown = false;
+        }
+      }
+  
+      // Espera a que todo cargue antes de activar el listener
+      window.addEventListener('load', function () {
+        window.addEventListener('scroll', onScroll, { passive: true });
+      });
+    })();
+  </script>

@@ -1,0 +1,335 @@
+---
+import { Image, getImage } from "astro:assets";
+import cta1 from "@/assets/imgs/resources/cta-1.webp";
+import logo from "@/assets/imgs/logo.png";
+import About from "@/components/About.astro";
+import ChooseArea from "@/components/ChooseArea.astro";
+import CSSbase from "@/components/CSSbase.astro";
+import Favicon from "@/components/Favicon.astro";
+import Footer from "@/components/Footer.astro";
+import Navbar from "@/components/Navbar.astro";
+import Preloader from "@/components/Preloader.astro";
+import ProjectSlider from "@/components/ProjectSlider.astro";
+import Scripts from "@/components/Scripts.astro";
+import ServiceSlider from "@/components/ServiceSlider.astro";
+import SocialMeta from "@/components/SocialMeta.astro";
+import TestimonialsSlider from "@/components/TestimonialsSlider.astro";
+import Brands from "@/components/Brands.astro";
+import LargeForm from "@/components/LargeForm.astro";
+
+const optimizedLogo = await getImage({ src: logo });
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>MAC Paving and Sealcoating | Asphalt Contractor in North Jersey</title>
+    <meta
+      name="description"
+      content="MAC Paving and Sealcoating LLC is a family-owned local business providing driveway paving installation, resurfacing, replacement, extensions, sealcoating, crack filling, line striping, and Belgium blocks across Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties."
+    />
+    <link rel="canonical" href="https://macpavingandsealcoating.com/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="keywords"
+      content="paving services NJ, driveway paving North Jersey, asphalt contractors Passaic County, sealcoating Bergen County"
+    />
+
+    <Favicon />
+    <SocialMeta
+      title="MAC Paving and Sealcoating | Asphalt Contractor in North Jersey"
+      description="Family-owned MAC Paving and Sealcoating LLC delivers driveway paving installation, resurfacing, replacement, extensions, sealcoating, crack filling, line striping, and Belgium blocks across North Jersey."
+      url="https://macpavingandsealcoating.com/"
+    />
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "Service"],
+        name: "MAC Paving and Sealcoating LLC",
+        url: "https://macpavingandsealcoating.com/",
+        logo: "https://macpavingandsealcoating.com/logo.png",
+        description:
+          "Family-owned asphalt contractor providing driveway paving installation, resurfacing, replacement, extensions, sealcoating, crack filling, line striping, and Belgium blocks across North Jersey.",
+        telephone: "+1-201-755-7836",
+        areaServed: [
+          "Passaic County",
+          "Bergen County",
+          "Morris County",
+          "Essex County",
+          "Hudson County",
+          "Union County",
+          "Middlesex County",
+          "Somerset County",
+          "Sussex County",
+        ],
+        sameAs: [
+          "https://www.facebook.com/macpavingandsealcoating/",
+          "https://www.instagram.com/macpavingandsealcoating/",
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Paving, Sealer, and Belgium Block Services",
+          itemListElement: [
+            "Driveway Paving Installation",
+            "Driveway Paving Resurfacing",
+            "Driveway Paving Replacement",
+            "Driveway Paving Extension",
+            "Sealcoating",
+            "Crack Filling",
+            "Line Striping",
+            "Belgium Blocks",
+          ].map((service) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: service },
+          })),
+        },
+        potentialAction: [
+          {
+            "@type": "CallAction",
+            target: "tel:+12017557836",
+            name: "Call MAC Paving and Sealcoating",
+          },
+          {
+            "@type": "ReserveAction",
+            name: "Book a Free Estimate",
+            target: [
+              "https://calendar.app.google/CQVM2nVsX15QCVq16",
+              "https://macpavingandsealcoating.com/contact/",
+            ],
+          },
+        ],
+      })}
+    </script>
+    <link rel="preload" as="image" href={optimizedLogo.src} fetchpriority="high" />
+    <CSSbase />
+  </head>
+  <body>
+    <Preloader />
+    <Navbar />
+    <!-- Header area end -->
+
+    <main>
+      <!-- Banner area start -->
+      <section
+        aria-label="Banner section"
+        class="banner-section p-relative fix"
+      >
+        <div class="banner-main">
+          <!-- VIDEO PARA ESCRITORIO -->
+          <video
+            class="banner-video desktop-only"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            width="1920"
+            height="1080"
+          >
+            <source src="/assets/imgs/vids/1920-banner.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          <!-- VIDEO PARA MÓVIL -->
+          <video
+            class="banner-video mobile-only"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            width="1080"
+            height="1080"
+          >
+            <source src="/assets/imgs/vids/1080-banner.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="swiper banner-active">
+            <div class="swiper-wrapper">
+              <!-- block -->
+              <div class="swiper-slide">
+                <div
+                  class="banner-area p-relative z-3"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="large-container">
+                    <span class="p-relative banner-sub-title"
+                      >EXCEPTIONAL QUALITY</span
+                    >
+                    <h1 class="banner-title ml-30">NJ Paving Experts</h1>
+                    <p class="banner-text">
+                      Driveway paving installation, resurfacing, replacement,
+                      extensions, sealcoating, crack filling, and line striping
+                      for homes and neighborhood businesses throughout Passaic,
+                      Bergen, Morris, Essex, Hudson, Union, Middlesex,
+                      Somerset, and Sussex counties.
+                    </p>
+                    <div class="banner-btn-area">
+                      <a
+                        class="primary-btn-1 btn-hover"
+                        href="tel:+12017557836"
+                      >
+                        Talk With Our Paving Crew &nbsp; |
+                        <i class="fas fa-arrow-right"></i>
+                      </a>
+                      <a
+                        href="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fmacpavingandsealcoating%2Fvideos%2F937254958378905%2F&s"
+                        class="play-btn popup-video"
+                        aria-label="View Recent Projects"
+                      >
+                        <div class="icon-1">
+                          <i class="fas fa-play"></i>
+                          <span class="sr-only">View Recent Projects</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- block -->
+              <div class="swiper-slide">
+                <div
+                  class="banner-area p-relative z-3"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="large-container">
+                    <span class="p-relative banner-sub-title"
+                      >FOR EVERY RESIDENTIAL AND COMMERCIAL PROPERTY</span
+                    >
+                    <h2 class="banner-title">Sealcoating and Maintenance</h2>
+                    <p class="banner-text">
+                      We combine driveway paving, small-lot resurfacing,
+                      sealcoating, crack filling, line striping, Belgium block
+                      curbing, and extension work under one owner-led crew.
+                      From family driveways to local storefronts, every project
+                      gets careful planning that keeps asphalt strong and neat
+                      all year.
+                    </p>
+                    <div class="banner-btn-area">
+                      <a
+                        class="primary-btn-1 btn-hover"
+                        href="/services/sealer-services-nj/"
+                      >
+                        Explore Sealer Services &nbsp;
+                        <i class="fas fa-arrow-right"></i>
+                      </a>
+                      <a
+                        href="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fmacpavingandsealcoating%2Fvideos%2F937254958378905%2F&s"
+                        class="play-btn popup-video"
+                        aria-label="Watch video about our paving solutions"
+                      >
+                        <div class="icon-1">
+                          <i class="fas fa-play"></i>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- block -->
+              <div class="swiper-slide">
+                <div
+                  class="banner-area p-relative z-3"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="large-container">
+                    <span class="p-relative banner-sub-title"
+                      >COMPREHENSIVE PAVING SOLUTIONS</span
+                    >
+                    <h2 class="banner-title">Family-Owned AND LOCAL Crew</h2>
+                    <p class="banner-text mb-15">
+                      Transparent scopes, simple schedules, and line-item
+                      estimates so you always know what happens on site.
+                    </p>
+                    <p class="banner-text mb-15">
+                      Dedicated foremen on every job plus direct access to
+                      ownership for decisions or changes.
+                    </p>
+                    <p class="banner-text">
+                      From driveways to compact parking lots, we provide durable
+                      and clean paving solutions that match everyday needs.
+                    </p>
+                    <div class="banner-btn-area">
+                      <a
+                        class="primary-btn-1 btn-hover"
+                        href="/services/paving-services-nj/"
+                      >
+                        View Driveway Services &nbsp;
+                        <i class="fas fa-arrow-right"></i>
+                      </a>
+                      <a
+                        href="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fmacpavingandsealcoating%2Fvideos%2F937254958378905%2F&s"
+                        class="play-btn popup-video"
+                        aria-label="Watch video about our sealcoating services"
+                      >
+                        <div class="icon-1">
+                          <i class="fas fa-play"></i>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="banner-dot-inner">
+          <div class="banner-dot"></div>
+        </div>
+      </section>
+      <!-- Banner area end -->
+
+      <About />
+      <ServiceSlider />
+
+      <!-- Cta-1 area start -->
+      <section class="cta-1-section bg-color-1 p-relative" data-aos="fade-down">
+        <div class="small-container">
+          <div class="row g-0 box-shadow-1 fix">
+            <div class="col-xxl-6 col-lg-6 bg-white">
+                <figure class="image">
+                  <Image
+                    src={cta1}
+                    alt="Family-owned paving crew resurfacing a driveway in Passaic County NJ"
+                    width={576}
+                    height={194}
+                    format="webp"
+                    quality={85}
+                    sizes="(max-width: 768px) 100vw, 576px"
+                  />
+              </figure>
+            </div>
+            <div class="col-xxl-6 col-lg-6">
+              <div class="content p-relative">
+                <div class="icon-box">
+                  <i class="fas fa-phone-volume"></i>
+                </div>
+                <h4 class="mb-15">Need a North Jersey Paving Crew?</h4>
+                <p class="mb-10">
+                  Call for fast estimates, scheduling updates, or emergency
+                  maintenance across Passaic, Bergen, Morris, Essex, Hudson,
+                  Union, Middlesex, Somerset, and Sussex counties.
+                </p>
+                <h5><a href="tel:+12017557836">(201) 755-7836</a></h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Cta-1 area end -->
+      <ProjectSlider />
+      <ChooseArea />
+      <LargeForm />
+      <TestimonialsSlider />
+      <Brands />
+    </main>
+    <Footer />
+    <Scripts />
+  </body>
+</html>

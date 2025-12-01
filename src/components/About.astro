@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+import about1 from "@/assets/imgs/about/about-1.webp";
+import about2 from "@/assets/imgs/about/about-2.webp";
+import GoogleCalendarButton from "./GoogleCalendarButton.astro";
+---
+
+<!-- About us area start -->
+<section
+  aria-label="About us section"
+  class="about-us-section section-space p-relative"
+>
+  <div class="shape-area">
+    <div class="shape-1" data-background="/assets/imgs/bg/bg-shape-1.webp">
+    </div>
+    <div
+      class="shape-2 quote-animation"
+      data-background="/assets/imgs/shapes/shape-7.webp"
+    >
+    </div>
+    <div
+      class="shape-3 quote-animation"
+      data-background="/assets/imgs/shapes/shape-8.webp"
+    >
+    </div>
+  </div>
+  <div class="small-container">
+    <div class="row g-4">
+      <div class="col-xxl-6 col-xl-6 col-lg-6">
+        <div
+          class="about-us-image-area p-relative"
+          data-aos="fade-right"
+          data-aos-delay="100"
+        >
+          <div
+            class="border-shape"
+            data-background="/assets/imgs/shapes/shape-6.webp"
+          >
+          </div>
+          <figure class="image-1">
+            <Image
+              src={about1}
+              alt="MAC Paving owners reviewing plans in Passaic County NJ"
+              fetchpriority="high"
+              width={452}
+              height={588}
+              quality={85}
+              sizes="(max-width: 768px) 100vw, 452px"
+            />
+          </figure>
+          <div class="image-2-area">
+            <div class="image-2 p-relative">
+              <Image
+                src={about2}
+                alt="Crew meeting before a driveway replacement in Bergen County NJ"
+                loading="lazy"
+                width={239}
+                height={256}
+                quality={85}
+                sizes="(max-width: 768px) 100vw, 239px"
+              />
+              <div class="play-btn">
+                <div class="video_player_btn">
+                  <a
+                    href="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fmacpavingandsealcoating%2Fvideos%2F937254958378905%2F&s"
+                    class="popup-video"
+                    aria-label="Play video about MAC Paving services"
+                    ><i class="fas fa-play" aria-hidden="true"></i><span
+                      class="sr-only">Play video</span
+                    ></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="working-area float-bob-y">
+            <div class="inner p-relative">
+              <div class="icon-box">
+                <i class="fas fa-award"></i>
+                <h4><span class="counter">15</span> Years</h4>
+                <p>Paving North Jersey</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xxl-6 col-xl-6 col-lg-6">
+        <div class="about-us-content-area p-relative z-1 pl-30">
+          <div
+            class="title-box mb-35"
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
+            <span class="section-sub-title">Family-Owned Paving Company</span>
+            <h3 class="section-title mt-35">
+              Paving Built Around Your Property
+            </h3>
+          </div>
+          <p class="mb-50" data-aos="fade-left">
+            For more than 15 years, MAC Paving and Sealcoating LLC has stayed
+            family owned and local. We built our reputation delivering driveway
+            paving installation, resurfacing, replacement, extension,
+            sealcoating, crack filling, line striping, and Belgium block work
+            that keeps homes and small businesses looking neat.
+          </p>
+          <h4 class="service-details-subtitle mt-10">What Guides Us</h4>
+          <ul class="service-details-page-list">
+            <li>Safety comes first on every driveway or storefront.</li>
+            <li>
+              Communication keeps homeowners and managers in the loop with quick
+              updates.
+            </li>
+            <li>
+              Craftsmanship is backed by responsive sealcoating and repair
+              services.
+            </li>
+          </ul>
+          <h4 class="service-details-subtitle mt-30">Built-In Standards</h4>
+          <ul class="service-details-page-list service-list-large">
+            <li>High-Quality Materials</li>
+            <li>100% Satisfaction Promise</li>
+            <li>Trusted Local Experts</li>
+            <li>300+ Paving Projects</li>
+            <li>Responsive Maintenance</li>
+            <li>Driveway Specialists</li>
+          </ul>
+          <!-- Booking CTA begin -->
+          <div class="header-action d-inline-flex gap-5">
+            <div class="header-link" data-aos="fade-left">
+              <GoogleCalendarButton />
+            </div>
+          </div>
+          <!-- Booking CTA end -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About us area end -->
+</section>

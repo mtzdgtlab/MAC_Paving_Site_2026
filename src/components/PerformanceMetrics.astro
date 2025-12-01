@@ -1,0 +1,126 @@
+---
+// PerformanceMetrics.astro - Componente para medir y optimizar métricas de rendimiento
+---
+
+<script is:inline>
+  /**
+   * Script de optimización de rendimiento para mejorar:
+   * - First Contentful Paint (FCP)
+   * - Largest Contentful Paint (LCP)
+   * - Cumulative Layout Shift (CLS)
+   * - First Input Delay (FID) / Interaction to Next Paint (INP)
+   */
+
+  // Monitorear FCP y LCP
+  new PerformanceObserver((entryList) => {
+    for (const entry of entryList.getEntries()) {
+      console.log(`LCP: ${entry.startTime}ms`, entry.element);
+    }
+  }).observe({ type: "largest-contentful-paint", buffered: true });
+
+  new PerformanceObserver((entryList) => {
+    for (const entry of entryList.getEntries()) {
+      console.log(`FCP: ${entry.startTime}ms`);
+    }
+  }).observe({ type: "paint", buffered: true });
+
+  // Monitorear CLS
+  new PerformanceObserver((entryList) => {
+    for (const entry of entryList.getEntries()) {
+      if (!entry.hadRecentInput) {
+        console.log(`CLS: ${entry.value}`, entry);
+      }
+    }
+  }).observe({ type: "layout-shift", buffered: true });
+
+  // Función para cargar CSS de forma no bloqueante (respaldo si inlineStylesheets no funciona)
+  const loadNonBlockingCSS = (url) => {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = url;
+    link.media = "print";
+    link.onload = () => {
+      link.media = "all";
+    };
+    document.head.appendChild(link);
+  };
+
+  // Detectar y cargar dinámicamente CSS bloqueantes de Astro
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll(
+      'link[rel="stylesheet"][href*="_astro/"]'
+    );
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+      // Remover el link bloqueante
+      link.parentNode.removeChild(link);
+      // Cargar de forma no bloqueante
+      loadNonBlockingCSS(href);
+    });
+  });
+
+  // Priorizar carga de recursos críticos
+  document.addEventListener("DOMContentLoaded", () => {
+    // Identificar y priorizar el LCP element
+    setTimeout(() => {
+      const images = document.querySelectorAll("img");
+      let largestImage = null;
+      let largestArea = 0;
+
+      images.forEach((img) => {
+        if (img.getBoundingClientRect) {
+          const rect = img.getBoundingClientRect();
+          const area = rect.width * rect.height;
+
+          if (
+            area > largestArea &&
+            rect.top < window.innerHeight &&
+            rect.left < window.innerWidth
+          ) {
+            largestArea = area;
+            largestImage = img;
+          }
+        }
+      });
+
+      // Priorizar la imagen más grande visible
+      if (largestImage && !largestImage.hasAttribute("fetchpriority")) {
+        largestImage.setAttribute("fetchpriority", "high");
+        console.log("Set fetchpriority on:", largestImage);
+      }
+    }, 100);
+
+    // Diferir scripts no críticos
+    setTimeout(() => {
+      const deferScripts = document.querySelectorAll(
+        'script[data-defer="true"]'
+      );
+      deferScripts.forEach((script) => {
+        const newScript = document.createElement("script");
+        [...script.attributes].forEach((attr) => {
+          if (attr.name !== "data-defer") {
+            newScript.setAttribute(attr.name, attr.value);
+          }
+        });
+        newScript.textContent = script.textContent;
+        script.parentNode.replaceChild(newScript, script);
+      });
+    }, 2000);
+  });
+
+  // Precargar cuando el usuario hace hover en enlaces
+  document.addEventListener("mouseover", (event) => {
+    const link = event.target.closest("a");
+    if (link && link.href && !link.hasAttribute("data-prefetched")) {
+      link.setAttribute("data-prefetched", "true");
+
+      if (link.hostname === window.location.hostname) {
+        const prefetcher = document.createElement("link");
+        prefetcher.rel = "prefetch";
+        prefetcher.href = link.href;
+        document.head.appendChild(prefetcher);
+        console.log("Prefetching:", link.href);
+      }
+    }
+  });
+</script>
