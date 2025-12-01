@@ -1,5 +1,43 @@
 ---
 import { Image } from "astro:assets";
+import project1 from "@/assets/imgs/project/project-1.webp";
+import project2 from "@/assets/imgs/project/project-2.webp";
+import project3 from "@/assets/imgs/project/project-3.webp";
+import project4 from "@/assets/imgs/project/project-4.webp";
+import project5 from "@/assets/imgs/project/project-5.webp";
+import project6 from "@/assets/imgs/project/project-6.webp";
+import project7 from "@/assets/imgs/project/project-7.webp";
+
+const projects = [
+  {
+    image: project1,
+    alt: "Residential driveway paving transformation in Passaic County NJ",
+  },
+  {
+    image: project2,
+    alt: "Commercial asphalt parking lot resurfacing in Bergen County NJ",
+  },
+  {
+    image: project3,
+    alt: "Driveway paving replacement for a Morris County NJ property",
+  },
+  {
+    image: project4,
+    alt: "Custom asphalt apron with Belgium block border in Essex County NJ",
+  },
+  {
+    image: project5,
+    alt: "HOA roadway paving project completed in Union County NJ",
+  },
+  {
+    image: project6,
+    alt: "Sealcoated commercial parking lot in Hudson County NJ",
+  },
+  {
+    image: project7,
+    alt: "Stone border walkway upgrade near Somerset County NJ",
+  },
+];
 ---
 
 <!-- Project slider area start -->
@@ -31,112 +69,22 @@ import { Image } from "astro:assets";
   </div>
   <div class="swiper project-active-1">
     <div class="swiper-wrapper">
-      <!-- block -->
-      <div class="swiper-slide">
-        <div class="project-slider-area p-relative">
-          <figure class="image m-imge shine-img">
-            <Image
-              src="/assets/imgs/project/project-1.webp"
-              alt="Residential driveway paving transformation in Passaic County NJ"
-              width={570}
-              height={439}
-              quality={80}
-              format="webp"
-            />
-          </figure>
+      {projects.map(({ image, alt }) => (
+        <div class="swiper-slide">
+          <div class="project-slider-area p-relative">
+            <figure class="image m-imge shine-img">
+              <Image
+                src={image}
+                alt={alt}
+                width={570}
+                height={439}
+                quality={80}
+                format="webp"
+              />
+            </figure>
+          </div>
         </div>
-      </div>
-      <!-- block -->
-      <div class="swiper-slide">
-        <div class="project-slider-area p-relative">
-          <figure class="image m-imge shine-img">
-            <Image
-              src="/assets/imgs/project/project-2.webp"
-              alt="Commercial asphalt parking lot resurfacing in Bergen County NJ"
-              width={570}
-              height={439}
-              quality={80}
-              format="webp"
-            />
-          </figure>
-        </div>
-      </div>
-      <!-- block -->
-      <div class="swiper-slide">
-        <div class="project-slider-area p-relative">
-          <figure class="image m-imge shine-img">
-            <Image
-              src="/assets/imgs/project/project-3.webp"
-              alt="Driveway paving replacement for a Morris County NJ property"
-              width={570}
-              height={439}
-              quality={80}
-              format="webp"
-            />
-          </figure>
-          <div class="content-area"></div>
-        </div>
-      </div>
-      <!-- block -->
-      <div class="swiper-slide">
-        <div class="project-slider-area p-relative">
-          <figure class="image m-imge shine-img">
-            <Image
-              src="/assets/imgs/project/project-4.webp"
-              alt="Custom asphalt apron with Belgium block border in Essex County NJ"
-              width={570}
-              height={439}
-              quality={80}
-              format="webp"
-            />
-          </figure>
-        </div>
-      </div>
-      <!-- block -->
-      <div class="swiper-slide">
-        <div class="project-slider-area p-relative">
-          <figure class="image m-imge shine-img">
-            <Image
-              src="/assets/imgs/project/project-5.webp"
-              alt="HOA roadway paving project completed in Union County NJ"
-              width={570}
-              height={439}
-              quality={80}
-              format="webp"
-            />
-          </figure>
-        </div>
-      </div>
-      <!-- block -->
-      <div class="swiper-slide">
-        <div class="project-slider-area p-relative">
-          <figure class="image m-imge shine-img">
-            <Image
-              src="/assets/imgs/project/project-6.webp"
-              alt="Sealcoated commercial parking lot in Hudson County NJ"
-              width={570}
-              height={439}
-              quality={80}
-              format="webp"
-            />
-          </figure>
-        </div>
-      </div>
-      <!-- block -->
-      <div class="swiper-slide">
-        <div class="project-slider-area p-relative">
-          <figure class="image m-imge shine-img">
-            <Image
-              src="/assets/imgs/project/project-7.webp"
-              alt="Stone border walkway upgrade near Somerset County NJ"
-              width={570}
-              height={439}
-              quality={80}
-              format="webp"
-            />
-          </figure>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>

@@ -2,6 +2,10 @@
 import { Image } from "astro:assets";
 import about1 from "@/assets/imgs/about/about-1.webp";
 import about2 from "@/assets/imgs/about/about-2.webp";
+import bgShape1 from "@/assets/imgs/bg/bg-shape-1.webp";
+import shape6 from "@/assets/imgs/shapes/shape-6.webp";
+import shape7 from "@/assets/imgs/shapes/shape-7.webp";
+import shape8 from "@/assets/imgs/shapes/shape-8.webp";
 import GoogleCalendarButton from "./GoogleCalendarButton.astro";
 ---
 
@@ -11,16 +15,16 @@ import GoogleCalendarButton from "./GoogleCalendarButton.astro";
   class="about-us-section section-space p-relative"
 >
   <div class="shape-area">
-    <div class="shape-1" data-background="/assets/imgs/bg/bg-shape-1.webp">
+    <div class="shape-1" data-background={bgShape1.src}>
     </div>
     <div
       class="shape-2 quote-animation"
-      data-background="/assets/imgs/shapes/shape-7.webp"
+      data-background={shape7.src}
     >
     </div>
     <div
       class="shape-3 quote-animation"
-      data-background="/assets/imgs/shapes/shape-8.webp"
+      data-background={shape8.src}
     >
     </div>
   </div>
@@ -34,7 +38,7 @@ import GoogleCalendarButton from "./GoogleCalendarButton.astro";
         >
           <div
             class="border-shape"
-            data-background="/assets/imgs/shapes/shape-6.webp"
+            data-background={shape6.src}
           >
           </div>
           <figure class="image-1">
@@ -59,18 +63,6 @@ import GoogleCalendarButton from "./GoogleCalendarButton.astro";
                 quality={85}
                 sizes="(max-width: 768px) 100vw, 239px"
               />
-              <div class="play-btn">
-                <div class="video_player_btn">
-                  <a
-                    href="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fmacpavingandsealcoating%2Fvideos%2F937254958378905%2F&s"
-                    class="popup-video"
-                    aria-label="Play video about MAC Paving services"
-                    ><i class="fas fa-play" aria-hidden="true"></i><span
-                      class="sr-only">Play video</span
-                    ></a
-                  >
-                </div>
-              </div>
             </div>
           </div>
           <div class="working-area float-bob-y">

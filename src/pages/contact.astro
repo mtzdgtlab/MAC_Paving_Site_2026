@@ -13,6 +13,7 @@ import Scripts from "@/components/Scripts.astro";
 import SocialMeta from "@/components/SocialMeta.astro";
 import TestimonialsSlider from "@/components/TestimonialsSlider.astro";
 import WhyChooseUs from "@/components/WhyChooseUs.astro";
+import Flotante from "@/components/Flotante.astro";
 ---
 
 <html lang="en">
@@ -37,7 +38,7 @@ import WhyChooseUs from "@/components/WhyChooseUs.astro";
       title="Contact MAC Paving | Asphalt Paving Services NJ"
       description="Talk with MAC Paving and Sealcoating for driveway paving, sealcoating, crack filling, line striping, and Belgium block projects across North Jersey."
       url="https://macpavingandsealcoating.com/contact/"
-      image="https://macpavingandsealcoating.com/assets/imgs/bg/contact-cover.webp"
+      image={contactBg}
       imageAlt="Customer speaking with MAC Paving office for project scheduling"
     />
     <CSSbase />
@@ -168,6 +169,7 @@ import WhyChooseUs from "@/components/WhyChooseUs.astro";
 
       <Footer />
       <Scripts />
+      <Flotante />
     </main>
   </body>
 </html>

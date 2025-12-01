@@ -7,6 +7,7 @@ import resurfacing1 from "@/assets/imgs/service/asphalt-paving/resurfacing-1.web
 import resurfacing2 from "@/assets/imgs/service/asphalt-paving/resurfacing-2.webp";
 import resurfacing3 from "@/assets/imgs/service/asphalt-paving/resurfacing-3.webp";
 import resurfacing4 from "@/assets/imgs/service/asphalt-paving/resurfacing-4.webp";
+import logo from "@/assets/imgs/logo.png";
 import Brands from "@/components/Brands.astro";
 import BreadcrumService from "@/components/BreadcrumService.astro";
 import CSSbase from "@/components/CSSbase.astro";
@@ -20,6 +21,10 @@ import SocialMeta from "@/components/SocialMeta.astro";
 import TestimonialsSlider from "@/components/TestimonialsSlider.astro";
 import Flotante from "@/components/Flotante.astro";
 
+const site = Astro.site ?? new URL("https://macpavingandsealcoating.com");
+const toAbsolute = (asset: { src: string } | string) =>
+  typeof asset === "string" ? asset : new URL(asset.src, site).href;
+
 const pageMeta = {
   title: "Driveway Resurfacing NJ | MAC Paving",
   description:
@@ -28,10 +33,12 @@ const pageMeta = {
     "https://macpavingandsealcoating.com/services/paving-services-nj/driveway-resurfacing/",
   keywords:
     "paving services NJ, driveway paving in Passaic, asphalt contractors New Jersey, driveway resurfacing NJ, asphalt overlay Bergen County, commercial paving restoration Essex County, residential driveway repair Morris County",
-  image:
-    "https://macpavingandsealcoating.com/assets/imgs/service/asphalt-paving/resurfacing-1.webp",
+  image: resurfacing1,
   imageAlt: "Driveway resurfacing overlay completed in North Jersey",
 };
+
+const pageImageUrl = toAbsolute(pageMeta.image);
+const logoUrl = toAbsolute(logo);
 
 const countiesServed = [
   "Passaic County",
@@ -51,7 +58,7 @@ const serviceSchema = {
   serviceType: "Driveway Paving Resurfacing",
   name: pageMeta.title,
   description: pageMeta.description,
-  image: pageMeta.image,
+  image: pageImageUrl,
   areaServed: countiesServed.map((county) => ({
     "@type": "AdministrativeArea",
     name: county,
@@ -61,14 +68,14 @@ const serviceSchema = {
   provider: {
     "@type": "LocalBusiness",
     name: "MAC Paving and Sealcoating LLC",
-    url: "https://macpavingandsealcoating.com/",
+    url: site.href,
     telephone: "+1-201-755-7836",
     address: {
       "@type": "PostalAddress",
       addressRegion: "NJ",
       addressCountry: "US",
     },
-    image: "https://macpavingandsealcoating.com/logo.png",
+    image: logoUrl,
   },
   offers: [
     {

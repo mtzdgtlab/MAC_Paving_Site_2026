@@ -6,6 +6,7 @@ import sealcoating1 from "@/assets/imgs/service/sealer/sealcoating-1.webp";
 import sealcoating2 from "@/assets/imgs/service/sealer/sealcoating-2.webp";
 import sealcoating3 from "@/assets/imgs/service/sealer/sealcoating-3.webp";
 import sealcoating4 from "@/assets/imgs/service/sealer/sealcoating-4.webp";
+import logo from "@/assets/imgs/logo.png";
 import BreadcrumService from "@/components/BreadcrumService.astro";
 import CSSbase from "@/components/CSSbase.astro";
 import Favicon from "@/components/Favicon.astro";
@@ -19,8 +20,12 @@ import SocialMeta from "@/components/SocialMeta.astro";
 import WhyChooseUs from "@/components/WhyChooseUs.astro";
 import Flotante from "@/components/Flotante.astro";
 
-const sealcoatingOgImage =
-  "https://macpavingandsealcoating.com/assets/imgs/service/sealer/sealcoating-1.webp";
+const site = Astro.site ?? new URL("https://macpavingandsealcoating.com");
+const toAbsolute = (asset: { src: string } | string) =>
+  typeof asset === "string" ? asset : new URL(asset.src, site).href;
+
+const sealcoatingOgImage = toAbsolute(sealcoating1);
+const logoUrl = toAbsolute(logo);
 const sealcoatingOgAlt =
   "Sealcoating crew spraying asphalt protection in North Jersey";
 ---
@@ -49,182 +54,183 @@ const sealcoatingOgAlt =
       content="sealcoating NJ, asphalt protection Hawthorne, driveway sealcoating Oradell, extend asphalt life NJ, pavement seal NJ, UV protection driveway NJ, water damage asphalt NJ, residential sealcoating experts"
     />
     <script type="application/ld+json">
-      {
+      {JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Sealcoating Services North Jersey | MAC Paving",
-        "url": "https://macpavingandsealcoating.com/services/sealer-services-nj/sealcoating/",
-        "logo": "https://macpavingandsealcoating.com/logo.png",
-        "image": "https://macpavingandsealcoating.com/og-image.png",
-        "description": "High-quality seal coating services to protect your asphalt surfaces from weather damage and wear, extending their lifespan.",
-        "telephone": "+1-201-755-7836",
-        "contactPoint": {
+        name: "Sealcoating Services North Jersey | MAC Paving",
+        url: "https://macpavingandsealcoating.com/services/sealer-services-nj/sealcoating/",
+        logo: logoUrl,
+        image: sealcoatingOgImage,
+        description:
+          "High-quality seal coating services to protect your asphalt surfaces from weather damage and wear, extending their lifespan.",
+        telephone: "+1-201-755-7836",
+        contactPoint: {
           "@type": "ContactPoint",
-          "telephone": "+1-201-755-7836",
-          "contactType": "Customer Service"
+          telephone: "+1-201-755-7836",
+          contactType: "Customer Service",
         },
-        "areaServed": [
-          { "@type": "Place", "name": "Clifton, NJ" },
-          { "@type": "Place", "name": "Wayne, NJ" },
-          { "@type": "Place", "name": "Fair Lawn, NJ" },
-          { "@type": "Place", "name": "Paramus, NJ" },
-          { "@type": "Place", "name": "Hackensack, NJ" },
-          { "@type": "Place", "name": "Teaneck, NJ" },
-          { "@type": "Place", "name": "Montclair, NJ" },
-          { "@type": "Place", "name": "Bloomfield, NJ" },
-          { "@type": "Place", "name": "West Orange, NJ" },
-          { "@type": "Place", "name": "Livingston, NJ" },
-          { "@type": "Place", "name": "Parsippany, NJ" },
-          { "@type": "Place", "name": "Totowa, NJ" },
-          { "@type": "Place", "name": "Little Falls, NJ" },
-          { "@type": "Place", "name": "Elmwood Park, NJ" },
-          { "@type": "Place", "name": "Garfield, NJ" },
-          { "@type": "Place", "name": "Lodi, NJ" },
-          { "@type": "Place", "name": "Saddle Brook, NJ" },
-          { "@type": "Place", "name": "Nutley, NJ" },
-          { "@type": "Place", "name": "South Orange, NJ" },
-          { "@type": "Place", "name": "Orange, NJ" },
-          { "@type": "Place", "name": "East Orange, NJ" },
-          { "@type": "Place", "name": "Denville, NJ" },
-          { "@type": "Place", "name": "Montville, NJ" },
-          { "@type": "Place", "name": "Boonton, NJ" },
-          { "@type": "Place", "name": "Mountain Lakes, NJ" },
-          { "@type": "Place", "name": "Florham Park, NJ" },
-          { "@type": "Place", "name": "West Paterson, NJ" },
-          { "@type": "Place", "name": "Woodland Park, NJ" },
-          { "@type": "Place", "name": "North Haledon, NJ" },
-          { "@type": "Place", "name": "Haledon, NJ" },
-          { "@type": "Place", "name": "Prospect Park, NJ" },
-          { "@type": "Place", "name": "Ridgewood, NJ" },
-          { "@type": "Place", "name": "Clark, NJ" },
-          { "@type": "Place", "name": "Pompton Lakes, NJ" },
-          { "@type": "Place", "name": "Bloomingdale, NJ" },
-          { "@type": "Place", "name": "Englewood, NJ" },
-          { "@type": "Place", "name": "Fort Lee, NJ" },
-          { "@type": "Place", "name": "Bergenfield, NJ" },
-          { "@type": "Place", "name": "New Milford, NJ" },
-          { "@type": "Place", "name": "Saddle River, NJ" },
-          { "@type": "Place", "name": "Glen Ridge, NJ" },
-          { "@type": "Place", "name": "Oradell, NJ" },
-          { "@type": "Place", "name": "Cedar Grove, NJ" },
-          { "@type": "Place", "name": "Belleville, NJ" },
-          { "@type": "Place", "name": "Morristown, NJ" },
-          { "@type": "Place", "name": "East Hanover, NJ" },
-          { "@type": "Place", "name": "Wallington, NJ" },
-          { "@type": "Place", "name": "North Caldwell, NJ" },
-          { "@type": "Place", "name": "Hawthorne, NJ" },
-          { "@type": "Place", "name": "Caldwell, NJ" },
-          { "@type": "Place", "name": "Kearny, NJ" },
-          { "@type": "Place", "name": "Lyndhurst, NJ" },
-          { "@type": "Place", "name": "Rutherford, NJ" },
-          { "@type": "Place", "name": "Secaucus, NJ" },
-          { "@type": "Place", "name": "Union City, NJ" },
-          { "@type": "Place", "name": "Westwood, NJ" },
-          { "@type": "Place", "name": "Jersey City, NJ" },
-          { "@type": "Place", "name": "Newark, NJ" }
+        areaServed: [
+          { "@type": "Place", name: "Clifton, NJ" },
+          { "@type": "Place", name: "Wayne, NJ" },
+          { "@type": "Place", name: "Fair Lawn, NJ" },
+          { "@type": "Place", name: "Paramus, NJ" },
+          { "@type": "Place", name: "Hackensack, NJ" },
+          { "@type": "Place", name: "Teaneck, NJ" },
+          { "@type": "Place", name: "Montclair, NJ" },
+          { "@type": "Place", name: "Bloomfield, NJ" },
+          { "@type": "Place", name: "West Orange, NJ" },
+          { "@type": "Place", name: "Livingston, NJ" },
+          { "@type": "Place", name: "Parsippany, NJ" },
+          { "@type": "Place", name: "Totowa, NJ" },
+          { "@type": "Place", name: "Little Falls, NJ" },
+          { "@type": "Place", name: "Elmwood Park, NJ" },
+          { "@type": "Place", name: "Garfield, NJ" },
+          { "@type": "Place", name: "Lodi, NJ" },
+          { "@type": "Place", name: "Saddle Brook, NJ" },
+          { "@type": "Place", name: "Nutley, NJ" },
+          { "@type": "Place", name: "South Orange, NJ" },
+          { "@type": "Place", name: "Orange, NJ" },
+          { "@type": "Place", name: "East Orange, NJ" },
+          { "@type": "Place", name: "Denville, NJ" },
+          { "@type": "Place", name: "Montville, NJ" },
+          { "@type": "Place", name: "Boonton, NJ" },
+          { "@type": "Place", name: "Mountain Lakes, NJ" },
+          { "@type": "Place", name: "Florham Park, NJ" },
+          { "@type": "Place", name: "West Paterson, NJ" },
+          { "@type": "Place", name: "Woodland Park, NJ" },
+          { "@type": "Place", name: "North Haledon, NJ" },
+          { "@type": "Place", name: "Haledon, NJ" },
+          { "@type": "Place", name: "Prospect Park, NJ" },
+          { "@type": "Place", name: "Ridgewood, NJ" },
+          { "@type": "Place", name: "Clark, NJ" },
+          { "@type": "Place", name: "Pompton Lakes, NJ" },
+          { "@type": "Place", name: "Bloomingdale, NJ" },
+          { "@type": "Place", name: "Englewood, NJ" },
+          { "@type": "Place", name: "Fort Lee, NJ" },
+          { "@type": "Place", name: "Bergenfield, NJ" },
+          { "@type": "Place", name: "New Milford, NJ" },
+          { "@type": "Place", name: "Saddle River, NJ" },
+          { "@type": "Place", name: "Glen Ridge, NJ" },
+          { "@type": "Place", name: "Oradell, NJ" },
+          { "@type": "Place", name: "Cedar Grove, NJ" },
+          { "@type": "Place", name: "Belleville, NJ" },
+          { "@type": "Place", name: "Morristown, NJ" },
+          { "@type": "Place", name: "East Hanover, NJ" },
+          { "@type": "Place", name: "Wallington, NJ" },
+          { "@type": "Place", name: "North Caldwell, NJ" },
+          { "@type": "Place", name: "Hawthorne, NJ" },
+          { "@type": "Place", name: "Caldwell, NJ" },
+          { "@type": "Place", name: "Kearny, NJ" },
+          { "@type": "Place", name: "Lyndhurst, NJ" },
+          { "@type": "Place", name: "Rutherford, NJ" },
+          { "@type": "Place", name: "Secaucus, NJ" },
+          { "@type": "Place", name: "Union City, NJ" },
+          { "@type": "Place", name: "Westwood, NJ" },
+          { "@type": "Place", name: "Jersey City, NJ" },
+          { "@type": "Place", name: "Newark, NJ" },
         ],
-        "makesOffer": [
+        makesOffer: [
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Asphalt Paving Services"
-            }
+              name: "Asphalt Paving Services",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Driveway Paving Installation"
-            }
+              name: "Driveway Paving Installation",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Driveway Paving" }
+            itemOffered: { "@type": "Service", name: "Driveway Paving" },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Home Driveway Paving"
-            }
+              name: "Home Driveway Paving",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Driveway Sealcoating Service"
-            }
+              name: "Driveway Sealcoating Service",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Belgium Block Borders" }
+            itemOffered: { "@type": "Service", name: "Belgium Block Borders" },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Crack Filling Repair"
-            }
+              name: "Crack Filling Repair",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Paving Maintenance" }
+            itemOffered: { "@type": "Service", name: "Paving Maintenance" },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Concrete Driveway Paving"
-            }
+              name: "Concrete Driveway Paving",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Driveway Drainage Solutions"
-            }
-          }
+              name: "Driveway Drainage Solutions",
+            },
+          },
         ],
-        "potentialAction": [
+        potentialAction: [
           {
             "@type": "CallAction",
-            "target": "tel:+12017557836",
-            "name": "Call MAC Paving and Sealcoating LLC"
+            target: "tel:+12017557836",
+            name: "Call MAC Paving and Sealcoating LLC",
           },
           {
             "@type": "ReserveAction",
-            "name": "Book a Free Estimate",
-            "target": [
+            name: "Book a Free Estimate",
+            target: [
               {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://calendar.app.google/CQVM2nVsX15QCVq16",
-                "inLanguage": "en",
-                "actionPlatform": [
+                urlTemplate: "https://calendar.app.google/CQVM2nVsX15QCVq16",
+                inLanguage: "en",
+                actionPlatform: [
                   "http://schema.org/DesktopWebPlatform",
-                  "http://schema.org/MobileWebPlatform"
-                ]
+                  "http://schema.org/MobileWebPlatform",
+                ],
               },
               {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://macpavingandsealcoating.com/contact/",
-                "inLanguage": "en",
-                "actionPlatform": [
+                urlTemplate: "https://macpavingandsealcoating.com/contact/",
+                inLanguage: "en",
+                actionPlatform: [
                   "http://schema.org/DesktopWebPlatform",
-                  "http://schema.org/MobileWebPlatform"
-                ]
-              }
-            ]
-          }
-        ]
-      }
+                  "http://schema.org/MobileWebPlatform",
+                ],
+              },
+            ],
+          },
+        ],
+      })}
     </script>
     <Favicon />
     <SocialMeta
       title="Sealcoating Services North Jersey | MAC Paving"
       description="High-quality seal coating services to protect your asphalt surfaces from weather damage and wear, extending their lifespan."
       url="https://macpavingandsealcoating.com/services/sealer-services-nj/sealcoating/"
-      image={sealcoatingOgImage}
+      image={sealcoating1}
       imageAlt={sealcoatingOgAlt}
     />
     <CSSbase />

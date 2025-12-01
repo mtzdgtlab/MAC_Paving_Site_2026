@@ -3,8 +3,18 @@
 import { Image } from "astro:assets";
 import contactBg from "@/assets/imgs/bg/contact-cover.webp";
 import asphaltReplacement from "@/assets/imgs/service/asphalt-paving/replacement-9.webp";
+import asphaltService from "@/assets/imgs/service/asphalt-paving/asphalt-service.webp";
+import extension1 from "@/assets/imgs/service/asphalt-paving/extension-1.webp";
+import extension2 from "@/assets/imgs/service/asphalt-paving/extension-2.webp";
+import extension3 from "@/assets/imgs/service/asphalt-paving/extension-3.webp";
+import resurfacing2 from "@/assets/imgs/service/asphalt-paving/resurfacing-2.webp";
 import stoneBorderService from "@/assets/imgs/service/belgium-blocks/belguium-service.webp";
+import belgiumBlocks4 from "@/assets/imgs/service/belgium-blocks/belgium-blocks-4.webp";
 import sealerService from "@/assets/imgs/service/sealer/sealer-service.webp";
+import crackFilling3 from "@/assets/imgs/service/sealer/crack-filling-3.webp";
+import crackFilling4 from "@/assets/imgs/service/sealer/crack-filling-4.webp";
+import lineStriping1 from "@/assets/imgs/service/sealer/line-striping-1.webp";
+import sealcoating2 from "@/assets/imgs/service/sealer/sealcoating-2.webp";
 import BreadcrumService from "@/components/BreadcrumService.astro";
 import CSSbase from "@/components/CSSbase.astro";
 import Favicon from "@/components/Favicon.astro";
@@ -16,6 +26,57 @@ import SocialMeta from "@/components/SocialMeta.astro";
 import TestimonialsSlider from "@/components/TestimonialsSlider.astro";
 import Flotante from "@/components/Flotante.astro";
 import Quality from "@/components/Quality.astro";
+
+const serviceGallery = [
+  {
+    image: extension2,
+    alt: "Driveway extension underway for a Bergen County NJ home",
+  },
+  {
+    image: extension1,
+    alt: "New asphalt parking pad for a Morris County NJ residence",
+  },
+  {
+    image: extension3,
+    alt: "Driveway widening project for an Essex County NJ estate",
+  },
+  {
+    image: asphaltService,
+    alt: "Commercial asphalt paving staging in Hudson County NJ",
+  },
+  {
+    image: sealerService,
+    alt: "Sealcoating crew spraying asphalt in Union County NJ",
+  },
+  {
+    image: crackFilling3,
+    alt: "Crack repair specialist sealing joints in Sussex County NJ",
+  },
+  {
+    image: crackFilling4,
+    alt: "Residential driveway crack filling near Somerset County NJ",
+  },
+  {
+    image: sealcoating2,
+    alt: "Protective sealcoat curing on a Middlesex County NJ driveway",
+  },
+  {
+    image: resurfacing2,
+    alt: "Driveway resurfacing overlay completed in Bergen County NJ",
+  },
+  {
+    image: lineStriping1,
+    alt: "Fresh parking-lot striping in Middlesex County NJ",
+  },
+  {
+    image: belgiumBlocks4,
+    alt: "Belgium block apron accent on a Morris County NJ driveway",
+  },
+  {
+    image: stoneBorderService,
+    alt: "Custom Belgium block edging layout for an Essex County NJ home",
+  },
+];
 ---
 
 <html lang="en">
@@ -49,7 +110,7 @@ import Quality from "@/components/Quality.astro";
       title="North Jersey Paving Services | MAC Paving"
       description="Driveway paving installation, resurfacing, replacement, extensions, sealcoating, crack filling, line striping, and Belgium blocks across North Jersey counties."
       url="https://macpavingandsealcoating.com/services/"
-      image="https://macpavingandsealcoating.com/assets/imgs/bg/contact-cover.webp"
+      image={contactBg}
       imageAlt="MAC Paving services overview hero background"
     />
     <Favicon />
@@ -364,198 +425,17 @@ import Quality from "@/components/Quality.astro";
         <div class="container-fluid">
           <div class="swiper project-active-1">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <a
-                  class="popup-image"
-                  href="/assets/imgs/service/asphalt-paving/extension-2.webp"
-                >
-                  <div class="project-slider-area p-relative">
-                    <figure class="image m-imge shine-img">
-                      <img
-                        src="/assets/imgs/service/asphalt-paving/extension-2.webp"
-                        alt="Driveway extension underway for a Bergen County NJ home"
-                      />
-                    </figure>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a
-                  class="popup-image"
-                  href="/assets/imgs/service/asphalt-paving/extension-1.webp"
-                >
-                  <div class="project-slider-area p-relative">
-                    <figure class="image m-imge shine-img">
-                      <img
-                        src="/assets/imgs/service/asphalt-paving/extension-1.webp"
-                        alt="New asphalt parking pad for a Morris County NJ residence"
-                      />
-                    </figure>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a
-                  class="popup-image"
-                  href="/assets/imgs/service/asphalt-paving/extension-3.webp"
-                >
-                  <div class="project-slider-area p-relative">
-                    <figure class="image m-imge shine-img">
-                      <img
-                        src="/assets/imgs/service/asphalt-paving/extension-3.webp"
-                        alt="Driveway widening project for an Essex County NJ estate"
-                      />
-                    </figure>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a
-                  class="popup-image"
-                  href="/assets/imgs/service/asphalt-service.webp"
-                >
-                  <div class="project-slider-area p-relative">
-                    <figure class="image m-imge shine-img">
-                      <img
-                        src="/assets/imgs/service/asphalt-service.webp"
-                        alt="Commercial asphalt paving staging in Hudson County NJ"
-                      />
-                    </figure>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a
-                  class="popup-image"
-                  href="/assets/imgs/service/sealer-service.webp"
-                >
-                  <div class="project-slider-area p-relative">
-                    <figure class="image m-imge shine-img">
-                      <img
-                        src="/assets/imgs/service/sealer-service.webp"
-                        alt="Sealcoating crew spraying asphalt in Union County NJ"
-                      />
-                    </figure>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a
-                  class="popup-image"
-                  href="/assets/imgs/service/sealer/crack-filling-3.webp"
-                >
-                  <div class="project-slider-area p-relative">
-                    <figure class="image m-imge shine-img">
-                      <img
-                        src="/assets/imgs/service/sealer/crack-filling-3.webp"
-                        alt="Crack repair specialist sealing joints in Sussex County NJ"
-                      />
-                    </figure>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a
-                  class="popup-image"
-                  href="/assets/imgs/service/sealer/crack-filling-4.webp"
-                >
-                  <div class="project-slider-area p-relative">
-                    <figure class="image m-imge shine-img">
-                      <img
-                        src="/assets/imgs/service/sealer/crack-filling-4.webp"
-                        alt="Residential driveway crack filling near Somerset County NJ"
-                      />
-                    </figure>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a
-                  class="popup-image"
-                  href="/assets/imgs/service/sealer/sealcoating-2.webp"
-                >
-                  <div class="project-slider-area p-relative">
-                    <figure class="image m-imge shine-img">
-                      <img
-                        src="/assets/imgs/service/sealer/sealcoating-2.webp"
-                        alt="Protective sealcoat curing on a Middlesex County NJ driveway"
-                      />
-                    </figure>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a
-                  class="popup-image"
-                  href="/assets/imgs/service/asphalt-paving/resurfacing-2.webp"
-                >
-                  <div class="project-slider-area p-relative">
-                    <figure class="image m-imge shine-img">
-                      <img
-                        src="/assets/imgs/service/asphalt-paving/resurfacing-2.webp"
-                        alt="Driveway resurfacing overlay completed in Bergen County NJ"
-                      />
-                    </figure>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a
-                  class="popup-image"
-                  href="/assets/imgs/service/sealer/line-striping-1.webp"
-                >
-                  <div class="project-slider-area p-relative">
-                    <figure class="image m-imge shine-img">
-                      <img
-                        src="/assets/imgs/service/sealer/line-striping-1.webp"
-                        alt="Fresh parking-lot striping in Middlesex County NJ"
-                      />
-                    </figure>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a
-                  class="popup-image"
-                  href="/assets/imgs/service/belgium-blocks/belgium-blocks-4.webp"
-                >
-                  <div class="project-slider-area p-relative">
-                    <figure class="image m-imge shine-img">
-                      <img
-                        src="/assets/imgs/service/belgium-blocks/belgium-blocks-4.webp"
-                        alt="Belgium block apron accent on a Morris County NJ driveway"
-                      />
-                    </figure>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a
-                  class="popup-image"
-                  href="/assets/imgs/service/belgium-blocks/belguium-service.webp"
-                >
-                  <div class="project-slider-area p-relative">
-                    <figure class="image m-imge shine-img">
-                      <img
-                        src="/assets/imgs/service/belgium-blocks/belguium-service.webp"
-                        alt="Custom Belgium block edging layout for an Essex County NJ home"
-                      />
-                    </figure>
-                  </div>
-                </a>
-              </div>
-
+              {serviceGallery.map(({ image, alt }) => (
+                <div class="swiper-slide">
+                  <a class="popup-image" href={image.src}>
+                    <div class="project-slider-area p-relative">
+                      <figure class="image m-imge shine-img">
+                        <img src={image.src} alt={alt} />
+                      </figure>
+                    </div>
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
         </div>

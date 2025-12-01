@@ -15,6 +15,8 @@ import sealcoating1 from "@/assets/imgs/service/sealer/sealcoating-1.webp";
 import sealcoating2 from "@/assets/imgs/service/sealer/sealcoating-2.webp";
 import sealcoating3 from "@/assets/imgs/service/sealer/sealcoating-3.webp";
 import sealcoating4 from "@/assets/imgs/service/sealer/sealcoating-4.webp";
+import shape15 from "@/assets/imgs/shapes/shape-15.webp";
+import logo from "@/assets/imgs/logo.png";
 import BreadcrumService from "@/components/BreadcrumService.astro";
 import CSSbase from "@/components/CSSbase.astro";
 import Favicon from "@/components/Favicon.astro";
@@ -25,8 +27,12 @@ import Scripts from "@/components/Scripts.astro";
 import SocialMeta from "@/components/SocialMeta.astro";
 import Flotante from "@/components/Flotante.astro";
 
-const sealerOgImage =
-  "https://macpavingandsealcoating.com/assets/imgs/bg/sealer-cover.webp";
+const site = Astro.site ?? new URL("https://macpavingandsealcoating.com");
+const toAbsolute = (asset: { src: string } | string) =>
+  typeof asset === "string" ? asset : new URL(asset.src, site).href;
+
+const sealerOgImage = toAbsolute(sealerBg);
+const logoUrl = toAbsolute(logo);
 const sealerOgAlt =
   "Sealcoating technician spraying asphalt protection in North Jersey";
 ---
@@ -56,175 +62,176 @@ const sealerOgAlt =
     />
 
     <script type="application/ld+json">
-      {
+      {JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Sealcoating & Asphalt Repair NJ | MAC Paving",
-        "url": "https://macpavingandsealcoating.com/services/sealer-services-nj/",
-        "logo": "https://macpavingandsealcoating.com/logo.png",
-        "image": "https://macpavingandsealcoating.com/assets/imgs/bg/sealer-cover.webp",
-        "description": "Sealcoating, crack filling, pothole repair, and line striping for North Jersey driveways and small parking lots.",
-        "telephone": "+1-201-755-7836",
-        "contactPoint": {
+        name: "Sealcoating & Asphalt Repair NJ | MAC Paving",
+        url: "https://macpavingandsealcoating.com/services/sealer-services-nj/",
+        logo: logoUrl,
+        image: sealerOgImage,
+        description:
+          "Sealcoating, crack filling, pothole repair, and line striping for North Jersey driveways and small parking lots.",
+        telephone: "+1-201-755-7836",
+        contactPoint: {
           "@type": "ContactPoint",
-          "telephone": "+1-201-755-7836",
-          "contactType": "Customer Service"
+          telephone: "+1-201-755-7836",
+          contactType: "Customer Service",
         },
-        "areaServed": [
-          { "@type": "Place", "name": "Clifton, NJ" },
-          { "@type": "Place", "name": "Wayne, NJ" },
-          { "@type": "Place", "name": "Fair Lawn, NJ" },
-          { "@type": "Place", "name": "Paramus, NJ" },
-          { "@type": "Place", "name": "Hackensack, NJ" },
-          { "@type": "Place", "name": "Teaneck, NJ" },
-          { "@type": "Place", "name": "Montclair, NJ" },
-          { "@type": "Place", "name": "Bloomfield, NJ" },
-          { "@type": "Place", "name": "West Orange, NJ" },
-          { "@type": "Place", "name": "Livingston, NJ" },
-          { "@type": "Place", "name": "Parsippany, NJ" },
-          { "@type": "Place", "name": "Totowa, NJ" },
-          { "@type": "Place", "name": "Little Falls, NJ" },
-          { "@type": "Place", "name": "Elmwood Park, NJ" },
-          { "@type": "Place", "name": "Garfield, NJ" },
-          { "@type": "Place", "name": "Lodi, NJ" },
-          { "@type": "Place", "name": "Saddle Brook, NJ" },
-          { "@type": "Place", "name": "Nutley, NJ" },
-          { "@type": "Place", "name": "South Orange, NJ" },
-          { "@type": "Place", "name": "Orange, NJ" },
-          { "@type": "Place", "name": "East Orange, NJ" },
-          { "@type": "Place", "name": "Denville, NJ" },
-          { "@type": "Place", "name": "Montville, NJ" },
-          { "@type": "Place", "name": "Boonton, NJ" },
-          { "@type": "Place", "name": "Mountain Lakes, NJ" },
-          { "@type": "Place", "name": "Florham Park, NJ" },
-          { "@type": "Place", "name": "West Paterson, NJ" },
-          { "@type": "Place", "name": "Woodland Park, NJ" },
-          { "@type": "Place", "name": "North Haledon, NJ" },
-          { "@type": "Place", "name": "Haledon, NJ" },
-          { "@type": "Place", "name": "Prospect Park, NJ" },
-          { "@type": "Place", "name": "Ridgewood, NJ" },
-          { "@type": "Place", "name": "Clark, NJ" },
-          { "@type": "Place", "name": "Pompton Lakes, NJ" },
-          { "@type": "Place", "name": "Bloomingdale, NJ" },
-          { "@type": "Place", "name": "Englewood, NJ" },
-          { "@type": "Place", "name": "Fort Lee, NJ" },
-          { "@type": "Place", "name": "Bergenfield, NJ" },
-          { "@type": "Place", "name": "New Milford, NJ" },
-          { "@type": "Place", "name": "Saddle River, NJ" },
-          { "@type": "Place", "name": "Glen Ridge, NJ" },
-          { "@type": "Place", "name": "Oradell, NJ" },
-          { "@type": "Place", "name": "Cedar Grove, NJ" },
-          { "@type": "Place", "name": "Belleville, NJ" },
-          { "@type": "Place", "name": "Morristown, NJ" },
-          { "@type": "Place", "name": "East Hanover, NJ" },
-          { "@type": "Place", "name": "Wallington, NJ" },
-          { "@type": "Place", "name": "North Caldwell, NJ" },
-          { "@type": "Place", "name": "Hawthorne, NJ" },
-          { "@type": "Place", "name": "Caldwell, NJ" },
-          { "@type": "Place", "name": "Kearny, NJ" },
-          { "@type": "Place", "name": "Lyndhurst, NJ" },
-          { "@type": "Place", "name": "Rutherford, NJ" },
-          { "@type": "Place", "name": "Secaucus, NJ" },
-          { "@type": "Place", "name": "Union City, NJ" },
-          { "@type": "Place", "name": "Westwood, NJ" },
-          { "@type": "Place", "name": "Jersey City, NJ" },
-          { "@type": "Place", "name": "Newark, NJ" }
+        areaServed: [
+          { "@type": "Place", name: "Clifton, NJ" },
+          { "@type": "Place", name: "Wayne, NJ" },
+          { "@type": "Place", name: "Fair Lawn, NJ" },
+          { "@type": "Place", name: "Paramus, NJ" },
+          { "@type": "Place", name: "Hackensack, NJ" },
+          { "@type": "Place", name: "Teaneck, NJ" },
+          { "@type": "Place", name: "Montclair, NJ" },
+          { "@type": "Place", name: "Bloomfield, NJ" },
+          { "@type": "Place", name: "West Orange, NJ" },
+          { "@type": "Place", name: "Livingston, NJ" },
+          { "@type": "Place", name: "Parsippany, NJ" },
+          { "@type": "Place", name: "Totowa, NJ" },
+          { "@type": "Place", name: "Little Falls, NJ" },
+          { "@type": "Place", name: "Elmwood Park, NJ" },
+          { "@type": "Place", name: "Garfield, NJ" },
+          { "@type": "Place", name: "Lodi, NJ" },
+          { "@type": "Place", name: "Saddle Brook, NJ" },
+          { "@type": "Place", name: "Nutley, NJ" },
+          { "@type": "Place", name: "South Orange, NJ" },
+          { "@type": "Place", name: "Orange, NJ" },
+          { "@type": "Place", name: "East Orange, NJ" },
+          { "@type": "Place", name: "Denville, NJ" },
+          { "@type": "Place", name: "Montville, NJ" },
+          { "@type": "Place", name: "Boonton, NJ" },
+          { "@type": "Place", name: "Mountain Lakes, NJ" },
+          { "@type": "Place", name: "Florham Park, NJ" },
+          { "@type": "Place", name: "West Paterson, NJ" },
+          { "@type": "Place", name: "Woodland Park, NJ" },
+          { "@type": "Place", name: "North Haledon, NJ" },
+          { "@type": "Place", name: "Haledon, NJ" },
+          { "@type": "Place", name: "Prospect Park, NJ" },
+          { "@type": "Place", name: "Ridgewood, NJ" },
+          { "@type": "Place", name: "Clark, NJ" },
+          { "@type": "Place", name: "Pompton Lakes, NJ" },
+          { "@type": "Place", name: "Bloomingdale, NJ" },
+          { "@type": "Place", name: "Englewood, NJ" },
+          { "@type": "Place", name: "Fort Lee, NJ" },
+          { "@type": "Place", name: "Bergenfield, NJ" },
+          { "@type": "Place", name: "New Milford, NJ" },
+          { "@type": "Place", name: "Saddle River, NJ" },
+          { "@type": "Place", name: "Glen Ridge, NJ" },
+          { "@type": "Place", name: "Oradell, NJ" },
+          { "@type": "Place", name: "Cedar Grove, NJ" },
+          { "@type": "Place", name: "Belleville, NJ" },
+          { "@type": "Place", name: "Morristown, NJ" },
+          { "@type": "Place", name: "East Hanover, NJ" },
+          { "@type": "Place", name: "Wallington, NJ" },
+          { "@type": "Place", name: "North Caldwell, NJ" },
+          { "@type": "Place", name: "Hawthorne, NJ" },
+          { "@type": "Place", name: "Caldwell, NJ" },
+          { "@type": "Place", name: "Kearny, NJ" },
+          { "@type": "Place", name: "Lyndhurst, NJ" },
+          { "@type": "Place", name: "Rutherford, NJ" },
+          { "@type": "Place", name: "Secaucus, NJ" },
+          { "@type": "Place", name: "Union City, NJ" },
+          { "@type": "Place", name: "Westwood, NJ" },
+          { "@type": "Place", name: "Jersey City, NJ" },
+          { "@type": "Place", name: "Newark, NJ" },
         ],
-        "makesOffer": [
+        makesOffer: [
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Asphalt Paving Services"
-            }
+              name: "Asphalt Paving Services",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Driveway Paving Installation"
-            }
+              name: "Driveway Paving Installation",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Driveway Paving" }
+            itemOffered: { "@type": "Service", name: "Driveway Paving" },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Home Driveway Paving"
-            }
+              name: "Home Driveway Paving",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Driveway Sealcoating Service"
-            }
+              name: "Driveway Sealcoating Service",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Belgium Block Borders" }
+            itemOffered: { "@type": "Service", name: "Belgium Block Borders" },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Crack Filling Repair"
-            }
+              name: "Crack Filling Repair",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Paving Maintenance" }
+            itemOffered: { "@type": "Service", name: "Paving Maintenance" },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Concrete Driveway Paving"
-            }
+              name: "Concrete Driveway Paving",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Driveway Drainage Solutions"
-            }
-          }
+              name: "Driveway Drainage Solutions",
+            },
+          },
         ],
-        "potentialAction": [
+        potentialAction: [
           {
             "@type": "CallAction",
-            "target": "tel:+12017557836",
-            "name": "Call MAC Paving and Sealcoating LLC"
+            target: "tel:+12017557836",
+            name: "Call MAC Paving and Sealcoating LLC",
           },
           {
             "@type": "ReserveAction",
-            "name": "Book a Free Estimate",
-            "target": [
+            name: "Book a Free Estimate",
+            target: [
               {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://calendar.app.google/CQVM2nVsX15QCVq16",
-                "inLanguage": "en",
-                "actionPlatform": [
+                urlTemplate: "https://calendar.app.google/CQVM2nVsX15QCVq16",
+                inLanguage: "en",
+                actionPlatform: [
                   "http://schema.org/DesktopWebPlatform",
-                  "http://schema.org/MobileWebPlatform"
-                ]
+                  "http://schema.org/MobileWebPlatform",
+                ],
               },
               {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://macpavingandsealcoating.com/contact/",
-                "inLanguage": "en",
-                "actionPlatform": [
+                urlTemplate: "https://macpavingandsealcoating.com/contact/",
+                inLanguage: "en",
+                actionPlatform: [
                   "http://schema.org/DesktopWebPlatform",
-                  "http://schema.org/MobileWebPlatform"
-                ]
-              }
-            ]
-          }
-        ]
-      }
+                  "http://schema.org/MobileWebPlatform",
+                ],
+              },
+            ],
+          },
+        ],
+      })}
     </script>
 
     <Favicon />
@@ -232,7 +239,7 @@ const sealerOgAlt =
       title="Sealcoating & Asphalt Repair NJ | MAC Paving"
       description="MAC Paving protects asphalt driveways and small parking lots with sealcoating, crack filling, pothole repair, and line striping across North Jersey counties."
       url="https://macpavingandsealcoating.com/services/sealer-services-nj/"
-      image={sealerOgImage}
+      image={sealerBg}
       imageAlt={sealerOgAlt}
     />
     <CSSbase />
@@ -496,7 +503,7 @@ const sealerOgAlt =
       >
         <div
           class="shape-image"
-          data-background="/assets/imgs/shapes/shape-15.webp"
+          data-background={shape15.src}
         >
         </div>
         <div class="small-container">
@@ -631,7 +638,7 @@ const sealerOgAlt =
               <div class="swiper-slide">
                 <a
                   class="popup-image"
-                  href="/assets/imgs/service/sealer/sealcoating-1.webp"
+                  href={sealcoating1.src}
                 >
                   <div class="project-slider-area p-relative">
                     <figure class="image m-imge shine-img">
@@ -647,7 +654,7 @@ const sealerOgAlt =
               <div class="swiper-slide">
                 <a
                   class="popup-image"
-                  href="/assets/imgs/service/sealer/sealcoating-2.webp"
+                  href={sealcoating2.src}
                 >
                   <div class="project-slider-area p-relative">
                     <figure class="image m-imge shine-img">
@@ -663,7 +670,7 @@ const sealerOgAlt =
               <div class="swiper-slide">
                 <a
                   class="popup-image"
-                  href="/assets/imgs/service/sealer/sealcoating-3.webp"
+                  href={sealcoating3.src}
                 >
                   <div class="project-slider-area p-relative">
                     <figure class="image m-imge shine-img">
@@ -679,7 +686,7 @@ const sealerOgAlt =
               <div class="swiper-slide">
                 <a
                   class="popup-image"
-                  href="/assets/imgs/service/sealer/sealcoating-4.webp"
+                  href={sealcoating4.src}
                 >
                   <div class="project-slider-area p-relative">
                     <figure class="image m-imge shine-img">
@@ -695,7 +702,7 @@ const sealerOgAlt =
               <div class="swiper-slide">
                 <a
                   class="popup-image"
-                  href="/assets/imgs/service/sealer/crack-filling-1.webp"
+                  href={crackFilling1.src}
                 >
                   <div class="project-slider-area p-relative">
                     <figure class="image m-imge shine-img">
@@ -711,7 +718,7 @@ const sealerOgAlt =
               <div class="swiper-slide">
                 <a
                   class="popup-image"
-                  href="/assets/imgs/service/sealer/crack-filling-2.webp"
+                  href={crackFilling2.src}
                 >
                   <div class="project-slider-area p-relative">
                     <figure class="image m-imge shine-img">
@@ -727,7 +734,7 @@ const sealerOgAlt =
               <div class="swiper-slide">
                 <a
                   class="popup-image"
-                  href="/assets/imgs/service/sealer/crack-filling-3.webp"
+                  href={crackFilling3.src}
                 >
                   <div class="project-slider-area p-relative">
                     <figure class="image m-imge shine-img">
@@ -743,7 +750,7 @@ const sealerOgAlt =
               <div class="swiper-slide">
                 <a
                   class="popup-image"
-                  href="/assets/imgs/service/sealer/crack-filling-4.webp"
+                  href={crackFilling4.src}
                 >
                   <div class="project-slider-area p-relative">
                     <figure class="image m-imge shine-img">
@@ -759,7 +766,7 @@ const sealerOgAlt =
               <div class="swiper-slide">
                 <a
                   class="popup-image"
-                  href="/assets/imgs/service/sealer/line-striping-1.webp"
+                  href={lineStriping1.src}
                 >
                   <div class="project-slider-area p-relative">
                     <figure class="image m-imge shine-img">
@@ -775,7 +782,7 @@ const sealerOgAlt =
               <div class="swiper-slide">
                 <a
                   class="popup-image"
-                  href="/assets/imgs/service/sealer/line-striping-2.webp"
+                  href={lineStriping2.src}
                 >
                   <div class="project-slider-area p-relative">
                     <figure class="image m-imge shine-img">
@@ -791,7 +798,7 @@ const sealerOgAlt =
               <div class="swiper-slide">
                 <a
                   class="popup-image"
-                  href="/assets/imgs/service/sealer/line-striping-3.webp"
+                  href={lineStriping3.src}
                 >
                   <div class="project-slider-area p-relative">
                     <figure class="image m-imge shine-img">
@@ -807,7 +814,7 @@ const sealerOgAlt =
               <div class="swiper-slide">
                 <a
                   class="popup-image"
-                  href="/assets/imgs/service/sealer/line-striping-4.webp"
+                  href={lineStriping4.src}
                 >
                   <div class="project-slider-area p-relative">
                     <figure class="image m-imge shine-img">

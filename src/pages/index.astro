@@ -2,6 +2,9 @@
 import { Image, getImage } from "astro:assets";
 import cta1 from "@/assets/imgs/resources/cta-1.webp";
 import logo from "@/assets/imgs/logo.png";
+import asphaltServiceImage from "@/assets/imgs/service/asphalt-paving/asphalt-service.webp";
+import bannerDesktopVideo from "@/assets/imgs/vids/1920-banner.mp4";
+import bannerMobileVideo from "@/assets/imgs/vids/1080-banner.mp4";
 import About from "@/components/About.astro";
 import ChooseArea from "@/components/ChooseArea.astro";
 import CSSbase from "@/components/CSSbase.astro";
@@ -16,7 +19,14 @@ import SocialMeta from "@/components/SocialMeta.astro";
 import TestimonialsSlider from "@/components/TestimonialsSlider.astro";
 import Brands from "@/components/Brands.astro";
 import LargeForm from "@/components/LargeForm.astro";
+import Flotante from "@/components/Flotante.astro";
 
+const site = Astro.site ?? new URL("https://macpavingandsealcoating.com");
+const toAbsolute = (asset: { src: string } | string) =>
+  typeof asset === "string" ? asset : new URL(asset.src, site).href;
+
+const asphaltServiceOg = toAbsolute(asphaltServiceImage);
+const logoOg = toAbsolute(logo);
 const optimizedLogo = await getImage({ src: logo });
 ---
 
@@ -42,7 +52,7 @@ const optimizedLogo = await getImage({ src: logo });
       title="MAC Paving and Sealcoating | Asphalt Contractor in North Jersey"
       description="Family-owned MAC Paving and Sealcoating LLC delivers driveway paving installation, resurfacing, replacement, extensions, sealcoating, crack filling, line striping, and Belgium blocks across North Jersey."
       url="https://macpavingandsealcoating.com/"
-      image="https://macpavingandsealcoating.com/assets/imgs/service/asphalt-paving/asphalt-service.webp"
+      image={asphaltServiceImage}
       imageAlt="Owner-led paving crew resurfacing a North Jersey driveway"
     />
     <script type="application/ld+json">
@@ -50,10 +60,9 @@ const optimizedLogo = await getImage({ src: logo });
         "@context": "https://schema.org",
         "@type": ["LocalBusiness", "Service"],
         name: "MAC Paving and Sealcoating LLC",
-        url: "https://macpavingandsealcoating.com/",
-        logo: "https://macpavingandsealcoating.com/logo.png",
-        image:
-          "https://macpavingandsealcoating.com/assets/imgs/service/asphalt-paving/asphalt-service.webp",
+        url: site.href,
+        logo: logoOg,
+        image: asphaltServiceOg,
         description:
           "Family-owned asphalt contractor providing driveway paving installation, resurfacing, replacement, extensions, sealcoating, crack filling, line striping, and Belgium blocks across North Jersey.",
         telephone: "+1-201-755-7836",
@@ -131,8 +140,8 @@ const optimizedLogo = await getImage({ src: logo });
             preload="auto"
             width="1920"
             height="1080"
-          >
-            <source src="/assets/imgs/vids/1920-banner.mp4" type="video/mp4" />
+            onended="this.currentTime = 0; this.play();">
+            <source src={bannerDesktopVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
@@ -146,8 +155,8 @@ const optimizedLogo = await getImage({ src: logo });
             preload="auto"
             width="1080"
             height="1080"
-          >
-            <source src="/assets/imgs/vids/1080-banner.mp4" type="video/mp4" />
+            onended="this.currentTime = 0; this.play();">
+            <source src={bannerMobileVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div class="swiper banner-active">
@@ -327,5 +336,6 @@ Transparent scopes, simple schedules, and clear line-item estimates keep every s
     </main>
     <Footer />
     <Scripts />
+    <Flotante />
   </body>
 </html>

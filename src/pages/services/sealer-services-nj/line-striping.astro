@@ -6,6 +6,7 @@ import lineStriping1 from "@/assets/imgs/service/sealer/line-striping-1.webp";
 import lineStriping2 from "@/assets/imgs/service/sealer/line-striping-2.webp";
 import lineStriping3 from "@/assets/imgs/service/sealer/line-striping-3.webp";
 import lineStriping4 from "@/assets/imgs/service/sealer/line-striping-4.webp";
+import logo from "@/assets/imgs/logo.png";
 import BreadcrumService from "@/components/BreadcrumService.astro";
 import CSSbase from "@/components/CSSbase.astro";
 import Favicon from "@/components/Favicon.astro";
@@ -19,8 +20,12 @@ import SocialMeta from "@/components/SocialMeta.astro";
 import WhyChooseUs from "@/components/WhyChooseUs.astro";
 import Flotante from "@/components/Flotante.astro";
 
-const lineStripingOgImage =
-  "https://macpavingandsealcoating.com/assets/imgs/service/sealer/line-striping-1.webp";
+const site = Astro.site ?? new URL("https://macpavingandsealcoating.com");
+const toAbsolute = (asset: { src: string } | string) =>
+  typeof asset === "string" ? asset : new URL(asset.src, site).href;
+
+const lineStripingOgImage = toAbsolute(lineStriping1);
+const logoUrl = toAbsolute(logo);
 const lineStripingOgAlt =
   "Fresh parking lot line striping completed in North Jersey";
 ---
@@ -49,182 +54,183 @@ const lineStripingOgAlt =
       content="line striping NJ, driveway line painting Wallington, residential parking stripes NJ, Garfield striping service, Lodi driveway lines, clean line markings NJ, ADA driveway marking, sharp driveway striping"
     />
     <script type="application/ld+json">
-      {
+      {JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Line Striping & Pavement Markings NJ | MAC Paving",
-        "url": "https://macpavingandsealcoating.com/services/sealer-services-nj/line-striping/",
-        "logo": "https://macpavingandsealcoating.com/logo.png",
-        "image": "https://macpavingandsealcoating.com/assets/imgs/service/sealer/line-striping-1.webp",
-        "description": "Professional line striping services to ensure clear, durable markings for parking lots, roads, and other asphalt surfaces, enhancing safety and organization.",
-        "telephone": "+1-201-755-7836",
-        "contactPoint": {
+        name: "Line Striping & Pavement Markings NJ | MAC Paving",
+        url: "https://macpavingandsealcoating.com/services/sealer-services-nj/line-striping/",
+        logo: logoUrl,
+        image: lineStripingOgImage,
+        description:
+          "Professional line striping services to ensure clear, durable markings for parking lots, roads, and other asphalt surfaces, enhancing safety and organization.",
+        telephone: "+1-201-755-7836",
+        contactPoint: {
           "@type": "ContactPoint",
-          "telephone": "+1-201-755-7836",
-          "contactType": "Customer Service"
+          telephone: "+1-201-755-7836",
+          contactType: "Customer Service",
         },
-        "areaServed": [
-          { "@type": "Place", "name": "Clifton, NJ" },
-          { "@type": "Place", "name": "Wayne, NJ" },
-          { "@type": "Place", "name": "Fair Lawn, NJ" },
-          { "@type": "Place", "name": "Paramus, NJ" },
-          { "@type": "Place", "name": "Hackensack, NJ" },
-          { "@type": "Place", "name": "Teaneck, NJ" },
-          { "@type": "Place", "name": "Montclair, NJ" },
-          { "@type": "Place", "name": "Bloomfield, NJ" },
-          { "@type": "Place", "name": "West Orange, NJ" },
-          { "@type": "Place", "name": "Livingston, NJ" },
-          { "@type": "Place", "name": "Parsippany, NJ" },
-          { "@type": "Place", "name": "Totowa, NJ" },
-          { "@type": "Place", "name": "Little Falls, NJ" },
-          { "@type": "Place", "name": "Elmwood Park, NJ" },
-          { "@type": "Place", "name": "Garfield, NJ" },
-          { "@type": "Place", "name": "Lodi, NJ" },
-          { "@type": "Place", "name": "Saddle Brook, NJ" },
-          { "@type": "Place", "name": "Nutley, NJ" },
-          { "@type": "Place", "name": "South Orange, NJ" },
-          { "@type": "Place", "name": "Orange, NJ" },
-          { "@type": "Place", "name": "East Orange, NJ" },
-          { "@type": "Place", "name": "Denville, NJ" },
-          { "@type": "Place", "name": "Montville, NJ" },
-          { "@type": "Place", "name": "Boonton, NJ" },
-          { "@type": "Place", "name": "Mountain Lakes, NJ" },
-          { "@type": "Place", "name": "Florham Park, NJ" },
-          { "@type": "Place", "name": "West Paterson, NJ" },
-          { "@type": "Place", "name": "Woodland Park, NJ" },
-          { "@type": "Place", "name": "North Haledon, NJ" },
-          { "@type": "Place", "name": "Haledon, NJ" },
-          { "@type": "Place", "name": "Prospect Park, NJ" },
-          { "@type": "Place", "name": "Ridgewood, NJ" },
-          { "@type": "Place", "name": "Clark, NJ" },
-          { "@type": "Place", "name": "Pompton Lakes, NJ" },
-          { "@type": "Place", "name": "Bloomingdale, NJ" },
-          { "@type": "Place", "name": "Englewood, NJ" },
-          { "@type": "Place", "name": "Fort Lee, NJ" },
-          { "@type": "Place", "name": "Bergenfield, NJ" },
-          { "@type": "Place", "name": "New Milford, NJ" },
-          { "@type": "Place", "name": "Saddle River, NJ" },
-          { "@type": "Place", "name": "Glen Ridge, NJ" },
-          { "@type": "Place", "name": "Oradell, NJ" },
-          { "@type": "Place", "name": "Cedar Grove, NJ" },
-          { "@type": "Place", "name": "Belleville, NJ" },
-          { "@type": "Place", "name": "Morristown, NJ" },
-          { "@type": "Place", "name": "East Hanover, NJ" },
-          { "@type": "Place", "name": "Wallington, NJ" },
-          { "@type": "Place", "name": "North Caldwell, NJ" },
-          { "@type": "Place", "name": "Hawthorne, NJ" },
-          { "@type": "Place", "name": "Caldwell, NJ" },
-          { "@type": "Place", "name": "Kearny, NJ" },
-          { "@type": "Place", "name": "Lyndhurst, NJ" },
-          { "@type": "Place", "name": "Rutherford, NJ" },
-          { "@type": "Place", "name": "Secaucus, NJ" },
-          { "@type": "Place", "name": "Union City, NJ" },
-          { "@type": "Place", "name": "Westwood, NJ" },
-          { "@type": "Place", "name": "Jersey City, NJ" },
-          { "@type": "Place", "name": "Newark, NJ" }
+        areaServed: [
+          { "@type": "Place", name: "Clifton, NJ" },
+          { "@type": "Place", name: "Wayne, NJ" },
+          { "@type": "Place", name: "Fair Lawn, NJ" },
+          { "@type": "Place", name: "Paramus, NJ" },
+          { "@type": "Place", name: "Hackensack, NJ" },
+          { "@type": "Place", name: "Teaneck, NJ" },
+          { "@type": "Place", name: "Montclair, NJ" },
+          { "@type": "Place", name: "Bloomfield, NJ" },
+          { "@type": "Place", name: "West Orange, NJ" },
+          { "@type": "Place", name: "Livingston, NJ" },
+          { "@type": "Place", name: "Parsippany, NJ" },
+          { "@type": "Place", name: "Totowa, NJ" },
+          { "@type": "Place", name: "Little Falls, NJ" },
+          { "@type": "Place", name: "Elmwood Park, NJ" },
+          { "@type": "Place", name: "Garfield, NJ" },
+          { "@type": "Place", name: "Lodi, NJ" },
+          { "@type": "Place", name: "Saddle Brook, NJ" },
+          { "@type": "Place", name: "Nutley, NJ" },
+          { "@type": "Place", name: "South Orange, NJ" },
+          { "@type": "Place", name: "Orange, NJ" },
+          { "@type": "Place", name: "East Orange, NJ" },
+          { "@type": "Place", name: "Denville, NJ" },
+          { "@type": "Place", name: "Montville, NJ" },
+          { "@type": "Place", name: "Boonton, NJ" },
+          { "@type": "Place", name: "Mountain Lakes, NJ" },
+          { "@type": "Place", name: "Florham Park, NJ" },
+          { "@type": "Place", name: "West Paterson, NJ" },
+          { "@type": "Place", name: "Woodland Park, NJ" },
+          { "@type": "Place", name: "North Haledon, NJ" },
+          { "@type": "Place", name: "Haledon, NJ" },
+          { "@type": "Place", name: "Prospect Park, NJ" },
+          { "@type": "Place", name: "Ridgewood, NJ" },
+          { "@type": "Place", name: "Clark, NJ" },
+          { "@type": "Place", name: "Pompton Lakes, NJ" },
+          { "@type": "Place", name: "Bloomingdale, NJ" },
+          { "@type": "Place", name: "Englewood, NJ" },
+          { "@type": "Place", name: "Fort Lee, NJ" },
+          { "@type": "Place", name: "Bergenfield, NJ" },
+          { "@type": "Place", name: "New Milford, NJ" },
+          { "@type": "Place", name: "Saddle River, NJ" },
+          { "@type": "Place", name: "Glen Ridge, NJ" },
+          { "@type": "Place", name: "Oradell, NJ" },
+          { "@type": "Place", name: "Cedar Grove, NJ" },
+          { "@type": "Place", name: "Belleville, NJ" },
+          { "@type": "Place", name: "Morristown, NJ" },
+          { "@type": "Place", name: "East Hanover, NJ" },
+          { "@type": "Place", name: "Wallington, NJ" },
+          { "@type": "Place", name: "North Caldwell, NJ" },
+          { "@type": "Place", name: "Hawthorne, NJ" },
+          { "@type": "Place", name: "Caldwell, NJ" },
+          { "@type": "Place", name: "Kearny, NJ" },
+          { "@type": "Place", name: "Lyndhurst, NJ" },
+          { "@type": "Place", name: "Rutherford, NJ" },
+          { "@type": "Place", name: "Secaucus, NJ" },
+          { "@type": "Place", name: "Union City, NJ" },
+          { "@type": "Place", name: "Westwood, NJ" },
+          { "@type": "Place", name: "Jersey City, NJ" },
+          { "@type": "Place", name: "Newark, NJ" },
         ],
-        "makesOffer": [
+        makesOffer: [
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Asphalt Paving Services"
-            }
+              name: "Asphalt Paving Services",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Driveway Paving Installation"
-            }
+              name: "Driveway Paving Installation",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Driveway Paving" }
+            itemOffered: { "@type": "Service", name: "Driveway Paving" },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Home Driveway Paving"
-            }
+              name: "Home Driveway Paving",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Driveway Sealcoating Service"
-            }
+              name: "Driveway Sealcoating Service",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Belgium Block Borders" }
+            itemOffered: { "@type": "Service", name: "Belgium Block Borders" },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Crack Filling Repair"
-            }
+              name: "Crack Filling Repair",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Paving Maintenance" }
+            itemOffered: { "@type": "Service", name: "Paving Maintenance" },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Concrete Driveway Paving"
-            }
+              name: "Concrete Driveway Paving",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Driveway Drainage Solutions"
-            }
-          }
+              name: "Driveway Drainage Solutions",
+            },
+          },
         ],
-        "potentialAction": [
+        potentialAction: [
           {
             "@type": "CallAction",
-            "target": "tel:+12017557836",
-            "name": "Call MAC Paving and Sealcoating LLC"
+            target: "tel:+12017557836",
+            name: "Call MAC Paving and Sealcoating LLC",
           },
           {
             "@type": "ReserveAction",
-            "name": "Book a Free Estimate",
-            "target": [
+            name: "Book a Free Estimate",
+            target: [
               {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://calendar.app.google/CQVM2nVsX15QCVq16",
-                "inLanguage": "en",
-                "actionPlatform": [
+                urlTemplate: "https://calendar.app.google/CQVM2nVsX15QCVq16",
+                inLanguage: "en",
+                actionPlatform: [
                   "http://schema.org/DesktopWebPlatform",
-                  "http://schema.org/MobileWebPlatform"
-                ]
+                  "http://schema.org/MobileWebPlatform",
+                ],
               },
               {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://macpavingandsealcoating.com/contact/",
-                "inLanguage": "en",
-                "actionPlatform": [
+                urlTemplate: "https://macpavingandsealcoating.com/contact/",
+                inLanguage: "en",
+                actionPlatform: [
                   "http://schema.org/DesktopWebPlatform",
-                  "http://schema.org/MobileWebPlatform"
-                ]
-              }
-            ]
-          }
-        ]
-      }
+                  "http://schema.org/MobileWebPlatform",
+                ],
+              },
+            ],
+          },
+        ],
+      })}
     </script>
     <Favicon />
     <SocialMeta
       title="Line Striping & Pavement Markings NJ | MAC Paving"
       description="Professional line striping services to ensure clear, durable markings for parking lots, roads, and other asphalt surfaces, enhancing safety and organization."
       url="https://macpavingandsealcoating.com/services/sealer-services-nj/line-striping/"
-      image={lineStripingOgImage}
+      image={lineStriping1}
       imageAlt={lineStripingOgAlt}
     />
     <CSSbase />

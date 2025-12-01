@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
+Allow: /assets/imgs/
 
 # Bloquear archivos que no deben ser indexados
-Allow: /assets/imgs/
 Disallow: /assets/css/
 Disallow: /assets/js/
 Disallow: /assets/fonts/
@@ -68,7 +68,6 @@ Disallow: /services/services
 Disallow: /services/services.html
 
 # Bloquear archivos de imagen específicos que causan 404s
-Disallow: /assets/imgs/logo/mac_paving_logo.webp
 Disallow: /mac_paving_logo.webp
 
 # Bloquear subdominios problemáticos

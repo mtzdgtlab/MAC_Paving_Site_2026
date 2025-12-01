@@ -303,7 +303,8 @@ figure {
 /*---------------------------------
     common classes css start 
 ---------------------------------*/
-.sr-only {
+.sr-only,
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -412,7 +413,24 @@ figure {
 }
 @media (max-width: 450px) {
   .offcanvas__info {
-    width: 300px;
+    width: 85vw; /* Usar 85% del ancho de la pantalla para más espacio */
+    max-width: 400px; /* Pero no más de 400px */
+  }
+}
+
+@media (max-width: 767px) {
+  .offcanvas__info {
+    width: 85vw; /* Más ancho en móviles */
+    max-width: 450px;
+  }
+  
+  .offcanvas__wrapper {
+    padding: 25px; /* Más padding para mejor espaciado */
+  }
+  
+  .offcanvas__contact-text a {
+    word-break: break-all; /* Permitir que el email se ajuste en múltiples líneas si es necesario */
+    white-space: normal; /* Permitir saltos de línea */
   }
 }
 .offcanvas__info.info-open {
@@ -602,6 +620,27 @@ figure {
 
 .offcanvas__contact-icon {
   margin-inline-end: 15px;
+  display: flex;
+  align-items: center; /* Alinear verticalmente con el texto */
+  flex-shrink: 0; /* Evitar que se comprima */
+}
+
+.offcanvas__contact ul li {
+  display: flex;
+  align-items: center; /* Alinear icono y texto verticalmente */
+}
+
+.offcanvas__contact-text {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  word-break: break-word; /* Permitir que el texto se ajuste */
+}
+
+.offcanvas__contact-text a {
+  display: inline-block;
+  width: 100%;
+  word-break: break-all; /* Permitir que el email se ajuste */
 }
 
 /*----------------------------------------*/
@@ -781,6 +820,42 @@ figure {
   justify-content: center;
   align-items: center;
   border-radius: 50px;
+}
+
+/* Ajustes para móvil: reducir tamaño del símbolo y aumentar espacio */
+@media only screen and (max-width: 767px) {
+  .section-sub-title,
+  .section-sub-titledos {
+    margin-left: 50px; /* Más espacio entre símbolo y texto */
+  }
+
+  .section-sub-title:before,
+  .section-sub-titledos:before {
+    height: 10px; /* Reducir altura */
+    width: 24px; /* Reducir ancho */
+    border: 3px solid; /* Reducir grosor del borde */
+    left: -50px; /* Ajustar posición */
+    top: 4px;
+    padding: 1px;
+    font-size: 6px; /* Reducir tamaño del icono interno */
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .section-sub-title,
+  .section-sub-titledos {
+    margin-left: 45px;
+  }
+
+  .section-sub-title:before,
+  .section-sub-titledos:before {
+    height: 8px;
+    width: 20px;
+    border: 2px solid;
+    left: -45px;
+    top: 3px;
+    font-size: 5px;
+  }
 }
 
 /*----------------------------------------*/
@@ -1342,8 +1417,15 @@ figure {
 }
 
 .header-action {
-  display: flex;
+  display: none;
   align-items: center;
+}
+
+/* Mostrar el botón solo en pantallas extra grandes (xl y superiores) */
+@media only screen and (min-width: 1200px) {
+  .header-action {
+    display: inline-flex;
+  }
 }
 
 .sticky {
@@ -1422,6 +1504,11 @@ figure {
   z-index: -1;
   width: 100%;
   height: 100%;
+}
+
+/* Video desktop: mantener proporción 16:9 */
+.banner-video.desktop-only {
+  object-fit: cover;
 }
 
 /* Visibilidad controlada */
@@ -1679,16 +1766,40 @@ h2.banner-title,
   }
 
   .banner-main {
-    padding: 110px 18px 90px;
-    min-height: 100vh;
+    padding: 0; /* Eliminar padding para quitar espacios en blanco */
+    min-height: 100vw;
+    height: 100vw; /* Altura igual al ancho para mantener 1:1 */
     object-fit: cover;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
   }
 
+  /* Video móvil: forzar aspect ratio 1:1 (1080x1080) */
+  .banner-video.mobile-only {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1; /* Forzar relación 1:1 */
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* Asegurar que el banner-section no tenga padding extra */
+  .banner-section {
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Ajustar el contenido del banner para que no tenga padding */
   .banner-area {
+    padding: 60px 20px; /* Padding reducido para el contenido */
     padding-left: 0;
     max-width: 100%;
+    width: 100%;
     text-align: center;
   }
 
@@ -1904,19 +2015,9 @@ h2.banner-title  {
   box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
-.about-us-image-area .play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.about-us-image-area .play-btn a {
-  border-radius: 50%;
-  color: #fff;
-  z-index: 2;
-  position: relative;
-  font-size: 17px;
+/* Play button oculto - eliminado de la imagen pequeña */
+.about-us-image-area .image-2-area .play-btn {
+  display: none !important;
 }
 
 .video_player_btn {
@@ -2174,6 +2275,20 @@ h2.banner-title  {
 @media (min-width: 992px) {
   .service-list-large {
     font-size: 18px;
+  }
+}
+
+/* Botón "book an appointment" en About - visible en móvil */
+.about-us-content-area .header-action {
+  display: inline-flex !important;
+  margin-top: 30px; /* Espacio adicional antes del botón */
+}
+
+@media only screen and (max-width: 767px) {
+  .about-us-content-area .header-action {
+    margin-top: 40px; /* Más espacio en móvil */
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -2731,13 +2846,36 @@ h2.banner-title  {
 
 @media only screen and (max-width: 425px) {
   .swiper-slide .project-slider-area {
-    height: 250px;
+    height: 280px; /* Aumentar altura para evitar cortes */
   }
   
   .project-slider-area .content-area {
     bottom: 10px;
     left: 10px;
     right: 10px;
+  }
+
+  .project-slider-area figure.image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .swiper-slide .project-slider-area {
+    height: 320px; /* Aumentar altura en móviles pequeños */
+  }
+
+  .project-slider-area figure.image {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .project-slider-area figure.image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -3001,7 +3139,7 @@ h2.banner-title  {
 @media only screen and (max-width: 768px) {
   .testimonials-two-area {
     padding-left: 15px;
-    padding-right: 35px;
+    padding-right: 15px;
   }
   .testimonials-two-box .icon-1 {
     position: absolute;
@@ -3026,6 +3164,41 @@ h2.banner-title  {
   }
   .testimonials-two-area .section-sub-titledos {
     font-size: 14px;
+  }
+
+  /* Mover imagen de autor a la parte inferior en móvil */
+  .testimonials-two-box {
+    padding: 30px 20px 120px 20px; /* Más padding abajo para la imagen */
+    margin-left: 0; /* Eliminar margen izquierdo */
+    display: flex;
+    flex-direction: column; /* Cambiar a columna */
+  }
+
+  .testimonials-two-box .author-image {
+    position: relative; /* Cambiar de absolute a relative */
+    left: auto;
+    top: auto;
+    bottom: auto;
+    margin: 20px auto 0 auto; /* Centrar y agregar espacio arriba */
+    order: 2; /* Mover al final */
+  }
+
+  .testimonials-two-box .icon-1 {
+    order: 0; /* Mantener icono arriba */
+  }
+
+  .testimonials-two-box h4 {
+    order: 1;
+    margin-top: 15px;
+  }
+
+  .testimonials-two-box ul.ratings {
+    order: 1;
+  }
+
+  .testimonials-two-box p {
+    order: 1;
+    margin-bottom: 0; /* Eliminar margen inferior ya que la imagen va después */
   }
 }
 
@@ -3374,6 +3547,14 @@ ul.service-details-page-list li {
 .service-widget-2 .content h5 {
   color: #fff;
   margin: 24px 0;
+}
+
+/* Centrar texto de WhatsApp en móvil */
+@media only screen and (max-width: 768px) {
+  .service-widget-2 h5,
+  .service-widget-2 .content h5 {
+    text-align: center !important;
+  }
 }
 
 .service-widget-2 .content .phone {
@@ -4175,6 +4356,14 @@ h2.banner-title {
   justify-content: center;
   align-items: center;
   transition: all 500ms ease;
+  position: relative;
+}
+
+/* Ocultar etiquetas de texto en móvil */
+@media only screen and (max-width: 768px) {
+  .footer-widget-1 .footer-socials li .visually-hidden {
+    display: none !important;
+  }
 }
 
 .footer-widget-1 .footer-socials li:hover {
@@ -4240,7 +4429,47 @@ h2.banner-title {
   }
   
   .footer-widget-1{
-    margin-bottom: 30px;
+    margin-bottom: 40px; /* Mayor separación */
+    text-align: center;
+  }
+
+  .footer-widget-2 {
+    margin-bottom: 40px; /* Mayor separación entre secciones */
+    text-align: center; /* Centrar todas las secciones */
+  }
+
+  .footer-widget-2 .footer-title {
+    text-align: center !important;
+  }
+
+  .footer-widget-2 ul.service-list {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar los items */
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-widget-2 ul.service-list li {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    margin-bottom: 14px;
+    position: relative;
+    width: auto; /* Ancho automático para centrar mejor */
+  }
+
+  .footer-widget-2 ul.service-list li::before {
+    position: absolute;
+    left: -20px; /* Ajustar posición del símbolo */
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 0;
+  }
+  
+  .footer-widget-2 ul.service-list li a {
     text-align: center;
   }
   
@@ -4249,5 +4478,30 @@ h2.banner-title {
     width: 100%;
     max-width: 500px;
     height: auto;
+  }
+
+  /* Ocultar texto SEO en móvil */
+  .footer-widget-2 .visually-hidden {
+    display: none !important;
+  }
+
+  /* Ocultar Quick Links en móvil - ocultar la segunda columna */
+  .row.g-4.mt-15 > .col-xxl-3.col-xl-3.col-lg-6.col-md-6.col-sm-6.col-6:nth-of-type(2) {
+    display: none !important;
+  }
+  
+  /* Centrar texto de WhatsApp en móvil */
+  .service-widget-2 h5 {
+    text-align: center !important;
+  }
+  
+  /* Centrar todos los títulos en móvil */
+  h1, h2, h3, h4, h5,
+  .section-title,
+  .service-details-title,
+  .breadcrumb__title,
+  .footer-title,
+  .footer-title-map {
+    text-align: center !important;
   }
 }

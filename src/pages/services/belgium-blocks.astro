@@ -1,26 +1,32 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 // Image imports
+import logo from "@/assets/imgs/logo.png";
 import stoneBorderBg from "@/assets/imgs/banner/stone-border-banner.webp";
 import belgiumBlocks1 from "@/assets/imgs/service/belgium-blocks/belgium-blocks-1.webp";
 import belgiumBlocks2 from "@/assets/imgs/service/belgium-blocks/belgium-blocks-2.webp";
 import belgiumBlocks3 from "@/assets/imgs/service/belgium-blocks/belgium-blocks-3.webp";
 import belgiumBlocks4 from "@/assets/imgs/service/belgium-blocks/belgium-blocks-4.webp";
 import Brands from "@/components/Brands.astro";
+
 import BreadcrumService from "@/components/BreadcrumService.astro";
 import CSSbase from "@/components/CSSbase.astro";
 import Favicon from "@/components/Favicon.astro";
 import Footer from "@/components/Footer.astro";
-import MainServices from "@/components/MainServices.astro";
 import Navbar from "@/components/Navbar.astro";
+import MainServices from "@/components/MainServices.astro";
 import Preloader from "@/components/Preloader.astro";
 import Scripts from "@/components/Scripts.astro";
 import SocialMeta from "@/components/SocialMeta.astro";
 import TestimonialsSlider from "@/components/TestimonialsSlider.astro";
 import Flotante from "@/components/Flotante.astro";
 
-const belgiumOgImage =
-  "https://macpavingandsealcoating.com/assets/imgs/banner/stone-border-banner.webp";
+const site = Astro.site ?? new URL("https://macpavingandsealcoating.com");
+const toAbsolute = (asset: { src: string } | string) =>
+  typeof asset === "string" ? asset : new URL(asset.src, site).href;
+
+const belgiumOgImage = toAbsolute(stoneBorderBg);
+const logoUrl = toAbsolute(logo);
 const belgiumOgAlt =
   "Belgium block edging and apron installation in North Jersey";
 ---
@@ -49,186 +55,153 @@ const belgiumOgAlt =
       content="belgium block installation NJ, decorative stone edging NJ, Westwood landscape border, Wayne Belgium blocks, stylish driveway edging NJ, classic stone accents NJ, granite border upgrades"
     />
     <script type="application/ld+json">
-      {
+      {JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Belgium Block Curbing NJ | MAC Paving",
-        "url": "https://macpavingandsealcoating.com/services/belgium-blocks/",
-        "logo": "https://macpavingandsealcoating.com/logo.png",
-        "image": "https://macpavingandsealcoating.com/assets/imgs/banner/stone-border-banner.webp",
-        "description": "Quality Belgium block installation services to add a touch of elegance and durability to your landscaping projects.",
-        "telephone": "+1-201-755-7836",
-        "contactPoint": {
+        name: "Belgium Block Curbing NJ | MAC Paving",
+        url: "https://macpavingandsealcoating.com/services/belgium-blocks/",
+        logo: logoUrl,
+        image: belgiumOgImage,
+        description:
+          "Quality Belgium block installation services to add a touch of elegance and durability to your landscaping projects.",
+        telephone: "+1-201-755-7836",
+        contactPoint: {
           "@type": "ContactPoint",
-          "telephone": "+1-201-755-7836",
-          "contactType": "Customer Service"
+          telephone: "+1-201-755-7836",
+          contactType: "Customer Service",
         },
-        "areaServed": [
-          { "@type": "Place", "name": "Clifton, NJ" },
-          { "@type": "Place", "name": "Wayne, NJ" },
-          { "@type": "Place", "name": "Fair Lawn, NJ" },
-          { "@type": "Place", "name": "Paramus, NJ" },
-          { "@type": "Place", "name": "Hackensack, NJ" },
-          { "@type": "Place", "name": "Teaneck, NJ" },
-          { "@type": "Place", "name": "Montclair, NJ" },
-          { "@type": "Place", "name": "Bloomfield, NJ" },
-          { "@type": "Place", "name": "West Orange, NJ" },
-          { "@type": "Place", "name": "Livingston, NJ" },
-          { "@type": "Place", "name": "Parsippany, NJ" },
-          { "@type": "Place", "name": "Totowa, NJ" },
-          { "@type": "Place", "name": "Little Falls, NJ" },
-          { "@type": "Place", "name": "Elmwood Park, NJ" },
-          { "@type": "Place", "name": "Garfield, NJ" },
-          { "@type": "Place", "name": "Lodi, NJ" },
-          { "@type": "Place", "name": "Saddle Brook, NJ" },
-          { "@type": "Place", "name": "Nutley, NJ" },
-          { "@type": "Place", "name": "South Orange, NJ" },
-          { "@type": "Place", "name": "Orange, NJ" },
-          { "@type": "Place", "name": "East Orange, NJ" },
-          { "@type": "Place", "name": "Denville, NJ" },
-          { "@type": "Place", "name": "Montville, NJ" },
-          { "@type": "Place", "name": "Boonton, NJ" },
-          { "@type": "Place", "name": "Mountain Lakes, NJ" },
-          { "@type": "Place", "name": "Florham Park, NJ" },
-          { "@type": "Place", "name": "West Paterson, NJ" },
-          { "@type": "Place", "name": "Woodland Park, NJ" },
-          { "@type": "Place", "name": "North Haledon, NJ" },
-          { "@type": "Place", "name": "Haledon, NJ" },
-          { "@type": "Place", "name": "Prospect Park, NJ" },
-          { "@type": "Place", "name": "Ridgewood, NJ" },
-          { "@type": "Place", "name": "Clark, NJ" },
-          { "@type": "Place", "name": "Pompton Lakes, NJ" },
-          { "@type": "Place", "name": "Bloomingdale, NJ" },
-          { "@type": "Place", "name": "Englewood, NJ" },
-          { "@type": "Place", "name": "Fort Lee, NJ" },
-          { "@type": "Place", "name": "Bergenfield, NJ" },
-          { "@type": "Place", "name": "New Milford, NJ" },
-          { "@type": "Place", "name": "Saddle River, NJ" },
-          { "@type": "Place", "name": "Glen Ridge, NJ" },
-          { "@type": "Place", "name": "Oradell, NJ" },
-          { "@type": "Place", "name": "Cedar Grove, NJ" },
-          { "@type": "Place", "name": "Belleville, NJ" },
-          { "@type": "Place", "name": "Morristown, NJ" },
-          { "@type": "Place", "name": "East Hanover, NJ" },
-          { "@type": "Place", "name": "Wallington, NJ" },
-          { "@type": "Place", "name": "North Caldwell, NJ" },
-          { "@type": "Place", "name": "Hawthorne, NJ" },
-          { "@type": "Place", "name": "Caldwell, NJ" },
-          { "@type": "Place", "name": "Kearny, NJ" },
-          { "@type": "Place", "name": "Lyndhurst, NJ" },
-          { "@type": "Place", "name": "Rutherford, NJ" },
-          { "@type": "Place", "name": "Secaucus, NJ" },
-          { "@type": "Place", "name": "Union City, NJ" },
-          { "@type": "Place", "name": "Westwood, NJ" },
-          { "@type": "Place", "name": "Jersey City, NJ" },
-          { "@type": "Place", "name": "Newark, NJ" }
+        areaServed: [
+          { "@type": "Place", name: "Clifton, NJ" },
+          { "@type": "Place", name: "Wayne, NJ" },
+          { "@type": "Place", name: "Fair Lawn, NJ" },
+          { "@type": "Place", name: "Paramus, NJ" },
+          { "@type": "Place", name: "Hackensack, NJ" },
+          { "@type": "Place", name: "Teaneck, NJ" },
+          { "@type": "Place", name: "Montclair, NJ" },
+          { "@type": "Place", name: "Bloomfield, NJ" },
+          { "@type": "Place", name: "West Orange, NJ" },
+          { "@type": "Place", name: "Livingston, NJ" },
+          { "@type": "Place", name: "Parsippany, NJ" },
+          { "@type": "Place", name: "Totowa, NJ" },
+          { "@type": "Place", name: "Little Falls, NJ" },
+          { "@type": "Place", name: "Elmwood Park, NJ" },
+          { "@type": "Place", name: "Garfield, NJ" },
+          { "@type": "Place", name: "Lodi, NJ" },
+          { "@type": "Place", name: "Saddle Brook, NJ" },
+          { "@type": "Place", name: "Nutley, NJ" },
+          { "@type": "Place", name: "South Orange, NJ" },
+          { "@type": "Place", name: "Orange, NJ" },
+          { "@type": "Place", name: "East Orange, NJ" },
+          { "@type": "Place", name: "Denville, NJ" },
+          { "@type": "Place", name: "Montville, NJ" },
+          { "@type": "Place", name: "Boonton, NJ" },
+          { "@type": "Place", name: "Mountain Lakes, NJ" },
+          { "@type": "Place", name: "Florham Park, NJ" },
+          { "@type": "Place", name: "West Paterson, NJ" },
+          { "@type": "Place", name: "Woodland Park, NJ" },
+          { "@type": "Place", name: "North Haledon, NJ" },
+          { "@type": "Place", name: "Haledon, NJ" },
+          { "@type": "Place", name: "Prospect Park, NJ" },
+          { "@type": "Place", name: "Ridgewood, NJ" },
+          { "@type": "Place", name: "Clark, NJ" },
+          { "@type": "Place", name: "Pompton Lakes, NJ" },
+          { "@type": "Place", name: "Bloomingdale, NJ" },
+          { "@type": "Place", name: "Englewood, NJ" },
+          { "@type": "Place", name: "Fort Lee, NJ" },
+          { "@type": "Place", name: "Bergenfield, NJ" },
+          { "@type": "Place", name: "New Milford, NJ" },
+          { "@type": "Place", name: "Saddle River, NJ" },
+          { "@type": "Place", name: "Glen Ridge, NJ" },
+          { "@type": "Place", name: "Oradell, NJ" },
+          { "@type": "Place", name: "Cedar Grove, NJ" },
+          { "@type": "Place", name: "Belleville, NJ" },
+          { "@type": "Place", name: "Morristown, NJ" },
+          { "@type": "Place", name: "East Hanover, NJ" },
+          { "@type": "Place", name: "Wallington, NJ" },
+          { "@type": "Place", name: "North Caldwell, NJ" },
+          { "@type": "Place", name: "Hawthorne, NJ" },
+          { "@type": "Place", name: "Caldwell, NJ" },
+          { "@type": "Place", name: "Kearny, NJ" },
+          { "@type": "Place", name: "Lyndhurst, NJ" },
+          { "@type": "Place", name: "Rutherford, NJ" },
+          { "@type": "Place", name: "Secaucus, NJ" },
+          { "@type": "Place", name: "Union City, NJ" },
+          { "@type": "Place", name: "Westwood, NJ" },
+          { "@type": "Place", name: "Jersey City, NJ" },
+          { "@type": "Place", name: "Newark, NJ" },
         ],
-        "makesOffer": [
+        makesOffer: [
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Asphalt Paving Services"
-            }
+              name: "Asphalt Paving Services",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Driveway Paving Installation"
-            }
+              name: "Driveway Paving Installation",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Driveway Paving" }
+            itemOffered: { "@type": "Service", name: "Driveway Paving" },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Home Driveway Paving"
-            }
+              name: "Home Driveway Paving",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Driveway Sealcoating Service"
-            }
+              name: "Driveway Sealcoating Service",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: { "@type": "Service", name: "Belgium Block Borders" },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
               "@type": "Service",
-              "name": "Belgium Block Borders"
-            }
+              name: "Crack Filling Repair",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: { "@type": "Service", name: "Paving Maintenance" },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
               "@type": "Service",
-              "name": "Crack Filling Repair"
-            }
+              name: "Concrete Driveway Paving",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Paving Maintenance" }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Concrete Driveway Paving"
-            }
+              name: "Driveway Drainage Solutions",
+            },
           },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Driveway Drainage Solutions"
-            }
-          }
         ],
-        "potentialAction": [
-          {
-            "@type": "CallAction",
-            "target": "tel:+12017557836",
-            "name": "Call MAC Paving and Sealcoating LLC"
-          },
-          {
-            "@type": "ReserveAction",
-            "name": "Book a Free Estimate",
-            "target": [
-              {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://calendar.app.google/CQVM2nVsX15QCVq16",
-                "inLanguage": "en",
-                "actionPlatform": [
-                  "http://schema.org/DesktopWebPlatform",
-                  "http://schema.org/MobileWebPlatform"
-                ]
-              },
-              {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://macpavingandsealcoating.com/contact/",
-                "inLanguage": "en",
-                "actionPlatform": [
-                  "http://schema.org/DesktopWebPlatform",
-                  "http://schema.org/MobileWebPlatform"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    </script>
+      })}
+    
 
     <Favicon />
     <SocialMeta
       title="Belgium Block Curbing NJ | MAC Paving"
       description="Quality Belgium block installation services to add a touch of elegance and durability to your landscaping projects."
       url="https://macpavingandsealcoating.com/services/belgium-blocks/"
-      image={belgiumOgImage}
+      image={stoneBorderBg}
       imageAlt={belgiumOgAlt}
     />
     <CSSbase />
