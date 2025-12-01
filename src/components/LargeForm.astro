@@ -94,15 +94,13 @@ const {
 </section>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Contact Form
-    const contactForm = document.getElementById(
-      "largeContactForm"
-    ) as HTMLFormElement | null;
-    const formMessage = document.getElementById(
-      "largeFormMessage"
-    ) as HTMLDivElement | null;
+    const contactForm = document.getElementById("largeContactForm");
+    const formMessage = document.getElementById("largeFormMessage");
 
-    if (contactForm && formMessage) {
+    if (
+      contactForm instanceof HTMLFormElement &&
+      formMessage instanceof HTMLElement
+    ) {
       contactForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         try {

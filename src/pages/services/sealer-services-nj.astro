@@ -55,8 +55,9 @@ import Flotante from "@/components/Flotante.astro";
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Sealcoating & Asphalt Repair NJ | MAC Paving",
-        "url": "https://macpavingandsealcoating.com/services/sealer-services-nj",
+        "url": "https://macpavingandsealcoating.com/services/sealer-services-nj/",
         "logo": "https://macpavingandsealcoating.com/logo.png",
+        "image": "https://macpavingandsealcoating.com/og-image.png",
         "description": "Sealcoating, crack filling, pothole repair, and line striping for North Jersey driveways and small parking lots.",
         "telephone": "+1-201-755-7836",
         "contactPoint": {
@@ -618,7 +619,7 @@ import Flotante from "@/components/Flotante.astro";
           </div>
         </div>
         <div class="container-fluid">
-          <div class="swipe project-active-1">
+          <div class="swiper project-active-1">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <a
@@ -880,15 +881,13 @@ import Flotante from "@/components/Flotante.astro";
     <!-- Inicializaciones -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // Contact Form
-        const contactForm = document.getElementById(
-          "contactForm"
-        ) as HTMLFormElement | null;
-        const formMessage = document.getElementById(
-          "formMessage"
-        ) as HTMLDivElement | null;
+        const contactForm = document.getElementById("contactForm");
+        const formMessage = document.getElementById("formMessage");
 
-        if (contactForm && formMessage) {
+        if (
+          contactForm instanceof HTMLFormElement &&
+          formMessage instanceof HTMLElement
+        ) {
           contactForm.addEventListener("submit", async (e) => {
             e.preventDefault();
             try {

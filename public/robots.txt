@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Bloquear archivos que no deben ser indexados
-Disallow: /assets/imgs/
+Allow: /assets/imgs/
 Disallow: /assets/css/
 Disallow: /assets/js/
 Disallow: /assets/fonts/

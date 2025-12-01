@@ -10,16 +10,16 @@ http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:sp
 /resurfacing.html /services/paving-services-nj/driveway-resurfacing/ 301
 /replacement.html /services/paving-services-nj/driveway-replacement/ 301
 /extension.html /services/paving-services-nj/driveway-extension/ 301
-/sealcoating.html /services/sealer-services-nj/sealcoating 301
-/crack-filling.html /services/sealer-services-nj/crack-filling 301
-/line-striping.html /services/sealer-services-nj/line-striping 301
+/sealcoating.html /services/sealer-services-nj/sealcoating/ 301
+/crack-filling.html /services/sealer-services-nj/crack-filling/ 301
+/line-striping.html /services/sealer-services-nj/line-striping/ 301
 /walkways.html /services/ 301
 /sidewalks.html /services/ 301
 /curbs.html /services/ 301
 /aprons.html /services/ 301
 /paver-installation.html /services/belgium-blocks/ 301
 /paver-maintenance.html /services/belgium-blocks/ 301
-/belgium-blocks.html /services/belgium-blocks 301
+/belgium-blocks.html /services/belgium-blocks/ 301
 /sod-installation.html /services/ 301
 /hauling.html /services/ 301
 /power-wash.html /services/ 301
@@ -30,23 +30,23 @@ http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:sp
 /resurfacing /services/paving-services-nj/driveway-resurfacing/ 301
 /replacement /services/paving-services-nj/driveway-replacement/ 301
 /extension /services/paving-services-nj/driveway-extension/ 301
-/sealcoating /services/sealer-services-nj/sealcoating 301
-/crack-filling /services/sealer-services-nj/crack-filling 301
-/line-striping /services/sealer-services-nj/line-striping 301
+/sealcoating /services/sealer-services-nj/sealcoating/ 301
+/crack-filling /services/sealer-services-nj/crack-filling/ 301
+/line-striping /services/sealer-services-nj/line-striping/ 301
 /walkways /services/ 301
 /sidewalks /services/ 301
 /curbs /services/ 301
 /aprons /services/ 301
 /pavers-installation /services/belgium-blocks/ 301
 /paver-maintenance /services/belgium-blocks/ 301
-/belgium-blocks /services/belgium-blocks 301
+/belgium-blocks /services/belgium-blocks/ 301
 /sod-installation /services/ 301
 /hauling /services/ 301
 /power-wash /services/ 301
 /top-soil /services/ 301
 
 # Category redirects (old single word URLs)
-/asphalt-paving /services/driveway-paving-nj 301
+/asphalt-paving /services/paving-services-nj/ 301
 
 # Legacy service directory redirects
 /services/asphalt-paving/ /services/paving-services-nj/ 301
@@ -68,8 +68,8 @@ http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:sp
 /services/pavers/installation/ /services/belgium-blocks/ 301
 /services/pavers/maintenance/ /services/belgium-blocks/ 301
 /concrete /services/ 301
-/pavers /services/belgium-blocks 301
-/sealer /services/sealer-services-nj 301
+/pavers /services/belgium-blocks/ 301
+/sealer /services/sealer-services-nj/ 301
 /landscaping /services/ 301
 
 # Missing service redirects (404s from Google Search Console)
@@ -81,19 +81,19 @@ http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:sp
 /pothole-repair.html /services/paving-services-nj/driveway-replacement/ 301
 /asphalt-maintenance /services/paving-services-nj/driveway-resurfacing/ 301
 /asphalt-maintenance.html /services/paving-services-nj/driveway-resurfacing/ 301
-/retaining-walls /services/belgium-blocks 301
-/retaining-walls.html /services/belgium-blocks 301
-/masonry /services/belgium-blocks 301
-/masonry.html /services/belgium-blocks 301
+/retaining-walls /services/belgium-blocks/ 301
+/retaining-walls.html /services/belgium-blocks/ 301
+/masonry /services/belgium-blocks/ 301
+/masonry.html /services/belgium-blocks/ 301
 /gallery /services 301
 /winter-services /services 301
 /winter-services.html /services 301
 
 # URLs with underscores (old format)
-/line_striping /services/sealer-services-nj/line-striping 301
+/line_striping /services/sealer-services-nj/line-striping/ 301
 /power_wash /services/ 301
 /winter_services /services 301
-/belgium_blocks /services/belgium-blocks 301
+/belgium_blocks /services/belgium-blocks/ 301
 /pavers_installation /services/belgium-blocks/ 301
 /top_soil /services/ 301
 /asphalt_maintenance /services/paving-services-nj/driveway-resurfacing/ 301

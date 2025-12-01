@@ -360,7 +360,7 @@ import Quality from "@/components/Quality.astro";
           </div>
         </div>
         <div class="container-fluid">
-          <div class="swipe project-active-1">
+          <div class="swiper project-active-1">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <a
@@ -623,15 +623,13 @@ import Quality from "@/components/Quality.astro";
     <!-- Inicializaciones -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // Contact Form
-        const contactForm = document.getElementById(
-          "contactForm-main"
-        ) as HTMLFormElement | null;
-        const formMessage = document.getElementById(
-          "formMessage"
-        ) as HTMLDivElement | null;
+        const contactForm = document.getElementById("contactForm-main");
+        const formMessage = document.getElementById("formMessage");
 
-        if (contactForm && formMessage) {
+        if (
+          contactForm instanceof HTMLFormElement &&
+          formMessage instanceof HTMLElement
+        ) {
           contactForm.addEventListener("submit", async (e) => {
             e.preventDefault();
             try {
