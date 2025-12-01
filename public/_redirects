@@ -21,7 +21,6 @@ http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:sp
 /paver-maintenance.html /services/belgium-blocks/ 301
 /belgium-blocks.html /services/belgium-blocks 301
 /sod-installation.html /services/ 301
-/drainage.html /services/ 301
 /hauling.html /services/ 301
 /power-wash.html /services/ 301
 /top-soil.html /services/ 301
@@ -42,7 +41,6 @@ http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:sp
 /paver-maintenance /services/belgium-blocks/ 301
 /belgium-blocks /services/belgium-blocks 301
 /sod-installation /services/ 301
-/drainage /services/ 301
 /hauling /services/ 301
 /power-wash /services/ 301
 /top-soil /services/ 301
@@ -125,8 +123,6 @@ http://www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:sp
 /services/landscaping/sod-installation /services/ 301
 /services/landscaping/top-soil/ /services/ 301
 /services/landscaping/top-soil /services/ 301
-/services/landscaping/drainage/ /services/ 301
-/services/landscaping/drainage /services/ 301
 /services/landscaping/power-wash/ /services/ 301
 /services/landscaping/power-wash /services/ 301
 /services/landscaping/hauling/ /services/ 301

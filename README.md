@@ -2,7 +2,7 @@
 
 ![MAC Paving Logo](public/assets/logo.png)
 
-Professional asphalt paving, sealcoating, concrete, and paver services across New Jersey. Built with Astro for optimal performance and SEO.
+Professional asphalt paving, sealcoating, concrete, and Belgium block edging services across New Jersey. Built with Astro for optimal performance and SEO.
 
 ## 🌐 Live Website
 
@@ -15,7 +15,7 @@ This is the official website for MAC Paving and Sealcoating LLC, a New Jersey-ba
 - **Asphalt Paving** - Driveways, parking lots, resurfacing
 - **Sealcoating** - Protective coating and maintenance
 - **Concrete Work** - Sidewalks, curbs, aprons
-- **Paver Installation** - Decorative driveways and patios
+- **Belgium Block Borders** - Decorative driveway and walkway edging
 - **Landscaping** - Drainage solutions and outdoor improvements
 
 ### 🎯 Key Features
@@ -65,7 +65,7 @@ This is the official website for MAC Paving and Sealcoating LLC, a New Jersey-ba
 │           ├── driveway-paving-nj.astro
 │           ├── concrete.astro
 │           ├── landscaping.astro
-│           ├── pavers.astro
+│           ├── belgium-blocks.astro
 │           └── sealer.astro
 ├── tests/                  # Test files
 ├── astro.config.mjs        # Astro configuration

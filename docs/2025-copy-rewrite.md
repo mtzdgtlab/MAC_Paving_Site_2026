@@ -4,12 +4,12 @@ The following sections include ready-to-publish copy, metadata, microcopy, alt t
 
 ## Home (/)
 - page_title: MAC Paving | Family-Owned Paving Contractors in North Jersey
-- meta_description: Family-owned MAC Paving and Sealcoating LLC delivers driveway paving, asphalt resurfacing, sealcoating, extensions, and paver solutions across Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties.
+- meta_description: Family-owned MAC Paving and Sealcoating LLC delivers driveway paving, asphalt resurfacing, sealcoating, extensions, and Belgium block edging solutions across Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties.
 - canonical_url: https://macpavingandsealcoating.com/
 - H1: North Jersey Paving Contractors
 
-#### H2: Driveway Paving, Sealcoating & Pavers for Every Property
-We combine driveway paving, parking-lot resurfacing, sealcoating, crack repair, and custom paver work under one owner-led crew. From single-family homes to HOAs, schools, and private campuses, every project receives soils analysis, drainage planning, and finishing touches that keep asphalt strong and attractive year-round.
+#### H2: Driveway Paving, Sealcoating & Stone Accents for Every Property
+We combine driveway paving, parking-lot resurfacing, sealcoating, crack repair, and custom Belgium block work under one owner-led crew. From single-family homes to HOAs, schools, and private campuses, every project receives soils analysis, grading plans, and finishing touches that keep asphalt strong and attractive year-round.
 
 #### H2: What to Expect from Our Family-Owned Crew
 - Transparent scopes, schedules, and line-item estimates so you always know what is happening on site.
@@ -27,18 +27,18 @@ Passaic · Bergen · Morris · Essex · Hudson · Union · Middlesex · Somerset
 - Alt text:
   1. Family-owned paving crew resurfacing a driveway in Passaic County NJ.
   2. Sealcoating technician applying protective coating in Bergen County NJ.
-  3. Custom paver driveway installation underway in Morris County NJ.
+  3. Custom Belgium block driveway border installation underway in Morris County NJ.
   4. Residential driveway extension grading in Essex County NJ.
 
 - Internal links:
   1. Driveway paving service overview → `/services/driveway-paving-nj/`
   2. Sealcoating and maintenance services → `/services/sealer/`
-  3. Paver design and installation → `/services/pavers/`
+  3. Belgium block edging → `/services/belgium-blocks/`
   4. Book a consultation → `/contact/`
 
 - Structured data:
   - Recommended types: `LocalBusiness` + `Service`.
-  - Key properties: `name`, `url`, `logo`, `description`, `telephone`, `areaServed` (9 counties), `sameAs` (Facebook, Instagram), `hasOfferCatalog` for driveway paving, sealcoating, pavers, maintenance, `potentialAction` with `CallAction` and `ReserveAction`.
+  - Key properties: `name`, `url`, `logo`, `description`, `telephone`, `areaServed` (9 counties), `sameAs` (Facebook, Instagram), `hasOfferCatalog` for driveway paving, sealcoating, Belgium block edging, maintenance, `potentialAction` with `CallAction` and `ReserveAction`.
 
 - Notes:
   - Ensure Google Analytics/Tag Manager uses the canonical HTTPS domain.
@@ -46,12 +46,12 @@ Passaic · Bergen · Morris · Essex · Hudson · Union · Middlesex · Somerset
 
 ## Services (/services/)
 - page_title: North Jersey Paving Services | MAC Paving
-- meta_description: Explore driveway paving, asphalt resurfacing, sealcoating, crack repair, and custom paver installations delivered by MAC Paving across Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties.
+- meta_description: Explore driveway paving, asphalt resurfacing, sealcoating, crack repair, and Belgium block edging delivered by MAC Paving across Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties.
 - canonical_url: https://macpavingandsealcoating.com/services/
 - H1: MAC Paving and Sealcoating Services
 
 #### H2: Paving & Maintenance Menu
-MAC Paving and Sealcoating LLC provides one point of contact for driveway paving installations, resurfacing, replacements, extensions, sealcoating programs, crack repair, line striping, and Belgium-block or paver enhancements. Owner-led crews coordinate permitting, inspections, and finishing touches for residential, commercial, HOA, and private clients.
+MAC Paving and Sealcoating LLC provides one point of contact for driveway paving installations, resurfacing, replacements, extensions, sealcoating programs, crack repair, line striping, and Belgium-block enhancements. Owner-led crews coordinate permitting, inspections, and finishing touches for residential, commercial, HOA, and private clients.
 
 #### H2: Property Types & Delivery
 - Homes, estates, townhomes, and multifamily entrances.
@@ -69,18 +69,18 @@ Passaic · Bergen · Morris · Essex · Hudson · Union · Middlesex · Somerset
 - Alt text:
   1. Driveway paving crew compacting asphalt in Passaic County NJ.
   2. Sealcoating technician spraying asphalt protection in Bergen County NJ.
-  3. Paver installation team leveling a patio base in Morris County NJ.
+  3. Stone edging crew leveling a patio base in Morris County NJ.
   4. Crack repair specialist routing and sealing joints in Somerset County NJ.
 
 - Internal links:
   1. Driveway paving category → `/services/driveway-paving-nj/`
   2. Sealer services → `/services/sealer/`
-  3. Paver services → `/services/pavers/`
+  3. Belgium block borders → `/services/belgium-blocks/`
   4. Contact for estimates → `/contact/`
 
 - Structured data:
-  - Recommended types: `Service` (paving, sealcoating, pavers) embedded within `LocalBusiness`.
-  - Properties: `serviceType`, `areaServed`, `provider`, `hasOfferCatalog` (Installation, Resurfacing, Replacement, Extension, Sealcoating, Crack Filling, Line Striping, Paver Installation, Paver Maintenance, Belgium Blocks), `potentialAction` for booking consultations.
+  - Recommended types: `Service` (paving, sealcoating, Belgium blocks) embedded within `LocalBusiness`.
+  - Properties: `serviceType`, `areaServed`, `provider`, `hasOfferCatalog` (Installation, Resurfacing, Replacement, Extension, Sealcoating, Crack Filling, Line Striping, Belgium Blocks), `potentialAction` for booking consultations.
 
 - Notes:
   - Encourage caching of service card images for Core Web Vitals.
@@ -93,7 +93,7 @@ Passaic · Bergen · Morris · Essex · Hudson · Union · Middlesex · Somerset
 - H1: Driveway Paving Services in North Jersey
 
 #### H2: Engineered Asphalt for Local Weather
-We evaluate soils, drainage, traffic, and aesthetics before demolishing or building a driveway. The result is a pavement structure with the right stone depth, asphalt mix, edging, and finishing touches to handle North Jersey winters, deliveries, and HOA traffic. Owners receive milestone updates, photos, and maintenance guides.
+We evaluate soils, grading, traffic, and aesthetics before demolishing or building a driveway. The result is a pavement structure with the right stone depth, asphalt mix, edging, and finishing touches to handle North Jersey winters, deliveries, and HOA traffic. Owners receive milestone updates, photos, and maintenance guides.
 
 #### H2: Who We Serve
 - Single-family homes, estates, multifamily communities, and townhome courts.
@@ -106,7 +106,7 @@ We evaluate soils, drainage, traffic, and aesthetics before demolishing or build
 - Good-better-best scopes so you can phase work or bundle resurfacing with extensions.
 
 #### H3: When to Rebuild or Extend
-Cracking, patch fatigue, drainage failures, or parking shortages point to resurfacing, replacement, or extensions. We design apron upgrades, additional parking pads, ADA access, and Belgium-block accents to keep properties compliant and curb-ready.
+Cracking, patch fatigue, standing water, or parking shortages point to resurfacing, replacement, or extensions. We design apron upgrades, additional parking pads, ADA access, and Belgium-block accents to keep properties compliant and curb-ready.
 
 - Microcopy:
   - Service card CTAs: `Service Details`
@@ -142,7 +142,7 @@ Cracking, patch fatigue, drainage failures, or parking shortages point to resurf
 - H1: Driveway Paving Installation Built for North Jersey
 
 #### H2: Start-to-Finish Planning
-We handle layout, elevations, drainage tie-ins, base stone, geotextile (when required), asphalt lifts, edging, and cleanup. Decorative aprons, Belgium blocks, lighting conduits, and paver transitions are designed alongside the driveway so every detail lines up on pour day.
+We handle layout, elevations, utility tie-ins, base stone, geotextile (when required), asphalt lifts, edging, and cleanup. Decorative aprons, Belgium blocks, lighting conduits, and stone transitions are designed alongside the driveway so every detail lines up on pour day.
 
 #### H2: Tailored Surfaces
 - Residential driveways with spillover parking, sports areas, or snowplow-friendly layouts.
@@ -158,7 +158,7 @@ New homes, additions, major landscape updates, or failing gravel driveways all b
 
 - Alt text:
   1. Crew grading a new driveway subbase in Passaic County NJ.
-  2. Asphalt paver placing the first lift for a Bergen County NJ home.
+  2. Asphalt paving machine placing the first lift for a Bergen County NJ home.
   3. Decorative Belgium-block apron installation in Morris County NJ.
 
 - Internal links:
@@ -180,7 +180,7 @@ New homes, additions, major landscape updates, or failing gravel driveways all b
 - H1: Driveway Resurfacing That Extends Asphalt Life
 
 #### H2: Restore Before Replacing
-We mill distressed areas, repair base failures, correct drainage, and place new asphalt lifts that bond to your existing surface. Resurfacing is ideal when 40–60% of the pavement is still structurally sound but needs a fresh wearing course.
+We mill distressed areas, repair base failures, correct grading, and place new asphalt lifts that bond to your existing surface. Resurfacing is ideal when 40–60% of the pavement is still structurally sound but needs a fresh wearing course.
 
 #### H2: Perfect for
 - Residential driveways with cracking, ruts, or oxidation but stable bases.
@@ -221,7 +221,7 @@ Combine resurfacing with sealcoating, line striping, crack filling, or driveway 
 Extensive alligator cracking, ponding water, base failures, underground utility work, or major layout changes call for a complete replacement. We coordinate demolition, excavation, base reconstruction, compaction, and asphalt installation plus matching aprons and transitions.
 
 #### H2: Replacement Benefits
-- Reset the driveway subgrade, drainage, and structure to handle heavier vehicles.
+- Reset the driveway subgrade, grading, and structure to handle heavier vehicles.
 - Opportunity to widen lanes, add parking pads, integrate lighting, or upgrade aprons.
 - Long-term cost control thanks to new base materials and mixes selected for North Jersey climates.
 
@@ -264,7 +264,7 @@ We add new parking pads, widen lanes, create RV/boat storage, or reconfigure tur
 - Private campuses adding delivery or emergency access lanes.
 
 #### H3: Design Considerations
-We evaluate setbacks, drainage, tree roots, retaining walls, and utility access before pouring. Decorative aprons, Belgium blocks, paver borders, or sealcoating can be added to tie everything together.
+We evaluate setbacks, slopes, tree roots, retaining walls, and utility access before pouring. Decorative aprons, Belgium blocks, stone borders, or sealcoating can be added to tie everything together.
 
 - Microcopy:
   - CTA button: `Design My Extension`
@@ -277,137 +277,21 @@ We evaluate setbacks, drainage, tree roots, retaining walls, and utility access 
 
 - Internal links:
   1. Driveway paving overview → `/services/driveway-paving-nj/`
-  2. Paver and Belgium-block accents → `/services/pavers/belgium-blocks/`
+  2. Belgium-block accents → `/services/belgium-blocks/`
   3. Contact scheduling → `/contact/`
 
 - Structured data:
   - Type: `Service` (Driveway Extension).
-  - Properties: `serviceType`, `areaServed`, `provider`, `hasOfferCatalog` entries for widening, parking pads, aprons, drainage improvements, `potentialAction` for booking.
+  - Properties: `serviceType`, `areaServed`, `provider`, `hasOfferCatalog` entries for widening, parking pads, aprons, site grading improvements, `potentialAction` for booking.
 
 - Notes:
   - Specify that final scope depends on municipal approvals and property setbacks.
 
-## Paver Services (/services/pavers/)
-- page_title: Paver Design & Installation NJ | MAC Paving
-- meta_description: MAC Paving designs, installs, and maintains paver driveways, walkways, patios, and Belgium-block accents across Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties.
-- canonical_url: https://macpavingandsealcoating.com/services/pavers/
-- H1: Custom Paver Solutions for Driveways, Patios & Walkways
 
-#### H2: Elevate Curb Appeal
-Blend pavers with asphalt driveways, create stand-alone patios, or add Belgium-block accents. We manage base prep, drainage, polymeric sand, sealing, and maintenance plans so your hardscapes stay even and vibrant.
-
-#### H2: Applications
-- Driveway aprons, ribbons, and borders paired with asphalt.
-- Outdoor kitchens, fire features, and seating patios.
-- Walkways, pool decks, retaining-wall caps, and stoops.
-
-#### H3: Maintenance & Protection
-We clean, re-sand, and seal existing pavers to restore color, prevent shifting, and block weed growth. Annual maintenance plans keep HOA and commercial hardscapes safe year-round.
-
-- Microcopy:
-  - CTA button: `Explore Paver Options`
-  - Maintenance CTA: `Schedule a Cleaning & Reseal`
-
-- Alt text:
-  1. Paver driveway with Belgium-block border in Bergen County NJ.
-  2. Patio installation with seating wall in Morris County NJ.
-  3. Walkway paver maintenance in Essex County NJ.
-
-- Internal links:
-  1. Paver installation details → `/services/pavers/installation/`
-  2. Paver maintenance services → `/services/pavers/maintenance/`
-  3. Belgium-block accents → `/services/pavers/belgium-blocks/`
-  4. Contact for design consult → `/contact/`
-
-- Structured data:
-  - Type: `Service` (Paver Installation & Maintenance).
-  - Properties: `serviceType`, `areaServed`, `provider`, `hasOfferCatalog` for installation, maintenance, Belgium blocks, sealing, `potentialAction` for scheduling consultations.
-
-- Notes:
-  - Mention compatibility with asphalt driveway projects for cross-sell opportunities.
-
-## Paver Installation (/services/pavers/installation/)
-- page_title: Paver Installation NJ | MAC Paving
-- meta_description: MAC Paving installs driveways, patios, walkways, and outdoor living spaces with premium pavers across Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties.
-- canonical_url: https://macpavingandsealcoating.com/services/pavers/installation/
-- H1: Paver Installation Crafted for Long-Term Performance
-
-#### H2: Design + Build
-We help select materials, colors, laying patterns, borders, and accent lighting. Bases are excavated, compacted, and graded for proper drainage before pavers are laid, cut, and jointed with polymeric sand.
-
-#### H2: Popular Installations
-- Driveway aprons and full paver driveways tied into asphalt.
-- Outdoor kitchens, pool surrounds, and fire-feature seating areas.
-- Entry walks, garden paths, and stoops with matching risers.
-
-#### H3: Add-Ons
-Belgium-block curbs, retaining walls, drip edges, landscape lighting sleeves, and sealers that enhance color and repel stains.
-
-- Microcopy:
-  - CTA button: `Start My Paver Design`
-  - Secondary CTA: `Request a Site Visit`
-
-- Alt text:
-  1. Crew setting pavers for a driveway apron in Passaic County NJ.
-  2. Patio paver installation with seating wall in Bergen County NJ.
-  3. Walkway paver pattern being cut in Morris County NJ.
-
-- Internal links:
-  1. Paver maintenance plans → `/services/pavers/maintenance/`
-  2. Belgium-block accents → `/services/pavers/belgium-blocks/`
-  3. Driveway paving overview → `/services/driveway-paving-nj/`
-
-- Structured data:
-  - Type: `Service` (Paver Installation).
-  - Properties: `serviceType`, `material` (concrete pavers, natural stone, Belgium block), `areaServed`, `provider`, `offers` with `itemOffered` referencing installation scope.
-
-- Notes:
-  - Reinforce compatibility with MAC Paving asphalt crews for turnkey projects.
-
-## Paver Maintenance (/services/pavers/maintenance/)
-- page_title: Paver Maintenance & Resealing NJ | MAC Paving
-- meta_description: MAC Paving cleans, re-sands, levels, and seals paver driveways, walkways, and patios for residential, HOA, and commercial clients across North Jersey.
-- canonical_url: https://macpavingandsealcoating.com/services/pavers/maintenance/
-- H1: Paver Cleaning, Leveling & Sealing Programs
-
-#### H2: Protect Color & Stability
-We power clean, re-level settled areas, re-sand joints with polymeric blends, and apply breathable sealers that lock in color, resist stains, and block weed growth. Programs are tailored for seasonal checkups or one-time restorations.
-
-#### H2: Ideal Clients
-- HOA communities with shared walkways and amenity patios.
-- Homeowners prepping for resale.
-- Commercial campuses where uniform, non-slip surfaces are essential.
-
-#### H3: Maintenance Checklist
-- Inspection and documentation with repair recommendations.
-- Cleaning, joint stabilization, and minor reset work.
-- Optional sealing, edge repairs, and lighting touch-ups.
-
-- Microcopy:
-  - CTA button: `Refresh My Pavers`
-  - Secondary CTA: `Bundle with Sealcoating`
-
-- Alt text:
-  1. Technician pressure washing pavers in Bergen County NJ.
-  2. Crew re-sanding paver joints in Essex County NJ.
-  3. Sealed paver patio glistening after maintenance in Morris County NJ.
-
-- Internal links:
-  1. Paver installation → `/services/pavers/installation/`
-  2. Sealcoating services → `/services/sealer/sealcoating/`
-  3. Contact form → `/contact/`
-
-- Structured data:
-  - Type: `Service` (Paver Maintenance).
-  - Properties: `serviceType`, `provider`, `areaServed`, `offers` for cleaning, leveling, re-sanding, sealing, `aggregateRating` can be added later with reviews.
-
-- Notes:
-  - Clarify drying/curing windows for sealing without guaranteeing specific hours.
-
-## Belgium Blocks (/services/pavers/belgium-blocks/)
+## Belgium Blocks (/services/belgium-blocks/)
 - page_title: Belgium Block Curbing & Aprons NJ | MAC Paving
-- meta_description: MAC Paving installs Belgium-block borders, aprons, curbing, and accents that pair with asphalt or paver projects across North Jersey.
-- canonical_url: https://macpavingandsealcoating.com/services/pavers/belgium-blocks/
+- meta_description: MAC Paving installs Belgium-block borders, aprons, curbing, and accents that pair with asphalt projects across North Jersey.
+- canonical_url: https://macpavingandsealcoating.com/services/belgium-blocks/
 - H1: Belgium Block Borders, Aprons & Accents
 
 #### H2: Durable Stone Details
@@ -416,10 +300,10 @@ Granite Belgium blocks add contrast, protect edges, and elevate curb appeal. We 
 #### H2: Placement Options
 - Driveway aprons leading from the street.
 - Edging for flower beds, walks, or parking pads.
-- Accent bands within paver fields or around tree rings.
+- Accent bands within patios, courtyards, or around tree rings.
 
 #### H3: Integration with Paving
-We coordinate Belgium-block installation with asphalt paving, driveway replacements, or new paver work so timelines and elevations align.
+We coordinate Belgium-block installation with asphalt paving, driveway replacements, or other decorative stone work so timelines and elevations align.
 
 - Microcopy:
   - CTA button: `Design My Belgium-Block Accent`
@@ -427,12 +311,12 @@ We coordinate Belgium-block installation with asphalt paving, driveway replaceme
 
 - Alt text:
   1. Belgium-block driveway apron installation in Passaic County NJ.
-  2. Granite curb edging along a paver walkway in Bergen County NJ.
+  2. Granite curb edging along a stone walkway in Bergen County NJ.
   3. Belgium-block border framing a parking pad in Essex County NJ.
 
 - Internal links:
   1. Driveway installation → `/services/driveway-paving-nj/paving-installation-nj/`
-  2. Paver installation → `/services/pavers/installation/`
+  2. Services overview → `/services/`
   3. Contact for design consult → `/contact/`
 
 - Structured data:
@@ -665,14 +549,14 @@ Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex c
 
 - Structured data:
   - Type: `LocalBusiness`.
-  - Properties: `founder` (Marco/ownership team if provided), `areaServed`, `employee` count (optional), `sameAs`, `slogan`, `knowsAbout` (driveway paving, sealcoating, pavers).
+  - Properties: `founder` (Marco/ownership team if provided), `areaServed`, `employee` count (optional), `sameAs`, `slogan`, `knowsAbout` (driveway paving, sealcoating, Belgium block edging).
 
 - Notes:
   - Reinforce bilingual communication if applicable when content becomes available; currently single-language.
 
 ## Service Areas (/service-areas/)
 - page_title: Paving Service Areas | MAC Paving North Jersey
-- meta_description: MAC Paving and Sealcoating LLC serves Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties with driveway paving, sealcoating, pavers, and maintenance.
+- meta_description: MAC Paving and Sealcoating LLC serves Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties with driveway paving, sealcoating, Belgium block edging, and maintenance.
 - canonical_url: https://macpavingandsealcoating.com/service-areas/
 - H1: North Jersey Counties We Serve
 
@@ -708,7 +592,7 @@ Call (201) 755-7836 or use the booking form to secure paving windows during spri
 
 ## FAQs (/faqs/)
 - page_title: Paving FAQs | MAC Paving North Jersey
-- meta_description: Answers to common paving, sealcoating, paver, and maintenance questions from MAC Paving and Sealcoating LLC in North Jersey.
+- meta_description: Answers to common paving, sealcoating, Belgium block, and maintenance questions from MAC Paving and Sealcoating LLC in North Jersey.
 - canonical_url: https://macpavingandsealcoating.com/faqs/
 - H1: Frequently Asked Questions
 
@@ -720,7 +604,7 @@ Call (201) 755-7836 or use the booking form to secure paving windows during spri
 3. **Which counties do you serve?**  
    Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties (see Service Areas page for city list).
 4. **Can you coordinate with other contractors?**  
-   Yes—our team collaborates with builders, landscapers, plumbers, and electricians so trenches, lighting, or drainage tie-ins align with paving.
+   Yes—our team collaborates with builders, landscapers, plumbers, and electricians so trenches, lighting, or utility tie-ins align with paving.
 5. **What maintenance schedule do you recommend?**  
    Sealcoat every 2–3 years, inspect cracks annually, and plan resurfacing or replacement when base failures or ponding appear.
 
@@ -745,13 +629,13 @@ Call (201) 755-7836 or use the booking form to secure paving windows during spri
   - Expand Q/A set over time using search console query data for richer coverage.
 
 ## Gallery (/gallery/)
-- page_title: Paving & Paver Project Gallery | MAC Paving
-- meta_description: Browse recent driveway paving, sealcoating, paver, and Belgium-block projects completed by MAC Paving and Sealcoating LLC across North Jersey.
+- page_title: Paving & Stone Border Project Gallery | MAC Paving
+- meta_description: Browse recent driveway paving, sealcoating, Belgium-block, and edging projects completed by MAC Paving and Sealcoating LLC across North Jersey.
 - canonical_url: https://macpavingandsealcoating.com/gallery/
-- H1: Recent Paving & Paver Projects
+- H1: Recent Paving & Stone Border Projects
 
 #### H2: What You’ll See
-Before-and-after photos of driveway installations, resurfacing, replacements, sealcoating, crack repair, paver patios, Belgium-block aprons, and line striping projects across Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties.
+Before-and-after photos of driveway installations, resurfacing, replacements, sealcoating, crack repair, stone patios, Belgium-block aprons, and line striping projects across Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties.
 
 #### H2: How to Use the Gallery
 Click any image to open a lightbox with project descriptions, property type, and location. Use the form below to request similar work.
@@ -763,13 +647,13 @@ Click any image to open a lightbox with project descriptions, property type, and
 - Alt text (sample set for featured images):
   1. Resurfaced HOA roadway in Passaic County NJ.
   2. Sealcoated commercial parking lot in Hudson County NJ.
-  3. Paver patio with fire pit in Bergen County NJ.
+  3. Stone patio with fire pit in Bergen County NJ.
   4. Driveway replacement with Belgium-block apron in Morris County NJ.
   5. Crack repair and striping refresh in Union County NJ.
 
 - Internal links:
   1. Driveway paving overview → `/services/driveway-paving-nj/`
-  2. Paver services → `/services/pavers/`
+  2. Belgium block borders → `/services/belgium-blocks/`
   3. Sealcoating services → `/services/sealer/sealcoating/`
   4. Contact page → `/contact/`
 
