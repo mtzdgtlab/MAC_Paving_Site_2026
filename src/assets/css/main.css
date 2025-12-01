@@ -66,6 +66,9 @@ body {
   font-weight: 500;
   color: var(--theme-color-1);
   line-height: 26px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 h1,
@@ -251,6 +254,23 @@ figure {
   max-width: 1620px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+@media (max-width: 575px) {
+  .container,
+  .container-fluid,
+  .row,
+  .large-container,
+  .small-container {
+    --bs-gutter-x: 1.5rem;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 
 .small-container {
@@ -1659,9 +1679,11 @@ h2.banner-title,
   }
 
   .banner-main {
-    padding: 100px 20px;
-    min-height: 100%;
+    padding: 110px 18px 90px;
+    min-height: 100vh;
     object-fit: cover;
+    display: flex;
+    align-items: center;
   }
 
   .banner-area {
@@ -1689,7 +1711,13 @@ h2.banner-title  {
   }
 
   p.banner-text {
-    display: none;
+    display: block;
+    opacity: 0.95;
+    font-size: 15px;
+    line-height: 26px;
+    padding: 6px 10px 24px;
+    margin: 0 auto;
+    max-width: 620px;
   }
 
   .banner-btn-area {
@@ -1705,7 +1733,9 @@ h2.banner-title  {
 
   .primary-btn-1 {
     font-size: 14px;
-    padding: 12px 24px;
+    padding: 14px 20px;
+    width: min(360px, 100%);
+    justify-content: center;
   }
 }
 @media only screen and (max-width: 425px) {
@@ -1728,7 +1758,11 @@ h2.banner-title  {
   }
 
   p.banner-text {
-    display: none;
+    display: block;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 4px 6px 18px;
+    max-width: 520px;
   }
 }
 
@@ -1757,12 +1791,14 @@ h2.banner-title  {
   }
 
   p.banner-text {
-    display: none !important;
-    opacity: 0 !important;
+    display: block !important;
+    opacity: 0.95 !important;
     transform: none !important;
-    font-size: 14px;
-    line-height: 22px;
-    padding: 0 10px 20px;
+    font-size: 15px;
+    line-height: 26px;
+    padding: 6px 10px 24px;
+    margin: 0 auto;
+    max-width: 620px;
   }
 
   .banner-btn-area {
@@ -1778,7 +1814,9 @@ h2.banner-title  {
 
   .primary-btn-1 {
     font-size: 14px;
-    padding: 12px 24px;
+    padding: 14px 20px;
+    width: min(360px, 100%);
+    justify-content: center;
   }
 }
 @media only screen and (max-width: 425px) {
