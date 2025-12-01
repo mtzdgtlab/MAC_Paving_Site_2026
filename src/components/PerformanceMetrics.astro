@@ -108,19 +108,45 @@
     }, 2000);
   });
 
-  // Precargar cuando el usuario hace hover en enlaces
+  // Precargar de forma segura cuando el usuario hace hover en enlaces
+  const shouldPrefetchLink = (link) => {
+    if (!link || !link.href || link.hasAttribute("data-prefetched")) {
+      return false;
+    }
+
+    if (link.hostname !== window.location.hostname) {
+      return false;
+    }
+
+    if (navigator.connection?.saveData) {
+      return false;
+    }
+
+    return true;
+  };
+
+  const warmCacheWithFetch = (href) => {
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 1500);
+
+    fetch(href, {
+      method: "GET",
+      mode: "no-cors",
+      cache: "force-cache",
+      signal: controller.signal,
+    })
+      .catch(() => {})
+      .finally(() => window.clearTimeout(timeoutId));
+  };
+
   document.addEventListener("mouseover", (event) => {
     const link = event.target.closest("a");
-    if (link && link.href && !link.hasAttribute("data-prefetched")) {
-      link.setAttribute("data-prefetched", "true");
 
-      if (link.hostname === window.location.hostname) {
-        const prefetcher = document.createElement("link");
-        prefetcher.rel = "prefetch";
-        prefetcher.href = link.href;
-        document.head.appendChild(prefetcher);
-        console.log("Prefetching:", link.href);
-      }
+    if (!shouldPrefetchLink(link)) {
+      return;
     }
+
+    link.setAttribute("data-prefetched", "true");
+    warmCacheWithFetch(link.href);
   });
 </script>
