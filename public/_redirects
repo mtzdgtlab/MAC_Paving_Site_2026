@@ -1,132 +1,65 @@
-# Redirect www to non-www
+# Redirect www → non-www
 /www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:splat 301
 
-# Redirect http to https
+# Redirect http → https
 /macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:splat 301
-/www.macpavingandsealcoating.com/* https://macpavingandsealcoating.com/:splat 301
 
-# Old service URLs with .html to new structure
-/installation.html /services/paving-services-nj/driveway-installation/ 301
-/resurfacing.html /services/paving-services-nj/driveway-resurfacing/ 301
-/replacement.html /services/paving-services-nj/driveway-replacement/ 301
-/extension.html /services/paving-services-nj/driveway-extension/ 301
+# Old core HTML redirects (installation/resurfacing/etc.)
+/{installation,resurfacing,replacement,extension}.html /services/paving-services-nj/:splat/ 301
 /sealcoating.html /services/sealer-services-nj/sealcoating/ 301
 /crack-filling.html /services/sealer-services-nj/crack-filling/ 301
 /line-striping.html /services/sealer-services-nj/line-striping/ 301
-/walkways.html /services/ 301
-/sidewalks.html /services/ 301
-/curbs.html /services/ 301
-/aprons.html /services/ 301
-/paver-installation.html /services/belgium-blocks/ 301
-/paver-maintenance.html /services/belgium-blocks/ 301
-/belgium-blocks.html /services/belgium-blocks/ 301
-/sod-installation.html /services/ 301
-/hauling.html /services/ 301
-/power-wash.html /services/ 301
-/top-soil.html /services/ 301
+/{walkways,sidewalks,curbs,aprons,sod-installation,hauling,power-wash,top-soil}.html /services/ 301
+/{paver-installation,paver-maintenance,belgium-blocks}.html /services/belgium-blocks/ 301
 
-# Old service URLs without .html to new structure
-/installation /services/paving-services-nj/driveway-installation/ 301
-/resurfacing /services/paving-services-nj/driveway-resurfacing/ 301
-/replacement /services/paving-services-nj/driveway-replacement/ 301
-/extension /services/paving-services-nj/driveway-extension/ 301
+# Old core non-HTML redirects
+/{installation,resurfacing,replacement,extension} /services/paving-services-nj/:splat/ 301
 /sealcoating /services/sealer-services-nj/sealcoating/ 301
 /crack-filling /services/sealer-services-nj/crack-filling/ 301
 /line-striping /services/sealer-services-nj/line-striping/ 301
-/walkways /services/ 301
-/sidewalks /services/ 301
-/curbs /services/ 301
-/aprons /services/ 301
-/pavers-installation /services/belgium-blocks/ 301
-/paver-maintenance /services/belgium-blocks/ 301
-/belgium-blocks /services/belgium-blocks/ 301
-/sod-installation /services/ 301
-/hauling /services/ 301
-/power-wash /services/ 301
-/top-soil /services/ 301
+/{walkways,sidewalks,curbs,aprons,sod-installation,hauling,power-wash,top-soil} /services/ 301
+/{pavers-installation,paver-maintenance,belgium-blocks,pavers} /services/belgium-blocks/ 301
 
-# Category redirects
+# Asphalt → Paving category
 /asphalt-paving /services/paving-services-nj/ 301
 
-# Legacy service directory redirects
-/services/asphalt-paving/ /services/paving-services-nj/ 301
-/services/asphalt-paving /services/paving-services-nj/ 301
-/services/asphalt-paving/installation/ /services/paving-services-nj/driveway-installation/ 301
-/services/asphalt-paving/installation /services/paving-services-nj/driveway-installation/ 301
-/services/asphalt-paving/resurfacing/ /services/paving-services-nj/driveway-resurfacing/ 301
-/services/asphalt-paving/resurfacing /services/paving-services-nj/driveway-resurfacing/ 301
-/services/asphalt-paving/replacement/ /services/paving-services-nj/driveway-replacement/ 301
-/services/asphalt-paving/replacement /services/paving-services-nj/driveway-replacement/ 301
-/services/asphalt-paving/extension/ /services/paving-services-nj/driveway-extension/ 301
-/services/asphalt-paving/extension /services/paving-services-nj/driveway-extension/ 301
-/services/sealer/ /services/sealer-services-nj/ 301
-/services/sealer/sealcoating/ /services/sealer-services-nj/sealcoating/ 301
-/services/sealer/crack-filling/ /services/sealer-services-nj/crack-filling/ 301
-/services/sealer/line-striping/ /services/sealer-services-nj/line-striping/ 301
-/services/pavers/ /services/belgium-blocks/ 301
-/services/pavers/belgium-blocks/ /services/belgium-blocks/ 301
-/services/pavers/installation/ /services/belgium-blocks/ 301
-/services/pavers/maintenance/ /services/belgium-blocks/ 301
-/concrete /services/ 301
-/pavers /services/belgium-blocks/ 301
-/sealer /services/sealer-services-nj/ 301
-/landscaping /services/ 301
+# Legacy asphalt directory structure
+/services/asphalt-paving/{installation,resurfacing,replacement,extension}/ /services/paving-services-nj/:splat/ 301
+/services/asphalt-paving* /services/paving-services-nj/ 301
+
+# Legacy sealer directory structure
+/services/sealer/{sealcoating,crack-filling,line-striping}/ /services/sealer-services-nj/:splat/ 301
+/services/sealer* /services/sealer-services-nj/ 301
+
+# Legacy pavers directory
+/services/pavers/{belgium-blocks,installation,maintenance}/ /services/belgium-blocks/ 301
+/services/pavers* /services/belgium-blocks/ 301
+
+# Old concrete + landscaping groups
+/services/concrete/{walkways,sidewalks,curbs,aprons}* /services/ 301
+/services/concrete* /services/ 301
+/services/landscaping/{sod-installation,top-soil,power-wash,hauling}* /services/ 301
+/services/landscaping* /services/ 301
 
 # Missing service redirects
-/seed-grass /services/ 301
-/seed-grass.html /services/ 301
-/gutters /services/ 301
-/gutters.html /services/ 301
-/pothole-repair /services/paving-services-nj/driveway-replacement/ 301
-/pothole-repair.html /services/paving-services-nj/driveway-replacement/ 301
+/{seed-grass,gutters,pothole-repair,asphalt-maintenance,retaining-walls,masonry} /services/ 301
+/{seed-grass,gutters,pothole-repair,asphalt-maintenance,retaining-walls,masonry}.html /services/ 301
 /asphalt-maintenance /services/paving-services-nj/driveway-resurfacing/ 301
-/asphalt-maintenance.html /services/paving-services-nj/driveway-resurfacing/ 301
-/retaining-walls /services/belgium-blocks/ 301
-/retaining-walls.html /services/belgium-blocks/ 301
-/masonry /services/belgium-blocks/ 301
-/masonry.html /services/belgium-blocks/ 301
-/gallery /services 301
-/winter-services /services 301
-/winter-services.html /services 301
+/pothole-repair /services/paving-services-nj/driveway-replacement/ 301
 
-# URLs with underscores
-/line_striping /services/sealer-services-nj/line-striping/ 301
-/power_wash /services/ 301
-/winter_services /services 301
-/belgium_blocks /services/belgium-blocks/ 301
-/pavers_installation /services/belgium-blocks/ 301
-/top_soil /services/ 301
-/asphalt_maintenance /services/paving-services-nj/driveway-resurfacing/ 301
+# Underscore variants
+/{line_striping,power_wash,winter_services,belgium_blocks,pavers_installation,top_soil,asphalt_maintenance} /services/ 301
 
 # Other old URLs
 /services.html /services 301
 /contact.html /contact 301
 /index.html / 301
+/gallery /services 301
+/winter-services /services 301
+/winter-services.html /services 301
 
-# Broken URLs with special characters
+# Broken characters
 /K%7BSEOcanonical%7D%7D / 301
 
-# Concrete and Landscaping service redirects
-/services/concrete/ /services/ 301
-/services/concrete /services/ 301
-/services/concrete/walkways/ /services/ 301
-/services/concrete/walkways /services/ 301
-/services/concrete/sidewalks/ /services/ 301
-/services/concrete/sidewalks /services/ 301
-/services/concrete/curbs/ /services/ 301
-/services/concrete/curbs /services/ 301
-/services/concrete/aprons/ /services/ 301
-/services/concrete/aprons /services/ 301
-/services/landscaping/ /services/ 301
-/services/landscaping /services/ 301
-/services/landscaping/sod-installation/ /services/ 301
-/services/landscaping/sod-installation /services/ 301
-/services/landscaping/top-soil/ /services/ 301
-/services/landscaping/top-soil /services/ 301
-/services/landscaping/power-wash/ /services/ 301
-/services/landscaping/power-wash /services/ 301
-/services/landscaping/hauling/ /services/ 301
-/services/landscaping/hauling /services/ 301
-
-# Catch-all .html
+# Catch-all HTML
 /*.html / 301
