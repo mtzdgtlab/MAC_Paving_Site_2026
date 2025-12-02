@@ -5,7 +5,9 @@
       >CALL US&nbsp; | &nbsp;<i class="fas fa-phone"></i
     ></span>
     <span class="call-text-mobile">
-      CALL&nbsp;US <i class="fas fa-phone" aria-hidden="true"></i>
+      <span class="call-text-line-1">CALL</span>
+      <span class="call-text-line-2">US</span>
+      <i class="fas fa-phone" aria-hidden="true"></i>
     </span>
   </a>
 </div>
@@ -79,12 +81,18 @@
     }
 
     .call-btn {
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 12px;
-      line-height: 1;
-      gap: 6px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      line-height: 1.2;
+      gap: 0;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 60px;
+      min-height: 60px;
     }
 
     .call-text-desktop {
@@ -92,16 +100,29 @@
     }
 
     .call-text-mobile {
-      display: inline-flex;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 2px;
       font-weight: 700;
       letter-spacing: 0.5px;
+      line-height: 1;
+    }
+
+    .call-text-line-1 {
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    .call-text-line-2 {
+      font-size: 11px;
+      line-height: 1;
     }
 
     .call-btn i {
-      margin-left: 0;
-      font-size: 14px;
+      margin-top: 4px;
+      font-size: 16px;
     }
   }
 
@@ -146,6 +167,20 @@
       return footerTop < windowHeight + 200
     }
 
+    function checkHeroBannerVisibility() {
+      var heroBanner = document.querySelector('.banner-section')
+      if (!heroBanner) {
+        return true // Si no hay banner, mostrar el botón
+      }
+      
+      var bannerRect = heroBanner.getBoundingClientRect()
+      var windowHeight = window.innerHeight
+      var bannerBottom = bannerRect.bottom
+      
+      // Hide button when hero banner is still visible (bottom is above viewport bottom)
+      return bannerBottom < 0
+    }
+
     var hasScrolled = false
 
     function handleScroll() {
@@ -156,9 +191,17 @@
 
       // Solo mostrar el botón después del primer scroll
       if (hasScrolled) {
-        if (checkFooterProximity()) {
+        // Verificar si el hero banner ya salió de la pantalla
+        var heroOutOfView = checkHeroBannerVisibility()
+        
+        if (!heroOutOfView) {
+          // Hero banner aún visible, ocultar botón
+          hideButton()
+        } else if (checkFooterProximity()) {
+          // Footer cerca, ocultar botón
           hideButton()
         } else {
+          // Mostrar botón
           showButton()
         }
       } else {
