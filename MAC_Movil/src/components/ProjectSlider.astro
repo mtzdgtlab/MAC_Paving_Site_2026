@@ -1,0 +1,93 @@
+---
+import { Image } from "astro:assets";
+import project1 from "@/assets/imgs/project/project-1.webp";
+import project2 from "@/assets/imgs/project/project-2.webp";
+import project3 from "@/assets/imgs/project/project-3.webp";
+import project4 from "@/assets/imgs/project/project-4.webp";
+import project5 from "@/assets/imgs/project/project-5.webp";
+import project6 from "@/assets/imgs/project/project-6.webp";
+import project7 from "@/assets/imgs/project/project-7.webp";
+
+const projects = [
+  {
+    image: project1,
+    alt: "Residential driveway paving transformation in Passaic County NJ",
+  },
+  {
+    image: project2,
+    alt: "Commercial asphalt parking lot resurfacing in Bergen County NJ",
+  },
+  {
+    image: project3,
+    alt: "Driveway paving replacement for a Morris County NJ property",
+  },
+  {
+    image: project4,
+    alt: "Custom asphalt apron with Belgium block border in Essex County NJ",
+  },
+  {
+    image: project5,
+    alt: "HOA roadway paving project completed in Union County NJ",
+  },
+  {
+    image: project6,
+    alt: "Sealcoated commercial parking lot in Hudson County NJ",
+  },
+  {
+    image: project7,
+    alt: "Stone border walkway upgrade near Somerset County NJ",
+  },
+];
+---
+
+<!-- Project slider area start -->
+<section
+  aria-label="Projects section"
+  class="project-slider-section section-space fix"
+>
+  <div class="small-container">
+    <div class="row">
+      <div
+        class="col-xxl-12 d-flex justify-content-between align-items-center flex-wrap"
+      >
+        <div class="title-box mb-50" data-aos="fade-left" data-aos-delay="100">
+          <span class="section-sub-title">PAVING IN ACTION</span>
+          <h3 class="section-title mt-15">Recent North Jersey Projects</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="project-slider-stage">
+    <div class="swiper project-active-1">
+      <div class="swiper-wrapper">
+        {projects.map(({ image, alt }) => (
+          <div class="swiper-slide">
+            <div class="project-slider-area p-relative">
+              <figure class="image m-imge shine-img">
+                <Image
+                  src={image}
+                  alt={alt}
+                  width={570}
+                  height={439}
+                  quality={80}
+                  format="webp"
+                />
+              </figure>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="project_1_navigation__wrapprer">
+      <div class="common-slider-navigation">
+        <button class="project-1-button-prev" aria-label="Previous project">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <button class="project-1-button-next" aria-label="Next project">
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Project area end -->

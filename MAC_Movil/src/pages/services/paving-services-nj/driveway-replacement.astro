@@ -1,0 +1,357 @@
+---
+import { Image } from "astro:assets";
+// Import background image
+import asphaltServiceBg from "@/assets/imgs/banner/asphalt-service.webp";
+// Import replacement images
+import replacement1 from "@/assets/imgs/service/asphalt-paving/replacement-1.webp";
+import replacement2 from "@/assets/imgs/service/asphalt-paving/replacement-2.webp";
+import replacement3 from "@/assets/imgs/service/asphalt-paving/replacement-3.webp";
+import replacement4 from "@/assets/imgs/service/asphalt-paving/replacement-4.webp";
+import logo from "@/assets/imgs/logo.png";
+import BreadcrumService from "@/components/BreadcrumService.astro";
+import CSSbase from "@/components/CSSbase.astro";
+import Favicon from "@/components/Favicon.astro";
+import Footer from "@/components/Footer.astro";
+import MainServices from "@/components/MainServices.astro";
+import MapSection from "@/components/MapSection.astro";
+import Navbar from "@/components/Navbar.astro";
+import Preloader from "@/components/Preloader.astro";
+import Scripts from "@/components/Scripts.astro";
+import SocialMeta from "@/components/SocialMeta.astro";
+import WhyChooseUs from "@/components/WhyChooseUs.astro";
+import Flotante from "@/components/Flotante.astro";
+
+const site = Astro.site ?? new URL("https://macpavingandsealcoating.com");
+const toAbsolute = (asset: { src: string } | string) =>
+  typeof asset === "string" ? asset : new URL(asset.src, site).href;
+
+const pageMeta = {
+  title: "Driveway Replacement NJ | MAC Paving",
+  description:
+    "Comprehensive asphalt paving replacement services to renew your worn-out surfaces with high-quality materials, ensuring a fresh, durable, and visually appealing result.",
+  url:
+    "https://macpavingandsealcoating.com/services/paving-services-nj/driveway-replacement/",
+  keywords:
+    "paving services NJ, driveway paving in Passaic, asphalt contractors New Jersey, driveway replacement NJ, asphalt tear out Bergen County, commercial driveway rebuild Morris County, private driveway construction Essex County",
+  image: replacement1,
+  imageAlt: "Driveway replacement project with fresh asphalt in North Jersey",
+};
+
+const pageImageUrl = toAbsolute(pageMeta.image);
+const logoUrl = toAbsolute(logo);
+
+const countiesServed = [
+  "Passaic County",
+  "Bergen County",
+  "Morris County",
+  "Essex County",
+  "Hudson County",
+  "Union County",
+  "Middlesex County",
+  "Somerset County",
+  "Sussex County",
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Driveway Paving Replacement",
+  name: pageMeta.title,
+  description: pageMeta.description,
+  image: pageImageUrl,
+  areaServed: countiesServed.map((county) => ({
+    "@type": "AdministrativeArea",
+    name: county,
+    addressCountry: "US",
+    addressRegion: "NJ",
+  })),
+  provider: {
+    "@type": "LocalBusiness",
+    name: "MAC Paving and Sealcoating LLC",
+    url: site.href,
+    telephone: "+1-201-755-7836",
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: "NJ",
+      addressCountry: "US",
+    },
+    image: logoUrl,
+  },
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Driveway Tear-Out and Replacement",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Driveway Paving Services NJ",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Paving Installation" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Paving Replacement" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Paving Resurfacing" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Paving Extension" },
+      },
+    ],
+  },
+  potentialAction: [
+    {
+      "@type": "CallAction",
+      target: "tel:+12017557836",
+      name: "Call MAC Paving and Sealcoating LLC",
+    },
+    {
+      "@type": "ReserveAction",
+      name: "Book a Free Estimate",
+      target: [
+        {
+          "@type": "EntryPoint",
+          urlTemplate: "https://calendar.app.google/CQVM2nVsX15QCVq16",
+          inLanguage: "en",
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+        {
+          "@type": "EntryPoint",
+          urlTemplate: "https://macpavingandsealcoating.com/contact/",
+          inLanguage: "en",
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+      ],
+    },
+  ],
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>{pageMeta.title}</title>
+    <!-- Preconexión para recursos externos (mejora rendimiento) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <meta name="description" content={pageMeta.description} />
+    <link rel="canonical" href={pageMeta.url} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content={pageMeta.keywords} />
+    <script type="application/ld+json">
+      {JSON.stringify(serviceSchema)}
+    </script>
+    <Favicon />
+    <SocialMeta
+      title={pageMeta.title}
+      description={pageMeta.description}
+      url={pageMeta.url}
+      image={pageMeta.image}
+      imageAlt={pageMeta.imageAlt}
+    />
+    <CSSbase />
+  </head>
+  <body>
+    <Preloader />
+    <Navbar />
+    <!-- Header area end -->
+    <main>
+      <!-- Breadcrumb area start -->
+      <div class="breadcrumb__area theme-bg-1 p-relative pt-160 pb-160">
+        <BreadcrumService image={asphaltServiceBg} />
+        <div class="small-container">
+          <div class="row justify-content-center justify-content-md-start">
+            <div class="col-9 col-sm-9 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+              <div class="breadcrumb__wrapper p-relative">
+                <h1 class="breadcrumb__title">
+                  Asphalt Paving Replacement Services in NJ
+                </h1>
+                <div class="breadcrumb__menu">
+                  <nav>
+                    <ul>
+                      <li>
+                        <span><a href="/">Home / </a></span>
+                      </li>
+                      <li>
+                        <span><a href="/services/">Services / </a></span>
+                      </li>
+                      <li>
+                        <span
+                          ><a href="/services/paving-services-nj/"
+                            >Paving / </a
+                          ></span
+                        >
+                      </li>
+                      <li><span>Driveway Replacement</span></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Breadcrumb area end -->
+      <section class="service-details-page section-space">
+        <div class="small-container">
+          <div class="row">
+            <div class="col-xxl-8 col-xl-8 col-lg-8">
+              <div class="service-details-page-content">
+                <h2 class="service-details-title mt-25 mb-25">
+                  Comprehensive Asphalt Paving Replacement
+                </h2>
+                <p class="mb-25">
+                  Comprehensive asphalt paving replacement services to renew
+                  your worn-out surfaces with high-quality materials, ensuring a
+                  fresh, durable, and visually appealing result.
+                </p>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <figure class="w-img">
+                      <Image
+                        src={replacement1}
+                        alt="Driveway tear-out and replacement in Passaic County NJ"
+                        width={600}
+                        height={400}
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                  <div class="col-lg-6">
+                    <figure class="w-img">
+                      <Image
+                        src={replacement2}
+                        alt="Commercial driveway rebuild underway in Bergen County NJ"
+                        width={600}
+                        height={400}
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <h3 class="service-details-subtitle mt-45 mb-25">
+                      Residential, Commercial, Industrial & Private Projects
+                    </h3>
+                    <p class="mb-25">
+                      We rebuild drives for single-family homes, medical offices,
+                      warehouses, schools, and private estates across Essex,
+                      Union, and Sussex counties. As asphalt contractors New
+                      Jersey property teams recommend, we engineer every
+                      section for the vehicles it will carry and the image it
+                      needs to project.
+                    </p>
+                  </div>
+                  <div class="col-lg-6">
+                    <h3 class="service-details-subtitle mt-45 mb-25">
+                      Full Tear-Out, Full Upgrade—Done Right
+                    </h3>
+                    <p class="mb-25">
+                      We coordinate utility mark-outs, remove failed pavement,
+                      regrade, compact stone bases, and install hot mix asphalt
+                      in multiple lifts. Expansion joints, aprons, and edges are
+                      finished to match your property. The result is a safer,
+                      smoother surface that is ready for sealcoating, striping,
+                      or decorative touches.
+                    </p>
+                  </div>
+                </div>
+                <figure class="w-img">
+                  <Image
+                    src={replacement3}
+                    alt="Industrial driveway reconstruction in Morris County NJ"
+                    width={1200}
+                    height={600}
+                    loading="lazy"
+                  />
+                </figure>
+                <h3 class="service-details-subtitle mt-45 mb-25">
+                  When Replacement Is the Smart Investment
+                </h3>
+                <p class="mb-25">
+                  Buckling, base contamination, or constant pooling means an
+                  overlay won't solve the problem. A rebuild lets us correct
+                  grades, reposition aprons, and extend driveway width. We
+                  deliver transparent proposals so you can compare replacement
+                  against short-term repair costs.
+                </p>
+                <div class="row">
+                  <div class="col-lg-7">
+                    <figure class="w-img">
+                      <Image
+                        src={replacement4}
+                        alt="Private driveway replacement project in Sussex County NJ"
+                        width={800}
+                        height={500}
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                  <div class="col-lg-5 center-xs-list">
+                    <h3 class="section-sub-subtitle pt-20 pb-10">
+                      Replacement Checklist
+                    </h3>
+                    <ul
+                      class="service-details-page-list pt-20 pb-10 split-xs-columns"
+                    >
+                      <li>
+                        Dedicated superintendent managing demolition, trucking,
+                        and daily updates.
+                      </li>
+                      <li>
+                        Base reconstruction, grading adjustments, and compaction
+                        testing before asphalt is placed.
+                      </li>
+                      <li>
+                        Residential, commercial, industrial, and private
+                        solutions tailored to load and aesthetic goals.
+                      </li>
+                      <li>
+                        Options for Belgium block borders, striping, sealcoating,
+                        and maintenance programs.
+                      </li>
+                    </ul>
+                    <h3 class="section-sub-subtitle pt-20 pb-10">
+                      Serving North Jersey Counties
+                    </h3>
+                    <ul
+                      class="service-details-page-list pt-20 pb-10 split-xs-columns"
+                    >
+                      {countiesServed.map((county) => (
+                        <li>{county}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <MainServices />
+          </div>
+        </div>
+      </section>
+      <WhyChooseUs />
+      <MapSection />
+    </main>
+    <Footer />
+    <Scripts />
+    <Flotante />
+  </body>
+</html>

@@ -3,6 +3,23 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import compress from 'astro-compress';
 import { fileURLToPath } from 'node:url';
+import CleanCSS from 'clean-css';
+
+// Configurar clean-css para minificación
+const cssmin = new CleanCSS({
+  level: 2, // Optimización nivel 2 (más agresiva)
+  compatibility: '*', // Compatibilidad con todos los navegadores
+});
+
+// Función de minificación personalizada
+// @ts-expect-error - Vite acepta funciones personalizadas aunque TypeScript no lo reconozca
+const cssMinifyFn = (code, id) => {
+  const result = cssmin.minify(code);
+  if (result.errors.length > 0) {
+    console.warn(`CSS minification warnings for ${id}:`, result.errors);
+  }
+  return { code: result.styles, map: null };
+};
 
 // https://astro.build/config
 export default defineConfig({
@@ -51,7 +68,8 @@ export default defineConfig({
     // Optimización avanzada para CSS y JS mediante Vite
     build: {
       cssCodeSplit: true, // Split CSS per page for better caching and smaller initial payload
-      cssMinify: 'lightningcss', // Usar minificador CSS más eficiente
+      // @ts-expect-error - Vite acepta funciones personalizadas para cssMinify
+      cssMinify: cssMinifyFn, // Usar minificador CSS más eficiente (clean-css)
       rollupOptions: {
         output: {
           // Optimiza cómo se nombran y agrupan los archivos CSS y JS

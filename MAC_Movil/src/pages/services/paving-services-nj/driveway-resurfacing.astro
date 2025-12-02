@@ -1,0 +1,360 @@
+---
+import { Image } from "astro:assets";
+// Import background image
+import asphaltServiceBg from "@/assets/imgs/banner/asphalt-service.webp";
+// Import resurfacing images
+import resurfacing1 from "@/assets/imgs/service/asphalt-paving/resurfacing-1.webp";
+import resurfacing2 from "@/assets/imgs/service/asphalt-paving/resurfacing-2.webp";
+import resurfacing3 from "@/assets/imgs/service/asphalt-paving/resurfacing-3.webp";
+import resurfacing4 from "@/assets/imgs/service/asphalt-paving/resurfacing-4.webp";
+import logo from "@/assets/imgs/logo.png";
+import Brands from "@/components/Brands.astro";
+import BreadcrumService from "@/components/BreadcrumService.astro";
+import CSSbase from "@/components/CSSbase.astro";
+import Favicon from "@/components/Favicon.astro";
+import Footer from "@/components/Footer.astro";
+import MainServices from "@/components/MainServices.astro";
+import Navbar from "@/components/Navbar.astro";
+import Preloader from "@/components/Preloader.astro";
+import Scripts from "@/components/Scripts.astro";
+import SocialMeta from "@/components/SocialMeta.astro";
+import TestimonialsSlider from "@/components/TestimonialsSlider.astro";
+import Flotante from "@/components/Flotante.astro";
+
+const site = Astro.site ?? new URL("https://macpavingandsealcoating.com");
+const toAbsolute = (asset: { src: string } | string) =>
+  typeof asset === "string" ? asset : new URL(asset.src, site).href;
+
+const pageMeta = {
+  title: "Driveway Resurfacing NJ | MAC Paving",
+  description:
+    "Quality asphalt resurfacing services to restore the look and functionality of your existing asphalt surfaces, providing a cost-effective solution to maintain your property's aesthetic and structural integrity.",
+  url:
+    "https://macpavingandsealcoating.com/services/paving-services-nj/driveway-resurfacing/",
+  keywords:
+    "paving services NJ, driveway paving in Passaic, asphalt contractors New Jersey, driveway resurfacing NJ, asphalt overlay Bergen County, commercial paving restoration Essex County, residential driveway repair Morris County",
+  image: resurfacing1,
+  imageAlt: "Driveway resurfacing overlay completed in North Jersey",
+};
+
+const pageImageUrl = toAbsolute(pageMeta.image);
+const logoUrl = toAbsolute(logo);
+
+const countiesServed = [
+  "Passaic County",
+  "Bergen County",
+  "Morris County",
+  "Essex County",
+  "Hudson County",
+  "Union County",
+  "Middlesex County",
+  "Somerset County",
+  "Sussex County",
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Driveway Paving Resurfacing",
+  name: pageMeta.title,
+  description: pageMeta.description,
+  image: pageImageUrl,
+  areaServed: countiesServed.map((county) => ({
+    "@type": "AdministrativeArea",
+    name: county,
+    addressCountry: "US",
+    addressRegion: "NJ",
+  })),
+  provider: {
+    "@type": "LocalBusiness",
+    name: "MAC Paving and Sealcoating LLC",
+    url: site.href,
+    telephone: "+1-201-755-7836",
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: "NJ",
+      addressCountry: "US",
+    },
+    image: logoUrl,
+  },
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Driveway Resurfacing Overlay",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Driveway Paving Services NJ",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Paving Installation" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Paving Resurfacing" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Paving Replacement" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Paving Extension" },
+      },
+    ],
+  },
+  potentialAction: [
+    {
+      "@type": "CallAction",
+      target: "tel:+12017557836",
+      name: "Call MAC Paving and Sealcoating LLC",
+    },
+    {
+      "@type": "ReserveAction",
+      name: "Book a Free Estimate",
+      target: [
+        {
+          "@type": "EntryPoint",
+          urlTemplate: "https://calendar.app.google/CQVM2nVsX15QCVq16",
+          inLanguage: "en",
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+        {
+          "@type": "EntryPoint",
+          urlTemplate: "https://macpavingandsealcoating.com/contact/",
+          inLanguage: "en",
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+      ],
+    },
+  ],
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>{pageMeta.title}</title>
+    <!-- Preconexión para recursos externos (mejora rendimiento) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <meta name="description" content={pageMeta.description} />
+    <link rel="canonical" href={pageMeta.url} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content={pageMeta.keywords} />
+    <script type="application/ld+json">
+      {JSON.stringify(serviceSchema)}
+    </script>
+
+    <Favicon />
+    <SocialMeta
+      title={pageMeta.title}
+      description={pageMeta.description}
+      url={pageMeta.url}
+      image={pageMeta.image}
+      imageAlt={pageMeta.imageAlt}
+    />
+    <CSSbase />
+  </head>
+  <body>
+    <Preloader />
+    <Navbar />
+    <!-- Header area end -->
+    <main>
+      <!-- Breadcrumb area start -->
+      <div class="breadcrumb__area theme-bg-1 p-relative pt-160 pb-160">
+        <BreadcrumService image={asphaltServiceBg} />
+        <div class="small-container">
+          <div class="row justify-content-center justify-content-md-start">
+            <div class="col-9 col-sm-9 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+              <div class="breadcrumb__wrapper p-relative">
+                <h1 class="breadcrumb__title">
+                  Driveway Resurfacing Services in North Jersey
+                </h1>
+                <div class="breadcrumb__menu">
+                  <nav>
+                    <ul>
+                      <li>
+                        <span><a href="/">Home / </a></span>
+                      </li>
+                      <li>
+                        <span><a href="/services/">Services / </a></span>
+                      </li>
+                      <li>
+                        <span
+                          ><a href="/services/paving-services-nj/"
+                            >Paving / </a
+                          ></span
+                        >
+                      </li>
+                      <li><span>Driveway Resurfacing</span></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Breadcrumb area end -->
+      <section class="service-details-page section-space">
+        <div class="small-container">
+          <div class="row">
+            <div class="col-xxl-8 col-xl-8 col-lg-8">
+              <div class="service-details-page-content">
+                <h2 class="service-details-title mt-25 mb-25">
+                  Quality Asphalt Resurfacing Services
+                </h2>
+                <p class="mb-25">
+                  Quality asphalt resurfacing services to restore the look and
+                  functionality of your existing asphalt surfaces, providing a
+                  cost-effective solution to maintain your property's aesthetic
+                  and structural integrity.
+                </p>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <figure class="w-img">
+                      <Image
+                        src={resurfacing1}
+                        alt="Driveway resurfacing crew improving asphalt in Passaic County NJ"
+                        width={600}
+                        height={400}
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                  <div class="col-lg-6">
+                    <figure class="w-img">
+                      <Image
+                        src={resurfacing2}
+                        alt="Commercial driveway overlay near Hudson County NJ"
+                        width={600}
+                        height={400}
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <h3 class="service-details-subtitle mt-45 mb-25">
+                      Residential, Commercial, Industrial & Private Solutions
+                    </h3>
+                    <p class="mb-25">
+                      Resurfacing keeps HOA lanes in Bergen County, warehouse
+                      aprons in Hudson, and private estates in Somerset running
+                      smoothly. We adjust asphalt mixes for traffic volume and
+                      finish with crisp edges that match existing curbs,
+                      walkways, or Belgium blocks so everything looks intentional.
+                    </p>
+                  </div>
+                  <div class="col-lg-6">
+                    <h3 class="service-details-subtitle mt-45 mb-25">
+                      What to Expect from Our Resurfacing Process
+                    </h3>
+                    <p class="mb-25">
+                      As asphalt contractors New Jersey property teams trust, our
+                      crews patch structural issues, mill high spots, and sweep
+                      the driveway before applying tack coat and fresh asphalt.
+                      We compact every lift with steel and rubber tire rollers
+                      for a dense, long-lasting surface. Most overlays are
+                      completed in one day, minimizing downtime for your
+                      household or business.
+                    </p>
+                  </div>
+                </div>
+                <figure class="w-img">
+                  <Image
+                    src={resurfacing3}
+                    alt="Industrial asphalt resurfacing project in Union County NJ"
+                    width={1200}
+                    height={600}
+                    loading="lazy"
+                  />
+                </figure>
+                <h3 class="service-details-subtitle mt-45 mb-25">
+                  When Resurfacing Beats Full Replacement
+                </h3>
+                <p class="mb-25">
+                  If the base is stable, resurfacing eliminates trip hazards,
+                  raises low spots, and seals minor cracking in a single visit.
+                  We will inspect the subbase, slope, and edges to confirm an
+                  overlay is the right move before you commit. Expect a quick
+                  turnaround, predictable pricing, and a driveway that looks new
+                  again.
+                </p>
+                <div class="row">
+                  <div class="col-lg-7">
+                    <figure class="w-img">
+                      <Image
+                        src={resurfacing4}
+                        alt="Private property driveway overlay in Somerset County NJ"
+                        width={800}
+                        height={500}
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                  <div class="col-lg-5 center-xs-list">
+                    <h3 class="section-sub-subtitle pt-20 pb-10">
+                      Resurfacing Checklist
+                    </h3>
+                    <ul
+                      class="service-details-page-list pt-20 pb-10 split-xs-columns"
+                    >
+                      <li>
+                        Dedicated project lead to coordinate milling, repairs,
+                        and access for residents or tenants.
+                      </li>
+                      <li>
+                        Crack filling, leveling, tack coat, and new asphalt lift
+                        for a seamless bond.
+                      </li>
+                      <li>
+                        Residential, commercial, industrial, and private drives
+                        tailored to load demands.
+                      </li>
+                      <li>
+                        Optional sealcoating, striping, and maintenance plans to
+                        protect your refreshed surface.
+                      </li>
+                    </ul>
+                    <h3 class="section-sub-subtitle pt-20 pb-10">
+                      Serving North Jersey Counties
+                    </h3>
+                    <ul
+                      class="service-details-page-list pt-20 pb-10 split-xs-columns"
+                    >
+                      {countiesServed.map((county) => (
+                        <li>{county}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <MainServices />
+          </div>
+        </div>
+      </section>
+      <TestimonialsSlider />
+      <Brands />
+    </main>
+    <Footer />
+    <Scripts />
+    <Flotante />
+  </body>
+</html>

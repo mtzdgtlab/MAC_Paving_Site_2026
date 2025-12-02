@@ -1,0 +1,156 @@
+---
+// Footer component
+import { Image } from "astro:assets";
+import logo from "@/assets/imgs/logo.png";
+import MapComponent from "./MapComponent.astro";
+---
+
+<footer>
+  <div class="footer-main bg-color-1">
+    <div class="footer-top section-space-xsmall">
+      <div class="small-container">
+        <div class="row g-4 mt-15">
+          <!-- Column 1: Logo + About -->
+          <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+            <div class="footer-widget-1">
+              <a
+                href="tel:+12017557836"
+                aria-label="Call MAC Paving and Sealcoating"
+              >
+                <figure class="image">
+                  <Image
+                    src={logo}
+                    alt="MAC Paving and Sealcoating"
+                    loading="lazy"
+                  />
+                </figure>
+                <span class="visually-hidden"
+                  >Call MAC Paving and Sealcoating</span
+                >
+              </a>
+              <p class="mt-25 mb-25 footer-text">
+                MAC Paving and Sealcoating LLC is a family-owned local crew
+                providing driveway paving installation, resurfacing,
+                replacement, extensions, sealcoating, crack filling, line
+                striping, and Belgium blocks.
+              </p>
+              <ul class="footer-socials mb-20">
+                <li>
+                  <a
+                    href="https://www.facebook.com/macpavingandsealcoating/"
+                    target="_blank"
+                    aria-label="Facebook"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <span class="visually-hidden">Facebook</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/macpavingandsealcoating/"
+                    target="_blank"
+                    aria-label="Instagram"
+                  >
+                    <i class="fa-brands fa-instagram"></i>
+                    <span class="visually-hidden">Instagram</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+            <div class="footer-widget-2 pl-50 pl-sm-0">
+              <h4 class="footer-title text-align-center mb-30">Quick Links</h4>
+              <ul class="service-list mt-30">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/services-areas/">Service Areas</a></li>
+                <li><a href="/services/paving-services-nj/">Paving Services</a></li>
+                <li><a href="/contact/">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Column 3: Services -->
+          <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+            <div class="footer-widget-2 pl-sm-0">
+              <h4 class="footer-title text-align-center mb-30">Our Services</h4>
+              <ul class="service-list mt-30">
+                <li>
+                  <a href="/services/paving-services-nj/driveway-installation/"
+                    >Driveway Installation</a>
+                </li>
+                <li>
+                  <a href="/services/paving-services-nj/driveway-extension/"
+                    >Driveway Extensions</a>
+                </li>
+                <li>
+                  <a href="/services/sealer-services-nj/sealcoating/">Sealcoating</a>
+                </li>
+                <li>
+                  <a href="/services/sealer-services-nj/crack-filling/">Crack Filling</a>
+                </li>
+                <li>
+                  <a href="/services/belgium-blocks/">Belgium Block</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Column 4: Service Area Map -->
+          <div
+            class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6"
+            itemprop="areaServed"
+            itemscope
+            itemtype="https://schema.org/Place"
+          >
+            <div class="footer-widget-2">
+              <h4 class="mb-30 footer-title-map" itemprop="name">
+                Service Area
+              </h4>
+
+              <p class="visually-hidden" itemprop="description">
+                MAC Paving and Sealcoating serves residential, commercial, and
+                private properties across Passaic, Bergen, Morris, Essex,
+                Hudson, Union, Middlesex, Somerset, and Sussex counties.
+              </p>
+
+              <div class="footer-map">
+                <MapComponent id="footer-map" />
+              </div>
+
+              <meta itemprop="addressRegion" content="New Jersey" />
+              <meta
+                itemprop="name"
+                content="Passaic, Bergen, Essex, Morris, Middlesex, Union, Somerset, Hudson, Sussex"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="small-container">
+      <div class="footer-bottom pt-30 pb-30">
+        <div class="left-area text-white">
+          <span style="letter-spacing: 0.2px;">
+            Designed and developed by
+            <a
+              href="tel:+522201758149"
+              style="color: hotpink; font-weight: bold; margin-left: 5px;"
+            >
+              Isra Martinez
+            </a>
+          </span>
+        </div>
+
+        <div class="right-area text-white hide-on-mobile">
+          &copy; <span id="current-year"></span> MAC Paving and Sealcoating LLC.
+          All rights reserved.
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

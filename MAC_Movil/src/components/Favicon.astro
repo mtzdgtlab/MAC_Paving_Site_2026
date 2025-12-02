@@ -1,0 +1,48 @@
+---
+import { getImage } from "astro:assets";
+import appleTouchIcon from "@/assets/imgs/favicon/apple-touch-icon.webp";
+import favicon16 from "@/assets/imgs/favicon/favicon-16x16.webp";
+import favicon32 from "@/assets/imgs/favicon/favicon-32x32.webp";
+import faviconIco from "@/assets/imgs/favicon/favicon.ico?url";
+import safariPinned from "@/assets/imgs/favicon/safari-pinned-tab.svg?url";
+import maskableIcon from "@/assets/imgs/favicon/maskable-icon.webp";
+import androidChrome192 from "@/assets/imgs/favicon/android-chrome-192x192.webp";
+import androidChrome512 from "@/assets/imgs/favicon/android-chrome-512x512.webp";
+
+const manifestHref = "/assets/imgs/favicon/site.webmanifest";
+
+// Procesar imágenes con getImage para obtener URLs correctas
+const optimized192 = await getImage({ src: androidChrome192 });
+const optimized512 = await getImage({ src: androidChrome512 });
+const optimizedMaskable = await getImage({ src: maskableIcon });
+const optimizedApple = await getImage({ src: appleTouchIcon });
+const optimized32 = await getImage({ src: favicon32 });
+const optimized16 = await getImage({ src: favicon16 });
+---
+
+<!-- Favicon moderno -->
+<link rel="icon" href={faviconIco} sizes="any" />
+<link rel="icon" href={optimized192.src} sizes="192x192" type="image/webp" />
+<link rel="icon" href={optimized512.src} sizes="512x512" type="image/webp" />
+<link rel="icon" href={optimizedMaskable.src} sizes="512x512" type="image/webp" />
+<link 
+  rel="apple-touch-icon" 
+  sizes="180x180" 
+  href={optimizedApple.src} />
+<link 
+  rel="icon" 
+  type="image/png" 
+  sizes="32x32" 
+  href={optimized32.src} />
+<link 
+  rel="icon" 
+  type="image/png" 
+  sizes="16x16" 
+  href={optimized16.src} />
+<link rel="manifest" href={manifestHref} />
+<link 
+  rel="mask-icon" 
+  href={safariPinned} 
+  color="#1C5EA0" />
+<meta name="msapplication-TileColor" content="#ffffff" />
+<meta name="theme-color" content="#1A3164" />

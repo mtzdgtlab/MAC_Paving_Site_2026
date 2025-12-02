@@ -1,0 +1,574 @@
+---
+import { Image } from "astro:assets";
+// Import asphalt background image
+import asphaltBg from "@/assets/imgs/bg/asphalt-cover.webp";
+import extension3 from "@/assets/imgs/service/asphalt-paving/extension-3.webp";
+// Import asphalt paving images
+import installation3 from "@/assets/imgs/service/asphalt-paving/installation-3.webp";
+import installation4 from "@/assets/imgs/service/asphalt-paving/installation-4.webp";
+import installation5 from "@/assets/imgs/service/asphalt-paving/installation-5.webp";
+import replacement4 from "@/assets/imgs/service/asphalt-paving/replacement-4.webp";
+import resurfacing1 from "@/assets/imgs/service/asphalt-paving/resurfacing-1.webp";
+import shape9 from "@/assets/imgs/shapes/shape-9.webp";
+import shape10 from "@/assets/imgs/shapes/shape-10.webp";
+import BreadcrumService from "@/components/BreadcrumService.astro";
+import CSSbase from "@/components/CSSbase.astro";
+import Favicon from "@/components/Favicon.astro";
+import Footer from "@/components/Footer.astro";
+import Navbar from "@/components/Navbar.astro";
+import Preloader from "@/components/Preloader.astro";
+import Scripts from "@/components/Scripts.astro";
+import SocialMeta from "@/components/SocialMeta.astro";
+import Flotante from "@/components/Flotante.astro";
+import LargeForm from "@/components/LargeForm.astro";
+import WhyChooseUs from "@/components/WhyChooseUs.astro";
+import ProjectSlider from "@/components/ProjectSlider.astro";
+import { northJerseyCounties } from "@/utils/counties";
+
+const pageMeta = {
+  title: "Driveway Paving Services NJ | MAC Paving",
+  description:
+    "Owner-led MAC Paving rebuilds residential and neighborhood commercial driveways across Passaic, Bergen, Morris, Essex, Hudson, Union, Middlesex, Somerset, and Sussex counties with installation, resurfacing, replacement, and extension services.",
+  url: "https://macpavingandsealcoating.com/services/paving-services-nj/",
+  keywords:
+    "driveway paving NJ, asphalt driveway contractors North Jersey, driveway resurfacing Passaic County, driveway replacement Bergen County, driveway extension Morris County",
+  image: asphaltBg,
+  imageAlt: "Asphalt paving crew preparing a North Jersey driveway",
+};
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>{pageMeta.title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <meta name="description" content={pageMeta.description} />
+    <link rel="canonical" href={pageMeta.url} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content={pageMeta.keywords} />
+
+    <Favicon />
+    <SocialMeta
+      title={pageMeta.title}
+      description={pageMeta.description}
+      url={pageMeta.url}
+      image={pageMeta.image}
+      imageAlt={pageMeta.imageAlt}
+    />
+    <CSSbase />
+  </head>
+  <body>
+    <Preloader />
+    <Navbar />
+    <!-- Header area end -->
+
+    <main>
+      <!-- Breadcrumb area start -->
+      <div class="breadcrumb__area theme-bg-1 p-relative pt-160 pb-160">
+        <BreadcrumService image={asphaltBg} />
+        <div class="small-container">
+          <div class="row justify-content-center justify-content-md-start">
+            <div class="col-9 col-sm-9 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+              <div class="breadcrumb__wrapper p-relative">
+                <h1 class="breadcrumb__title">
+                  Asphalt Paving Contractor in North Jersey
+                </h1>
+                <div class="breadcrumb__menu">
+                  <nav>
+                    <ul>
+                      <li>
+                        <span><a href="/">Home / </a></span>
+                      </li>
+                      <li>
+                        <span><a href="/services/">Services / </a></span>
+                      </li>
+                      <li><span>Asphalt Paving</span></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Breadcrumb area end -->
+
+      <section class="section-space-bottom section-space-top">
+        <div class="small-container">
+          <div class="row g-4 align-items-start">
+            <div class="col-xxl-10 col-xl-10 col-lg-10">
+              <span class="section-sub-title">Family-Owned Asphalt Crews</span>
+              <h2 class="section-title mt-20">
+                Built for Local Weather
+              </h2>
+              <p class="mt-20">
+                We review grading, traffic, and curb appeal before removing or
+                building pavement so every driveway gets the right base depth,
+                asphalt mix, edging, and finishing pass for North Jersey winters
+                and daily parking. Owners receive milestone updates, photos, and
+                easy aftercare tips.
+              </p>
+              <p class="mt-15">
+                <a href="tel:+12017557836" class="primary-btn-1 btn-hover">
+                  Call (201) 755-7836
+                </a>
+              </p>
+              <ul class="service-details-page-list mt-25">
+                <li>
+                  Structural base prep, grading, and asphalt paving geared for
+                  residential, commercial, and private properties.
+                </li>
+                <li>
+                  Coordinated <a href="/services/sealer-services-nj/sealcoating/">sealcoating and maintenance</a>
+                  programs to keep fresh asphalt protected.
+                </li>
+                <li>
+                  Decorative work such as Belgium block aprons, stone borders,
+                  lighting conduits, and smooth tie-ins to existing surfaces.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Service Slider area start -->
+      <section
+        aria-label="Services section"
+        class="service-slider-section section-space bg-color-1"
+      >
+        <style>
+          @import "/src/assets/css/service-cards.css";
+        </style>
+        <div class="shape-10" data-background={shape10.src}>
+        </div>
+        <div class="shape-9" data-background={shape9.src}></div>
+        <div class="container">
+          <div class="row align-items-center justify-content-between mb-50">
+            <div class="col-xxl-12 d-flex justify-content-between align-items-center flex-wrap">
+              <div class="title-box" data-aos="fade-left" data-aos-delay="200">
+                <span class="section-sub-titledos">
+                  Driveway Paving Services
+                </span>
+                <h3 class="section-title mt-35">
+                  Our Paving Solutions
+                </h3>
+              </div>
+              <div class="service_1_navigation__wrapprer position-relative z-1 mt-30">
+                <div class="common-slider-navigation">
+                  <button class="service-1-button-prev" aria-label="Previous service">
+                    <i class="fas fa-arrow-left"></i>
+                  </button>
+                  <button class="service-1-button-next" aria-label="Next service">
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper service-active-1">
+            <div class="swiper-wrapper">
+              <!-- Installation -->
+              <div class="swiper-slide">
+                <div class="service-card">
+                  <!-- 1. Sección de Imagen -->
+                  <div class="service-image-section">
+                    <a href="/services/paving-services-nj/driveway-installation/">
+                      <figure class="service-image">
+                        <Image
+                          src={installation5}
+                          alt="Driveway paving installation crew compacting asphalt in Passaic County NJ"
+                          width={370}
+                          height={278}
+                          format="webp"
+                          quality={85}
+                          sizes="(max-width: 768px) 100vw, 370px"
+                        />
+                      </figure>
+                    </a>
+                  </div>
+
+                  <!-- 2. Sección de Icono -->
+                  <div class="service-icon-section">
+                    <div class="icon-box">
+                      <i class="fas fa-road"></i>
+                    </div>
+                  </div>
+
+                  <!-- 3. Sección de Título -->
+                  <div class="service-title-section">
+                    <h3 class="service-title">
+                      <a href="/services/paving-services-nj/driveway-installation/">Installation</a>
+                    </h3>
+                  </div>
+
+                  <!-- 4. Sección de Descripción -->
+                  <div class="service-description-section">
+                    <p class="service-description">
+                      Tear-out, base prep, grading, and asphalt paving for new
+                      residential, commercial, and private driveways with
+                      decorative borders and apron options.
+                    </p>
+                  </div>
+
+                  <!-- 5. Sección de Botón -->
+                  <div class="service-button-section">
+                    <a href="/services/paving-services-nj/driveway-installation/" class="service-btn">
+                      Read More <i class="fas fa-angles-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Resurfacing -->
+              <div class="swiper-slide">
+                <div class="service-card">
+                  <!-- 1. Sección de Imagen -->
+                  <div class="service-image-section">
+                    <a href="/services/paving-services-nj/driveway-resurfacing/">
+                      <figure class="service-image">
+                        <Image
+                          src={resurfacing1}
+                          alt="Driveway resurfacing overlay completed in Bergen County NJ"
+                          width={370}
+                          height={278}
+                          format="webp"
+                          quality={85}
+                          sizes="(max-width: 768px) 100vw, 370px"
+                        />
+                      </figure>
+                    </a>
+                  </div>
+
+                  <!-- 2. Sección de Icono -->
+                  <div class="service-icon-section">
+                    <div class="icon-box">
+                      <i class="fas fa-layer-group"></i>
+                    </div>
+                  </div>
+
+                  <!-- 3. Sección de Título -->
+                  <div class="service-title-section">
+                    <h3 class="service-title">
+                      <a href="/services/paving-services-nj/driveway-resurfacing/">Resurfacing</a>
+                    </h3>
+                  </div>
+
+                  <!-- 4. Sección de Descripción -->
+                  <div class="service-description-section">
+                    <p class="service-description">
+                      Mill, repair, and overlay aging asphalt to add lifespan,
+                      smooth out ruts, and keep properties operational without
+                      the cost of a full rebuild.
+                    </p>
+                  </div>
+
+                  <!-- 5. Sección de Botón -->
+                  <div class="service-button-section">
+                    <a href="/services/paving-services-nj/driveway-resurfacing/" class="service-btn">
+                      Read More <i class="fas fa-angles-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Replacement -->
+              <div class="swiper-slide">
+                <div class="service-card">
+                  <!-- 1. Sección de Imagen -->
+                  <div class="service-image-section">
+                    <a href="/services/paving-services-nj/driveway-replacement/">
+                      <figure class="service-image">
+                        <Image
+                          src={replacement4}
+                          alt="Driveway replacement excavation underway in Morris County NJ"
+                          width={370}
+                          height={278}
+                          format="webp"
+                          quality={85}
+                          sizes="(max-width: 768px) 100vw, 370px"
+                        />
+                      </figure>
+                    </a>
+                  </div>
+
+                  <!-- 2. Sección de Icono -->
+                  <div class="service-icon-section">
+                    <div class="icon-box">
+                      <i class="fas fa-recycle"></i>
+                    </div>
+                  </div>
+
+                  <!-- 3. Sección de Título -->
+                  <div class="service-title-section">
+                    <h3 class="service-title">
+                      <a href="/services/paving-services-nj/driveway-replacement/">Replacement</a>
+                    </h3>
+                  </div>
+
+                  <!-- 4. Sección de Descripción -->
+                  <div class="service-description-section">
+                    <p class="service-description">
+                      Remove failed pavement, rebuild stone bases, and install
+                      new asphalt sections engineered for modern traffic loads
+                      and local standards.
+                    </p>
+                  </div>
+
+                  <!-- 5. Sección de Botón -->
+                  <div class="service-button-section">
+                    <a href="/services/paving-services-nj/driveway-replacement/" class="service-btn">
+                      Read More <i class="fas fa-angles-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Extension -->
+              <div class="swiper-slide">
+                <div class="service-card">
+                  <!-- 1. Sección de Imagen -->
+                  <div class="service-image-section">
+                    <a href="/services/paving-services-nj/driveway-extension/">
+                      <figure class="service-image">
+                        <Image
+                          src={extension3}
+                          alt="Driveway extension grading for an Essex County NJ home"
+                          width={370}
+                          height={278}
+                          format="webp"
+                          quality={85}
+                          sizes="(max-width: 768px) 100vw, 370px"
+                        />
+                      </figure>
+                    </a>
+                  </div>
+
+                  <!-- 2. Sección de Icono -->
+                  <div class="service-icon-section">
+                    <div class="icon-box">
+                      <i class="fas fa-border-all"></i>
+                    </div>
+                  </div>
+
+                  <!-- 3. Sección de Título -->
+                  <div class="service-title-section">
+                    <h3 class="service-title">
+                      <a href="/services/paving-services-nj/driveway-extension/">Extension</a>
+                    </h3>
+                  </div>
+
+                  <!-- 4. Sección de Descripción -->
+                  <div class="service-description-section">
+                    <p class="service-description">
+                      Expand existing driveways and parking areas to add
+                      parking pads, boat storage, or ADA access with seamless
+                      tie-ins to current pavement.
+                    </p>
+                  </div>
+
+                  <!-- 5. Sección de Botón -->
+                  <div class="service-button-section">
+                    <a href="/services/paving-services-nj/driveway-extension/" class="service-btn">
+                      Read More <i class="fas fa-angles-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Service Slider area end -->
+
+      <section class="service-details-page section-space">
+        <div class="small-container">
+          <div class="row">
+            <div class="col-xxl-12 col-xl-12 col-lg-12">
+              <div class="service-details-page-content">
+                <h2 class="service-details-title mt-25 mb-25">
+                  Driveway Paving Built for North Jersey Weather
+                </h2>
+                <p class="mb-25">
+                  Freeze-thaw cycles, plows, oil deliveries, and HOA traffic all
+                  stress asphalt differently. We inspect subgrade conditions,
+                  slopes, and utilities before we touch a shovel so each
+                  driveway receives the right stone depth, asphalt mix, and
+                  finishing details. Owners stay informed at every milestone
+                  with schedule updates and site photos.
+                </p>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <h3 class="service-details-subtitle mt-25 mb-15">
+                      Who We Serve
+                    </h3>
+                    <ul class="service-details-page-list">
+                      <li>
+                        Single-family homes, estates, multifamily communities,
+                        and townhome courts.
+                      </li>
+                      <li>
+                        Shared parking courts and alleys for small apartment
+                        groups or HOAs.
+                      </li>
+                      <li>
+                        Neighborhood stores, clinics, and offices that need
+                        short paving windows.
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-6">
+                    <h3 class="service-details-subtitle mt-25 mb-15">
+                      How We Deliver
+                    </h3>
+                    <ul class="service-details-page-list">
+                      <li>
+                        Permit coordination, inspections, and staging handled by
+                        our office team.
+                      </li>
+                      <li>
+                        Dedicated crews for demolition, grading, base prep,
+                        paving, edging, line striping, and sealcoating.
+                      </li>
+                      <li>
+                        Clear good-better-best scopes so you can phase
+                        resurfacing, replacement, or extension work.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <figure class="w-img">
+                    <Image
+                      src={installation3}
+                      alt="Owner-led crew compacting fresh asphalt in Hudson County NJ"
+                      width={1200}
+                      height={600}
+                      loading="lazy"
+                  />
+                </figure>
+                <h3 class="service-details-subtitle mt-45 mb-25">
+                  When to Rebuild Your Driveway
+                </h3>
+                <p class="mb-25">
+                  Cracking, potholes, standing water, or parking shortages point
+                  to resurfacing, replacement, or extensions. We plan apron
+                  upgrades, parking pads, ADA-friendly access, and Belgium block
+                  accents to keep properties sharp and easy to maintain.
+                </p>
+                <div class="row">
+                  <div class="col-lg-7">
+                    <figure class="w-img">
+                    <Image
+                      src={installation4}
+                      alt="Replacement driveway finishing pass in Union County NJ"
+                      width={800}
+                      height={500}
+                      loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                  <div class="col-lg-5 center-xs-list">
+                    <h3 class="section-sub-subtitle pt-20 pb-10">
+                      Quick Checklist
+                    </h3>
+                    <ul class="service-details-page-list pt-20 pb-10">
+                      <li>Cracking, sinking, or patched areas keep returning.</li>
+                      <li>Water drains toward structures or neighboring lots.</li>
+                      <li>Driveway width no longer supports daily traffic.</li>
+                      <li>
+                        HOA or township citations require immediate upgrades.
+                      </li>
+                    </ul>
+                    <h3 class="section-sub-subtitle pt-20 pb-10">
+                      Counties We Cover
+                    </h3>
+                    <ul class="service-details-page-list pt-20 pb-10 split-xs-columns">
+                      {northJerseyCounties.map((county) => (
+                        <li>{county}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     
+
+      <WhyChooseUs />
+      <LargeForm
+      title="Plan Your Driveway Project"
+      subtitle="REQUEST YOUR DRIVEWAY ESTIMATE"
+      buttonText="Share Project Details"
+    />
+      <ProjectSlider />
+
+      <!-- Icon box counter area start -->
+      <section class="icon-box-counter-section section-space">
+        <div class="small-container">
+          <div class="row g-4">
+            <div class="col-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-25">
+              <div class="icon-box-counter-area">
+                <div class="icon-box">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="content">
+                  <h3><span class="counter">15</span>+</h3>
+                  <span class="text-1">Years Rebuilding Driveways</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-25">
+              <div class="icon-box-counter-area">
+                <div class="icon-box">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="content">
+                  <h3><span class="counter">9</span></h3>
+                  <span class="text-1">North Jersey Counties</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+              <div class="icon-box-counter-area">
+                <div class="icon-box">
+                  <i class="fas fa-layer-group"></i>
+                </div>
+                <div class="content">
+                  <h3><span class="counter">4</span></h3>
+                  <span class="text-1">Driveway Service Lines</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+              <div class="icon-box-counter-area">
+                <div class="icon-box">
+                  <i class="fas fa-people-carry"></i>
+                </div>
+                <div class="content">
+                  <h3><span class="counter">1</span></h3>
+                  <span class="text-1">Owner-Led Crew</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Icon box counter area end -->
+    </main>
+
+    <Footer />
+    <Scripts />
+    <Flotante />
+  </body>
+</html>

@@ -1,0 +1,182 @@
+<!-- Botón flotante responsive -->
+<div id="floating-call" class="floating-call-btn" aria-hidden="true">
+  <a href="tel:+12017557836" class="call-btn">
+    <span class="call-text-desktop"
+      >CALL US&nbsp; | &nbsp;<i class="fas fa-phone"></i
+    ></span>
+    <span class="call-text-mobile">
+      CALL&nbsp;US <i class="fas fa-phone" aria-hidden="true"></i>
+    </span>
+  </a>
+</div>
+
+<style>
+  @keyframes floaty-btn {
+    0%, 100% {
+      transform: translateY(calc(-50% - 0px));
+    }
+    50% {
+      transform: translateY(calc(-50% - 15px));
+    }
+  }
+
+  .floating-call-btn {
+    position: fixed;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+    z-index: 1000; /* inferior al preloader */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .floating-call-btn.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    animation: floaty-btn 3s ease-in-out infinite;
+  }
+
+  .floating-call-btn.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    animation: none;
+  }
+
+  /* Estilo general (desktop) */
+  .call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #0069ff;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  .call-btn i {
+    font-size: 16px;
+  }
+
+  .call-text-mobile {
+    display: none;
+  }
+
+  /* Versión móvil */
+  @media (max-width: 768px) {
+    .floating-call-btn {
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+    }
+
+    .floating-call-btn.is-visible {
+      animation: floaty-btn 3s ease-in-out infinite;
+    }
+
+    .call-btn {
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      line-height: 1;
+      gap: 6px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    }
+
+    .call-text-desktop {
+      display: none;
+    }
+
+    .call-text-mobile {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .call-btn i {
+      margin-left: 0;
+      font-size: 14px;
+    }
+  }
+
+  /* Si el preloader está activo, oculta el botón completamente */
+  body.preloader-active .floating-call-btn {
+    display: none !important;
+  }
+</style>
+
+<script>
+  ;(function () {
+    var btn = document.getElementById('floating-call')
+    if (!btn) {
+      return
+    }
+    btn.classList.remove('is-visible')
+    btn.setAttribute('aria-hidden', 'true')
+
+    function showButton() {
+      btn.classList.remove('is-hidden')
+      btn.classList.add('is-visible')
+      btn.setAttribute('aria-hidden', 'false')
+    }
+
+    function hideButton() {
+      btn.classList.remove('is-visible')
+      btn.classList.add('is-hidden')
+      btn.setAttribute('aria-hidden', 'true')
+    }
+
+    function checkFooterProximity() {
+      var footer = document.querySelector('footer')
+      if (!footer) {
+        return false
+      }
+      
+      var footerRect = footer.getBoundingClientRect()
+      var windowHeight = window.innerHeight
+      var footerTop = footerRect.top
+      
+      // Hide button when footer is within 200px of viewport
+      return footerTop < windowHeight + 200
+    }
+
+    var hasScrolled = false
+
+    function handleScroll() {
+      // Detectar el primer scroll (umbral de 50px para evitar scrolls muy pequeños)
+      if (!hasScrolled && window.scrollY > 50) {
+        hasScrolled = true
+      }
+
+      // Solo mostrar el botón después del primer scroll
+      if (hasScrolled) {
+        if (checkFooterProximity()) {
+          hideButton()
+        } else {
+          showButton()
+        }
+      } else {
+        // Si no ha hecho scroll, mantener oculto
+        hideButton()
+      }
+    }
+
+    window.addEventListener('load', function () {
+      // Listener de scroll para detectar el primer scroll y controlar visibilidad
+      window.addEventListener(
+        'scroll',
+        handleScroll,
+        { passive: true }
+      )
+
+      // Verificar estado inicial (por si la página carga con scroll)
+      handleScroll()
+    })
+  })()
+</script>
