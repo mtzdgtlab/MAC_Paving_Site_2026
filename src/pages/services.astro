@@ -15,6 +15,8 @@ import crackFilling3 from "@/assets/imgs/service/sealer/crack-filling-3.webp";
 import crackFilling4 from "@/assets/imgs/service/sealer/crack-filling-4.webp";
 import lineStriping1 from "@/assets/imgs/service/sealer/line-striping-1.webp";
 import sealcoating2 from "@/assets/imgs/service/sealer/sealcoating-2.webp";
+import shape9 from "@/assets/imgs/shapes/shape-9.webp";
+import shape10 from "@/assets/imgs/shapes/shape-10.webp";
 import BreadcrumService from "@/components/BreadcrumService.astro";
 import CSSbase from "@/components/CSSbase.astro";
 import Favicon from "@/components/Favicon.astro";
@@ -26,6 +28,8 @@ import SocialMeta from "@/components/SocialMeta.astro";
 import TestimonialsSlider from "@/components/TestimonialsSlider.astro";
 import Flotante from "@/components/Flotante.astro";
 import Quality from "@/components/Quality.astro";
+import LargeForm from "@/components/LargeForm.astro";
+
 
 const serviceGallery = [
   {
@@ -128,7 +132,7 @@ const serviceGallery = [
             <div class="col-9 col-sm-9 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
               <div class="breadcrumb__wrapper p-relative">
                 <h1 class="breadcrumb__title">
-                  MAC Paving and Sealcoating Services
+                  Family-Owned Asphalt Paving Company in NJ
                 </h1>
                 <div class="breadcrumb__menu">
                   <nav>
@@ -142,17 +146,7 @@ const serviceGallery = [
                 </div>
               </div>
             </div>
-              <div class="header-action d-inline-flex gap-5 justify-content-center">
-                <div class="header-link" data-aos="fade-left">
-                  <a
-                      class="primary-btn-1 btn-hover mt-30"
-                      href="tel:+12017557836"
-                    >
-                      Call Our Family Office &nbsp; |
-                      <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-              </div>
+              
           </div>
         </div>
       </div>
@@ -207,191 +201,217 @@ const serviceGallery = [
       </section>
 
       <!-- Service Slider area start -->
-      <section class="service-page-section section-space">
-        <div class="small-container">
+      <section
+        aria-label="Services section"
+        class="service-slider-section section-space bg-color-1"
+      >
+        <style>
+          @import "/src/assets/css/service-cards.css";
+        </style>
+        <div class="shape-10" data-background={shape10.src}>
+        </div>
+        <div class="shape-9" data-background={shape9.src}></div>
+        <div class="container">
           <div class="row g-4">
-            <div class="col-xxl-8 col-xl-8 col-lg-8">
-              <div class="row g-4">
-                <div class="col-xxl-6 col-xl-6 col-lg-6 mb-15">
-                  <div class="service-slider-area align-service-headings">
-                    <figure class="service-image">
-                      <Image
-                        src={asphaltReplacement}
-                        alt="Driveway paving crew compacting asphalt in Passaic County NJ"
-                        width={400}
-                        height={300}
-                        format="webp"
-                        style="width: 100%; height: 100%; object-fit: cover;"
-                      />
-                    </figure>
-                    <div class="content">
-                      <div class="icon-box"><i class="fas fa-road"></i></div>
-                      <h3><a href="/services/paving-services-nj/">Paving Services</a></h3>
-                      <p>
-                        Driveway installation, resurfacing, replacement, and
-                        extensions with engineered bases, precise grading, and
-                        clean finishing for homes and neighborhood lots.
-                      </p>
-                      <a href="/services/paving-services-nj/" class="service-btn">
-                        View Service Info <i class="icon-arrow-right-double"></i>
+            <div class="col-xxl-12 col-xl-12 col-lg-12">
+              <div class="row align-items-center justify-content-between mb-50">
+                <div class="col-xxl-12 d-flex justify-content-between align-items-center flex-wrap">
+                  <div class="title-box" data-aos="fade-left" data-aos-delay="200">
+                    <span class="section-sub-titledos">
+                      North Jersey Paving & Maintenance
+                    </span>
+                    <h3 class="section-title mt-35">
+                      <a href="/services/" style="color: inherit; text-decoration: none;">
+                        Signature Paving Services
                       </a>
+                    </h3>
+                  </div>
+                  <div class="service_1_navigation__wrapprer position-relative z-1 mt-30">
+                    <div class="common-slider-navigation">
+                      <button class="service-1-button-prev" aria-label="Previous service">
+                        <i class="fas fa-arrow-left"></i>
+                      </button>
+                      <button class="service-1-button-next" aria-label="Next service">
+                        <i class="fas fa-arrow-right"></i>
+                      </button>
                     </div>
                   </div>
-                </div>
-
-                <div class="col-xxl-6 col-xl-6 col-lg-6 mb-15">
-                  <div class="service-slider-area align-service-headings">
-                    <figure class="service-image">
-                      <Image
-                        src={sealerService}
-                        alt="Sealcoating technician spraying asphalt protection in Bergen County NJ"
-                        width={400}
-                        height={300}
-                        format="webp"
-                        style="width: 100%; height: 100%; object-fit: cover;"
-                      />
-                    </figure>
-                    <div class="content">
-                      <div class="icon-box">
-                        <i class="fas fa-fill-drip"></i>
-                      </div>
-                      <h3><a href="/services/sealer-services-nj/">Sealer</a></h3>
-                      <p>
-                        Sealcoating, crack filling, line striping, and seasonal
-                        maintenance plans that extend the life of driveways and
-                        small parking lots.
-                      </p>
-                      <a href="/services/sealer-services-nj/" class="service-btn">
-                        View Service Info <i class="icon-arrow-right-double"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-xxl-6 col-xl-6 col-lg-6 mb-15">
-                  <div class="service-slider-area align-service-headings">
-                    <figure class="service-image">
-                      <Image
-                        src={stoneBorderService}
-                        alt="Belgium block edging crew setting stones in Morris County NJ"
-                        width={400}
-                        height={300}
-                        format="webp"
-                        style="width: 100%; height: 100%; object-fit: cover;"
-                      />
-                    </figure>
-                    <div class="content">
-                      <div class="icon-box">
-                        <i class="fas fa-layer-group"></i>
-                      </div>
-                      <h3><a href="/services/belgium-blocks/">Belgium Blocks</a></h3>
-                      <p>
-                        Belgium block edging and curbing for driveways and
-                        walkways to add durable borders and clean, classic
-                        lines.
-                      </p>
-                      <a href="/services/belgium-blocks/" class="service-btn">
-                        View Service Info <i class="icon-arrow-right-double"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4">
-              <div class="contact-page-form-area">
-                <div
-                  class="title-box mb-40 wow fadeInLeft"
-                  data-wow-delay=".5s"
-                >
-                  <span class="section-sub-title">TALK TO A PAVING SPECIALIST</span>
-                  <h5 class="form-title mt-10" aria-label="Request Your Estimate">
-                    Send Project Details
-                  </h5>
-                </div>
-                <div class="contact-page-form">
-                  <form
-                    action="https://formspree.io/f/mvgpzjbv"
-                    method="POST"
-                    id="contactForm-main"
-                  >
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <label for="contact-name">Your Name*</label>
-                        <input
-                          type="text"
-                          name="name"
-                          id="contact-name"
-                          placeholder="Full Name*"
-                          required
-                        />
-                      </div>
-                      <div class="col-lg-12">
-                        <label for="contact-email">Your Email*</label>
-                        <input
-                          type="email"
-                          name="email"
-                          id="contact-email"
-                          placeholder="Email Address*"
-                          required
-                        />
-                      </div>
-                      <div class="col-lg-12">
-                        <label for="contact-phone">Your Phone*</label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          id="contact-phone"
-                          placeholder="Phone Number*"
-                          pattern="[0-9]{10}"
-                          required
-                        />
-                      </div>
-                      <div class="col-lg-12">
-                        <label for="contact-service">Required Service*</label>
-                        <input
-                          type="text"
-                          name="service"
-                          id="contact-service"
-                        placeholder="Driveway paving, sealcoating, edging, etc.*"
-                          required
-                        />
-                      </div>
-                      <div class="col-lg-12">
-                        <label for="contact-address">Project Address*</label>
-                        <input
-                          type="text"
-                          name="address"
-                          id="contact-address"
-                          placeholder="Street, City, County*"
-                          required
-                        />
-                      </div>
-                      <div class="col-lg-12">
-                        <button type="submit" class="primary-btn-1 btn-hover">
-                          Send a Quote Request | <i class="fas fa-arrow-right"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <div id="formMessage" class="mt-3" style="display: none">
-                    </div>
-                  </form>
                 </div>
               </div>
+
+              <div class="swiper service-active-1">
+                <div class="swiper-wrapper">
+                  <!-- Paving Services -->
+                  <div class="swiper-slide">
+                    <div class="service-card">
+                      <!-- 1. Sección de Imagen -->
+                      <div class="service-image-section">
+                        <a href="/services/paving-services-nj/">
+                          <figure class="service-image">
+                            <Image
+                              src={asphaltReplacement}
+                              alt="Driveway paving crew compacting asphalt in Passaic County NJ"
+                              width={370}
+                              height={278}
+                              format="webp"
+                              quality={85}
+                              sizes="(max-width: 768px) 100vw, 370px"
+                            />
+                          </figure>
+                        </a>
+                      </div>
+
+                      <!-- 2. Sección de Icono -->
+                      <div class="service-icon-section">
+                        <div class="icon-box">
+                          <i class="fas fa-road"></i>
+                        </div>
+                      </div>
+
+                      <!-- 3. Sección de Título -->
+                      <div class="service-title-section">
+                        <h3 class="service-title">
+                          <a href="/services/paving-services-nj/">Paving Services</a>
+                        </h3>
+                      </div>
+
+                      <!-- 4. Sección de Descripción -->
+                      <div class="service-description-section">
+                        <p class="service-description">
+                          Driveway installation, resurfacing, replacement, and
+                          extensions with engineered bases, precise grading, and
+                          clean finishing for homes and neighborhood lots.
+                        </p>
+                      </div>
+
+                      <!-- 5. Sección de Botón -->
+                      <div class="service-button-section">
+                        <a href="/services/paving-services-nj/" class="service-btn">
+                          Read More <i class="fas fa-angles-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Sealer Services -->
+                  <div class="swiper-slide">
+                    <div class="service-card">
+                      <!-- 1. Sección de Imagen -->
+                      <div class="service-image-section">
+                        <a href="/services/sealer-services-nj/">
+                          <figure class="service-image">
+                            <Image
+                              src={sealerService}
+                              alt="Sealcoating technician spraying asphalt protection in Bergen County NJ"
+                              width={370}
+                              height={278}
+                              format="webp"
+                              quality={85}
+                              sizes="(max-width: 768px) 100vw, 370px"
+                            />
+                          </figure>
+                        </a>
+                      </div>
+
+                      <!-- 2. Sección de Icono -->
+                      <div class="service-icon-section">
+                        <div class="icon-box">
+                          <i class="fas fa-fill-drip"></i>
+                        </div>
+                      </div>
+
+                      <!-- 3. Sección de Título -->
+                      <div class="service-title-section">
+                        <h3 class="service-title">
+                          <a href="/services/sealer-services-nj/">Sealer Services</a>
+                        </h3>
+                      </div>
+
+                      <!-- 4. Sección de Descripción -->
+                      <div class="service-description-section">
+                        <p class="service-description">
+                          Sealcoating, crack filling, line striping, and seasonal
+                          maintenance plans that extend the life of driveways and
+                          small parking lots.
+                        </p>
+                      </div>
+
+                      <!-- 5. Sección de Botón -->
+                      <div class="service-button-section">
+                        <a href="/services/sealer-services-nj/" class="service-btn">
+                          Read More <i class="fas fa-angles-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Belgium Blocks -->
+                  <div class="swiper-slide">
+                    <div class="service-card">
+                      <!-- 1. Sección de Imagen -->
+                      <div class="service-image-section">
+                        <a href="/services/belgium-blocks/">
+                          <figure class="service-image">
+                            <Image
+                              src={stoneBorderService}
+                              alt="Belgium block edging crew setting stones in Morris County NJ"
+                              width={370}
+                              height={278}
+                              format="webp"
+                              quality={85}
+                              sizes="(max-width: 768px) 100vw, 370px"
+                            />
+                          </figure>
+                        </a>
+                      </div>
+
+                      <!-- 2. Sección de Icono -->
+                      <div class="service-icon-section">
+                        <div class="icon-box">
+                          <i class="fas fa-th-large"></i>
+                        </div>
+                      </div>
+
+                      <!-- 3. Sección de Título -->
+                      <div class="service-title-section">
+                        <h3 class="service-title">
+                          <a href="/services/belgium-blocks/">Belgium Blocks</a>
+                        </h3>
+                      </div>
+
+                      <!-- 4. Sección de Descripción -->
+                      <div class="service-description-section">
+                        <p class="service-description">
+                          Belgium block edging and curbing for driveways and
+                          walkways to add durable borders and clean, classic
+                          lines.
+                        </p>
+                      </div>
+
+                      <!-- 5. Sección de Botón -->
+                      <div class="service-button-section">
+                        <a href="/services/belgium-blocks/" class="service-btn">
+                          Read More <i class="fas fa-angles-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+           
           </div>
         </div>
       </section>
       <!-- Service Slider area end -->
+      <LargeForm />
 
       <Quality />
-      <TestimonialsSlider />
       <!-- Project slider area start -->
       <section class="project-slider-section section-space fix">
         <div class="small-container">
           <div class="row">
-            <div class="col-xxl-6">
+            <div class="col-xxl-12">
               <div class="title-box mb-25 wow fadeInLeft" data-wow-delay=".5s">
                 <span class="section-sub-title">RECENT PAVING WORK</span>
                 <h3 class="section-title mt-25 mb-50">
@@ -399,48 +419,40 @@ const serviceGallery = [
                 </h3>
               </div>
             </div>
-            <div class="col-xxl-6">
-              <!-- If we need navigation buttons -->
-              <div
-                class="project_1_navigation__wrapprer position-relative z-1 text-end mt-30"
-              >
-                <div class="common-slider-navigation">
-                  <button
-                    class="project-1-button-prev"
-                    aria-label="Previous project"
-                  >
-                    <i class="fas fa-arrow-left"></i>
-                  </button>
-                  <button
-                    class="project-1-button-next"
-                    aria-label="Next project"
-                  >
-                    <i class="fas fa-arrow-right"></i>
-                  </button>
-                </div>
+          </div>
+        </div>
+        <div class="project-slider-stage mt-10">
+          <div class="container-fluid">
+            <div class="swiper project-active-1">
+              <div class="swiper-wrapper">
+                {serviceGallery.map(({ image, alt }) => (
+                  <div class="swiper-slide">
+                    <a class="popup-image" href={image.src}>
+                      <div class="project-slider-area p-relative">
+                        <figure class="image m-imge shine-img">
+                          <img src={image.src} alt={alt} />
+                        </figure>
+                      </div>
+                    </a>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </div>
-        <div class="container-fluid">
-          <div class="swiper project-active-1">
-            <div class="swiper-wrapper">
-              {serviceGallery.map(({ image, alt }) => (
-                <div class="swiper-slide">
-                  <a class="popup-image" href={image.src}>
-                    <div class="project-slider-area p-relative">
-                      <figure class="image m-imge shine-img">
-                        <img src={image.src} alt={alt} />
-                      </figure>
-                    </div>
-                  </a>
-                </div>
-              ))}
+          <div class="project_1_navigation__wrapprer">
+            <div class="common-slider-navigation">
+              <button class="project-1-button-prev" aria-label="Previous project">
+                <i class="fas fa-arrow-left"></i>
+              </button>
+              <button class="project-1-button-next" aria-label="Next project">
+                <i class="fas fa-arrow-right"></i>
+              </button>
             </div>
           </div>
         </div>
       </section>
       <!-- Project area end -->
+      <TestimonialsSlider />
 
       <!-- Icon box counter area start -->
       <section class="icon-box-counter-section section-space">
