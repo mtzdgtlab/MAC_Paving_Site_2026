@@ -83,10 +83,6 @@ export default defineConfig({
           manualChunks: (id) => {
             // Split vendor libraries into separate chunks for better caching
             if (id.includes('node_modules')) {
-              // Separate large libraries
-              if (id.includes('@fortawesome')) {
-                return 'vendor-fontawesome';
-              }
               // Group other node_modules together
               return 'vendor';
             }
