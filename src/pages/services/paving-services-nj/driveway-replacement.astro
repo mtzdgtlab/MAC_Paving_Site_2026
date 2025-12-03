@@ -155,9 +155,11 @@ const serviceSchema = {
     <link rel="canonical" href={pageMeta.url} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="keywords" content={pageMeta.keywords} />
-    <script type="application/ld+json">
-      {JSON.stringify(serviceSchema)}
-    </script>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(serviceSchema)}
+    ></script>
     <Favicon />
     <SocialMeta
       title={pageMeta.title}

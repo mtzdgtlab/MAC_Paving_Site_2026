@@ -28,6 +28,64 @@ const toAbsolute = (asset: { src: string } | string) =>
 const asphaltServiceOg = toAbsolute(asphaltServiceImage);
 const logoOg = toAbsolute(logo);
 const optimizedLogo = await getImage({ src: logo });
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "Service"],
+  name: "MAC Paving and Sealcoating LLC",
+  url: site.href,
+  logo: logoOg,
+  image: asphaltServiceOg,
+  description:
+    "Family-owned asphalt contractor providing driveway paving installation, resurfacing, replacement, extensions, sealcoating, crack filling, line striping, and Belgium blocks across North Jersey.",
+  telephone: "+1-201-755-7836",
+  areaServed: [
+    "Passaic County",
+    "Bergen County",
+    "Morris County",
+    "Essex County",
+    "Hudson County",
+    "Union County",
+    "Middlesex County",
+    "Somerset County",
+    "Sussex County",
+  ],
+  sameAs: [
+    "https://www.facebook.com/macpavingandsealcoating/",
+    "https://www.instagram.com/macpavingandsealcoating/",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Paving, Sealer, and Belgium Block Services",
+    itemListElement: [
+      "Driveway Paving Installation",
+      "Driveway Paving Resurfacing",
+      "Driveway Paving Replacement",
+      "Driveway Paving Extension",
+      "Sealcoating",
+      "Crack Filling",
+      "Line Striping",
+      "Belgium Blocks",
+    ].map((service) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: service },
+    })),
+  },
+  potentialAction: [
+    {
+      "@type": "CallAction",
+      target: "tel:+12017557836",
+      name: "Call MAC Paving and Sealcoating",
+    },
+    {
+      "@type": "ReserveAction",
+      name: "Book a Free Estimate",
+      target: [
+        "https://calendar.app.google/CQVM2nVsX15QCVq16",
+        "https://macpavingandsealcoating.com/contact/",
+      ],
+    },
+  ],
+};
 ---
 
 <html lang="en">
@@ -55,66 +113,11 @@ const optimizedLogo = await getImage({ src: logo });
       image={asphaltServiceImage}
       imageAlt="Owner-led paving crew resurfacing a North Jersey driveway"
     />
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": ["LocalBusiness", "Service"],
-        name: "MAC Paving and Sealcoating LLC",
-        url: site.href,
-        logo: logoOg,
-        image: asphaltServiceOg,
-        description:
-          "Family-owned asphalt contractor providing driveway paving installation, resurfacing, replacement, extensions, sealcoating, crack filling, line striping, and Belgium blocks across North Jersey.",
-        telephone: "+1-201-755-7836",
-        areaServed: [
-          "Passaic County",
-          "Bergen County",
-          "Morris County",
-          "Essex County",
-          "Hudson County",
-          "Union County",
-          "Middlesex County",
-          "Somerset County",
-          "Sussex County",
-        ],
-        sameAs: [
-          "https://www.facebook.com/macpavingandsealcoating/",
-          "https://www.instagram.com/macpavingandsealcoating/",
-        ],
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Paving, Sealer, and Belgium Block Services",
-          itemListElement: [
-            "Driveway Paving Installation",
-            "Driveway Paving Resurfacing",
-            "Driveway Paving Replacement",
-            "Driveway Paving Extension",
-            "Sealcoating",
-            "Crack Filling",
-            "Line Striping",
-            "Belgium Blocks",
-          ].map((service) => ({
-            "@type": "Offer",
-            itemOffered: { "@type": "Service", name: service },
-          })),
-        },
-        potentialAction: [
-          {
-            "@type": "CallAction",
-            target: "tel:+12017557836",
-            name: "Call MAC Paving and Sealcoating",
-          },
-          {
-            "@type": "ReserveAction",
-            name: "Book a Free Estimate",
-            target: [
-              "https://calendar.app.google/CQVM2nVsX15QCVq16",
-              "https://macpavingandsealcoating.com/contact/",
-            ],
-          },
-        ],
-      })}
-    </script>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(homeSchema)}
+    ></script>
     <link rel="preload" as="image" href={optimizedLogo.src} fetchpriority="high" />
     <CSSbase />
   </head>
