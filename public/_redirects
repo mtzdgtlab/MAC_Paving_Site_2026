@@ -12,9 +12,7 @@
 /sealcoating.html /services/sealer-services-nj/sealcoating/ 301
 /crack-filling.html /services/sealer-services-nj/crack-filling/ 301
 /line-striping.html /services/sealer-services-nj/line-striping/ 301
-/{walkways,sidewalks,curbs,aprons,sod-installation,hauling,power-wash,top-soil}.html /services/ 301
-/paver-installation.html /services/ 301
-/paver-maintenance.html /services/ 301
+# These HTML redirects handled by catch-all /*.html at end
 /belgium-blocks.html /services/belgium-blocks/ 301
 
 # Old core non-HTML redirects
@@ -25,9 +23,7 @@
 /sealcoating /services/sealer-services-nj/sealcoating/ 301
 /crack-filling /services/sealer-services-nj/crack-filling/ 301
 /line-striping /services/sealer-services-nj/line-striping/ 301
-/{walkways,sidewalks,curbs,aprons,sod-installation,hauling,power-wash,top-soil} /services/ 301
-/pavers-installation /services/ 301
-/paver-maintenance /services/ 301
+# Consolidated: redirects to /services/ handled by specific rules or catch-all
 /belgium-blocks /services/belgium-blocks/ 301
 /pavers /services/belgium-blocks/ 301
 
@@ -41,17 +37,11 @@
 /services/asphalt-paving/extension/ /services/paving-services-nj/driveway-extension/ 301
 /services/asphalt-paving* /services/paving-services-nj/ 301
 
-# Legacy sealer directory structure - specific redirects first
+# Legacy sealer directory structure
 /services/sealer/sealcoating/ /services/sealer-services-nj/sealcoating/ 301
 /services/sealer/crack-filling/ /services/sealer-services-nj/crack-filling/ 301
 /services/sealer/line-striping/ /services/sealer-services-nj/line-striping/ 301
 /services/sealer/ /services/sealer-services-nj/ 301
-# Redirects without trailing slash
-/services/sealer/sealcoating /services/sealer-services-nj/sealcoating/ 301
-/services/sealer/crack-filling /services/sealer-services-nj/crack-filling/ 301
-/services/sealer/line-striping /services/sealer-services-nj/line-striping/ 301
-/services/sealer /services/sealer-services-nj/ 301
-# Catch-all for any other sealer subpaths (must come after specific rules)
 /services/sealer/* /services/sealer-services-nj/:splat 301
 
 # Legacy pavers directory
@@ -60,30 +50,16 @@
 /services/pavers/maintenance/ /services/ 301
 /services/pavers* /services/belgium-blocks/ 301
 
-# Legacy directory .html files (specific redirects for URLs blocked by robots.txt)
-/services/asphalt-paving/extension.html /services/paving-services-nj/driveway-extension/ 301
-/services/pavers/belgium-blocks.html /services/belgium-blocks/ 301
-/services/pavers/installation.html /services/ 301
-
-# Legacy service .html files (specific redirects)
+# Legacy service .html files - specific redirects (others handled by catch-all)
 /services/asphalt-paving/installation.html /services/paving-services-nj/driveway-installation/ 301
 /services/asphalt-paving/resurfacing.html /services/paving-services-nj/driveway-resurfacing/ 301
 /services/asphalt-paving/replacement.html /services/paving-services-nj/driveway-replacement/ 301
+/services/asphalt-paving/extension.html /services/paving-services-nj/driveway-extension/ 301
 /services/sealer/sealcoating.html /services/sealer-services-nj/sealcoating/ 301
 /services/sealer/crack-filling.html /services/sealer-services-nj/crack-filling/ 301
 /services/sealer/line-striping.html /services/sealer-services-nj/line-striping/ 301
-/services/pavers/maintenance.html /services/ 301
 
-# Legacy category .html files (redirect to /services/)
-/services/concrete/walkways.html /services/ 301
-/services/concrete/sidewalks.html /services/ 301
-/services/concrete/curbs.html /services/ 301
-/services/concrete/aprons.html /services/ 301
-/services/landscaping/top-soil.html /services/ 301
-/services/landscaping/power-wash.html /services/ 301
-/services/landscaping/hauling.html /services/ 301
-/services/landscaping/sod-installation.html /services/ 301
-/services/landscaping/drainage.html /services/ 301
+# Legacy category .html files (redirect to /services/) - handled by wildcards above
 
 # Legacy category pages (redirect to new versions)
 /services/sealer.html /services/sealer-services-nj/ 301
@@ -97,45 +73,40 @@
 /paving-services-near-me /services/paving-services-nj/ 301
 /service-area-map /services-areas/ 301
 /drainage /services/ 301
-/drainage.html /services/ 301
 /concrete /services/ 301
 /landscaping /services/ 301
-/gutters.html /services/ 301
 
-# Services that no longer exist (redirect to /services/)
-/walkways /services/ 301
-/sidewalks /services/ 301
-/curbs /services/ 301
-/aprons /services/ 301
-/sod-installation /services/ 301
-/top-soil /services/ 301
-/power-wash /services/ 301
-/hauling /services/ 301
+# Services that no longer exist (redirect to /services/) - consolidated above
 
 # Old concrete + landscaping groups
-/services/concrete/{walkways,sidewalks,curbs,aprons}* /services/ 301
 /services/concrete* /services/ 301
-/services/landscaping/{sod-installation,top-soil,power-wash,hauling}* /services/ 301
 /services/landscaping* /services/ 301
 
-# Missing service redirects
-/{seed-grass,gutters,pothole-repair,asphalt-maintenance,retaining-walls,masonry} /services/ 301
-/{seed-grass,gutters,pothole-repair,asphalt-maintenance,retaining-walls,masonry}.html /services/ 301
-/asphalt-maintenance /services/paving-services-nj/driveway-resurfacing/ 301
+# Missing service redirects (HTML versions handled by catch-all)
+/seed-grass /services/ 301
+/gutters /services/ 301
 /pothole-repair /services/paving-services-nj/driveway-replacement/ 301
+/asphalt-maintenance /services/paving-services-nj/driveway-resurfacing/ 301
+/retaining-walls /services/ 301
+/masonry /services/ 301
+/pothole-repair.html /services/paving-services-nj/driveway-replacement/ 301
+/asphalt-maintenance.html /services/paving-services-nj/driveway-resurfacing/ 301
 
 # Underscore variants
-/{line_striping,power_wash,winter_services,belgium_blocks,pavers_installation,top_soil,asphalt_maintenance} /services/ 301
+/line_striping /services/ 301
+/power_wash /services/ 301
+/winter_services /services/ 301
+/belgium_blocks /services/ 301
+/pavers_installation /services/ 301
+/top_soil /services/ 301
+/asphalt_maintenance /services/ 301
 
 # Other old URLs
-/services.html /services/ 301
 /services/services /services/ 301
-/services/services.html /services/ 301
 /contact.html /contact/ 301
 /index.html / 301
 /gallery /services/ 301
 /winter-services /services/ 301
-/winter-services.html /services/ 301
 
 # Broken characters
 /K%7BSEOcanonical%7D%7D / 301
