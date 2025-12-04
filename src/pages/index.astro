@@ -2,6 +2,7 @@
 import { Image, getImage } from "astro:assets";
 import cta1 from "@/assets/imgs/resources/cta-1.webp";
 import logo from "@/assets/imgs/logo.webp";
+import about1 from "@/assets/imgs/about/about-1.webp";
 import asphaltServiceImage from "@/assets/imgs/service/asphalt-paving/asphalt-service.webp";
 import bannerDesktopVideo from "@/assets/imgs/vids/1920-banner.mp4";
 import bannerMobileVideo from "@/assets/imgs/vids/1080-banner.mp4";
@@ -28,6 +29,8 @@ const toAbsolute = (asset: { src: string } | string) =>
 const asphaltServiceOg = toAbsolute(asphaltServiceImage);
 const logoOg = toAbsolute(logo);
 const optimizedLogo = await getImage({ src: logo });
+// Preload optimizado para móvil: usar 600px para cubrir la mayoría de móviles (100vw típicamente es 375-414px)
+const optimizedAbout1Mobile = await getImage({ src: about1, width: 600, height: 780 });
 const homeSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "Service"],
@@ -119,6 +122,14 @@ const homeSchema = {
       set:html={JSON.stringify(homeSchema)}
     ></script>
     <link rel="preload" as="image" href={optimizedLogo.src} fetchpriority="high" />
+    <!-- Preload LCP image solo en móvil: 600px cubre la mayoría de móviles (100vw típicamente 375-414px) -->
+    <link
+      rel="preload"
+      as="image"
+      href={optimizedAbout1Mobile.src}
+      fetchpriority="high"
+      media="(max-width: 767px)"
+    />
     <CSSbase />
     <script is:inline>
       // Optimización móvil: cargar video de forma lazy

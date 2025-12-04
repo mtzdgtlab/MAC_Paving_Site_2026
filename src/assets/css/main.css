@@ -1813,6 +1813,8 @@ h2.banner-title,
     padding: 0; /* Eliminar padding para quitar espacios en blanco */
     min-height: 100vw;
     height: 100vw; /* Altura igual al ancho para mantener 1:1 */
+    width: 100%;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     display: flex;
     align-items: center;
@@ -1841,11 +1843,45 @@ h2.banner-title,
     padding: 0;
     margin: 0;
     overflow-x: hidden;
+    /* Prevenir layout shift: reservar espacio fijo */
+    min-height: 100vw;
+    aspect-ratio: 1 / 1;
+    position: relative;
   }
 
   /* Fix swiper elements to prevent horizontal overflow */
   .banner-section .swiper.banner-active {
     overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .banner-section .swiper-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .banner-section .swiper-slide {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Prevenir layout shift del logo en móvil */
+  .header-logo img {
+    width: 150px;
+    height: auto;
+    aspect-ratio: 500 / 250;
+    display: block;
+  }
+
+  .offcanvas__logo img {
+    width: 150px;
+    height: auto;
+    aspect-ratio: 500 / 250;
+    display: block;
   }
 
   /* Ajustar el contenido del banner para que no tenga padding */
