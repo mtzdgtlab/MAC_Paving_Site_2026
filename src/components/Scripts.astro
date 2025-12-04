@@ -30,3 +30,143 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"
   defer></script>
 <script src="/assets/js/main.js" is:inline defer></script>
+
+<!-- Script para ajustar z-index cuando el menú está abierto -->
+<script is:inline>
+  // Ajustar z-index del header cuando el menú offcanvas está abierto
+  (function() {
+    function adjustHeaderZIndex() {
+      if (typeof jQuery === 'undefined') {
+        setTimeout(adjustHeaderZIndex, 100);
+        return;
+      }
+      
+      jQuery(document).ready(function() {
+        // Observar cuando el menú se abre/cierra
+        var observer = new MutationObserver(function(mutations) {
+          var menuOpen = jQuery('.offcanvas__info').hasClass('info-open');
+          var header = jQuery('.header-area');
+          
+          if (menuOpen) {
+            // Cuando el menú está abierto, bajar el z-index del header
+            header.css('z-index', '999');
+            jQuery('body').addClass('menu-open');
+          } else {
+            // Cuando el menú está cerrado, restaurar el z-index del header
+            header.css('z-index', '1000');
+            jQuery('body').removeClass('menu-open');
+          }
+        });
+        
+        // Observar cambios en las clases del offcanvas
+        var offcanvasInfo = document.querySelector('.offcanvas__info');
+        if (offcanvasInfo) {
+          observer.observe(offcanvasInfo, {
+            attributes: true,
+            attributeFilter: ['class']
+          });
+        }
+        
+        // También verificar cuando se hace clic en los botones
+        jQuery(document).on('click', '.sidebar__toggle, .offcanvas__close, .offcanvas__overlay', function() {
+          setTimeout(function() {
+            var menuOpen = jQuery('.offcanvas__info').hasClass('info-open');
+            var header = jQuery('.header-area');
+            
+            if (menuOpen) {
+              header.css('z-index', '999');
+              jQuery('body').addClass('menu-open');
+            } else {
+              header.css('z-index', '1000');
+              jQuery('body').removeClass('menu-open');
+            }
+          }, 50);
+        });
+      });
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', adjustHeaderZIndex);
+    } else {
+      adjustHeaderZIndex();
+    }
+  })();
+</script>
+
+<!-- Script para asegurar que los iconos de mean-expand se muestren correctamente -->
+<script is:inline>
+  // Asegurar que los iconos de mean-expand se muestren después de que meanmenu se ejecute
+  // Este script NO interfiere con eventos de clic ni bloquea elementos
+  (function() {
+    function ensureMeanExpandIcons() {
+      // Esperar a que jQuery y meanmenu estén disponibles
+      if (typeof jQuery === 'undefined' || typeof jQuery.fn.meanmenu === 'undefined') {
+        setTimeout(ensureMeanExpandIcons, 100);
+        return;
+      }
+      
+      // Verificar y corregir los iconos de mean-expand SOLO cuando el menú está abierto
+      jQuery(document).ready(function() {
+        // Función para verificar y agregar iconos si faltan
+        function checkAndFixIcons() {
+          // Solo ejecutar si el menú mean está activo
+          if (!jQuery('body').hasClass('mean-container')) {
+            return;
+          }
+          
+          jQuery('.mean-container .mean-nav ul li a.mean-expand').each(function() {
+            var $expand = jQuery(this);
+            var $icon = $expand.find('i.fa-plus, i.fas.fa-plus, i.fas');
+            
+            // Si no hay icono, agregarlo
+            if ($icon.length === 0 || $icon.text().trim() === '') {
+              $expand.html('<i class="fas fa-plus"></i>');
+              $expand.attr('data-icon-visible', 'true');
+            } else {
+              // Asegurar que el icono sea visible
+              $icon.css({
+                'display': 'inline-block',
+                'visibility': 'visible',
+                'opacity': '1',
+                'font-size': '14px',
+                'color': '#fff'
+              });
+              
+              // Verificar si FontAwesome está cargado
+              var iconVisible = $icon.is(':visible') && $icon.css('display') !== 'none';
+              if (iconVisible) {
+                $expand.attr('data-icon-visible', 'true');
+              } else {
+                $expand.removeAttr('data-icon-visible');
+              }
+            }
+          });
+        }
+        
+        // Observar cuando el menú se abre
+        var menuObserver = new MutationObserver(function(mutations) {
+          if (jQuery('body').hasClass('mean-container')) {
+            setTimeout(checkAndFixIcons, 100);
+          }
+        });
+        
+        menuObserver.observe(document.body, {
+          attributes: true,
+          attributeFilter: ['class']
+        });
+        
+        // Verificar cuando el menú se abre manualmente
+        jQuery(document).on('click', '.bar-icon, .meanmenu-reveal', function() {
+          setTimeout(checkAndFixIcons, 300);
+        });
+      });
+    }
+    
+    // Iniciar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', ensureMeanExpandIcons);
+    } else {
+      ensureMeanExpandIcons();
+    }
+  })();
+</script>

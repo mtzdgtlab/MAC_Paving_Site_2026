@@ -2,6 +2,7 @@
 import "@/assets/css/spacing.css";
 import "@/assets/css/main.css";
 import "@/assets/css/meanmenu.min.css";
+import "@/assets/css/fontawesome-custom.css";
 import PerformanceMetrics from "./PerformanceMetrics.astro";
 import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
 ---
@@ -28,9 +29,6 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-
-<!-- FontAwesome Custom - Optimized local version with only used icons -->
-<link rel="preload" href="/assets/css/fontawesome-custom.css" as="style" fetchpriority="high" />
 
 <!-- Optimized Google Fonts loading with display=swap para evitar FOIT -->
 <link
@@ -62,12 +60,52 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
 />
-<!-- FontAwesome Custom - Optimized local version, carga inmediata en móvil (crítico para menú) -->
-<link
-  rel="stylesheet"
-  href="/assets/css/fontawesome-custom.css"
-  fetchpriority="high"
-/>
+<!-- FontAwesome Custom - Carga inmediata en móvil para iconos críticos del menú -->
+<script is:inline>
+  // FontAwesome debe cargarse inmediatamente en móvil para los iconos del menú
+  // Los iconos del menú son críticos para la usabilidad
+  (function() {
+    const findFontAwesomeLink = () => {
+      // Buscar el link de FontAwesome generado por Astro
+      const allStyles = document.querySelectorAll('link[rel="stylesheet"]');
+      for (let link of allStyles) {
+        const href = link.getAttribute('href') || '';
+        if (href.includes('fontawesome') || (href.includes('_astro/') && href.includes('fontawesome'))) {
+          return link;
+        }
+      }
+      return null;
+    };
+    
+    // Asegurar que FontAwesome se cargue inmediatamente
+    const ensureFontAwesome = () => {
+      const fontAwesomeLink = findFontAwesomeLink();
+      if (fontAwesomeLink) {
+        // Asegurar que el media sea 'all' para que se cargue inmediatamente
+        fontAwesomeLink.media = 'all';
+        fontAwesomeLink.removeAttribute('data-deferred');
+      }
+    };
+    
+    // Intentar inmediatamente
+    ensureFontAwesome();
+    
+    // También usar MutationObserver para cuando se agregue al DOM
+    const observer = new MutationObserver((mutations) => {
+      ensureFontAwesome();
+      // Desconectar después de encontrar y activar FontAwesome
+      const fontAwesomeLink = findFontAwesomeLink();
+      if (fontAwesomeLink && fontAwesomeLink.media === 'all') {
+        observer.disconnect();
+      }
+    });
+    
+    observer.observe(document.head || document.documentElement, { childList: true, subtree: true });
+    
+    // Fallback: intentar después de un pequeño delay
+    setTimeout(ensureFontAwesome, 100);
+  })();
+</script>
 <!-- Bootstrap CSS - Critical, load normally but with high priority -->
 <link
   rel="stylesheet"
@@ -191,10 +229,7 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-  <link
-    rel="stylesheet"
-    href="/assets/css/fontawesome-custom.css"
-  />
+  <!-- FontAwesome CSS es manejado automáticamente por Astro mediante import -->
 </noscript>
 
 <!-- Script preloads and DNS hints -->

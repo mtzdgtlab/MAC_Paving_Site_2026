@@ -322,15 +322,18 @@ figure {
 ---------------------------------*/
 .sr-only,
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 .m-img img {
@@ -631,10 +634,26 @@ figure {
   opacity: 0;
   visibility: hidden;
   right: 0;
+  pointer-events: none;
 }
 .offcanvas__overlay.overlay-open {
   opacity: 0.8;
   visibility: visible;
+  pointer-events: auto;
+}
+
+.offcanvas__overlay-white {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .sidebar__toggle {
@@ -1136,11 +1155,10 @@ figure {
   padding: 0 !important;
   height: 30px;
   width: 30px;
-  display: -webkit-box;
-  display: -moz-box;
-  display: flex;
-  display: -webkit-flex;
-  display: flex;
+  display: -webkit-box !important;
+  display: -moz-box !important;
+  display: flex !important;
+  display: -webkit-flex !important;
   align-items: center;
   justify-content: center;
   color: #fff;
@@ -1152,26 +1170,85 @@ figure {
   -o-border-radius: 50%;
   -ms-border-radius: 50%;
   border-radius: 50%;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.mean-container .mean-nav ul li > a > i {
+/* Fallback visual: mostrar "+" siempre, pero ocultarlo cuando hay un icono visible */
+.mean-container .mean-nav ul li a.mean-expand::after {
+  content: "+";
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ocultar el fallback cuando el icono FontAwesome es visible */
+.mean-container .mean-nav ul li a.mean-expand i.fa-plus,
+.mean-container .mean-nav ul li a.mean-expand i.fas.fa-plus {
+  position: relative;
+  z-index: 1;
+  opacity: 1 !important;
+}
+
+/* Si el icono tiene contenido y es visible, ocultar el fallback usando JavaScript */
+.mean-container .mean-nav ul li a.mean-expand[data-icon-visible="true"]::after {
   display: none;
 }
 
-.mean-container .mean-nav ul li > a.mean-expand i {
-  display: inline-block;
+.mean-container .mean-nav ul li > a > i:not(.fa-plus) {
+  display: none;
+}
+
+/* Asegurar que los iconos de mean-expand SIEMPRE se muestren */
+.mean-container .mean-nav ul li a.mean-expand,
+.mean-container .mean-nav ul li a.mean-expand *,
+.mean-container .mean-nav ul li a.mean-expand i,
+.mean-container .mean-nav ul li a.mean-expand i.fa,
+.mean-container .mean-nav ul li a.mean-expand i.fas,
+.mean-container .mean-nav ul li a.mean-expand i.fa-plus {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.mean-container .mean-nav ul li a.mean-expand i,
+.mean-container .mean-nav ul li a.mean-expand i.fa,
+.mean-container .mean-nav ul li a.mean-expand i.fas,
+.mean-container .mean-nav ul li a.mean-expand i.fa-plus {
+  font-size: 14px !important;
+  color: #fff !important;
+  line-height: 1 !important;
 }
 
 .mean-container .mean-nav > ul > li:first-child > a {
   border-top: 0;
 }
 
-.mean-container .mean-nav ul li a.mean-expand.mean-clicked i {
+.mean-container .mean-nav ul li a.mean-expand.mean-clicked i,
+.mean-container .mean-nav ul li a.mean-expand.mean-clicked i.fa,
+.mean-container .mean-nav ul li a.mean-expand.mean-clicked i.fas,
+.mean-container .mean-nav ul li a.mean-expand.mean-clicked i.fa-plus {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /*----------------------------------------*/
@@ -1327,9 +1404,69 @@ figure {
 
 .header-area {
   position: relative;
-  z-index: 998;
+  z-index: 1000;
   padding: 0 50px;
   overflow-x: clip;
+}
+
+.header-logo,
+.header-logo a,
+.header-logo img,
+.header__hamburger,
+.sidebar__toggle,
+.bar-icon,
+.header-main,
+.header-left,
+.header-right {
+  position: relative;
+  z-index: inherit;
+  pointer-events: auto !important;
+}
+
+.header-logo a {
+  cursor: pointer !important;
+  display: block !important;
+}
+
+.sidebar__toggle,
+.bar-icon {
+  cursor: pointer !important;
+}
+
+@media only screen and (max-width: 991px) {
+  /* En móvil, cuando el menú está abierto, el header debe estar por debajo del offcanvas */
+  .offcanvas__info.info-open {
+    z-index: 10000 !important;
+  }
+  
+  .offcanvas__overlay.overlay-open {
+    z-index: 9999 !important;
+  }
+  
+  /* El header debe estar por debajo cuando el menú está abierto */
+  .header-area {
+    z-index: 1000;
+  }
+  
+  /* Cuando el menú está abierto, el header debe estar más abajo */
+  body.menu-open .header-area,
+  .header-area[style*="z-index: 999"] {
+    z-index: 999 !important;
+  }
+  
+  /* Asegurar que los elementos del offcanvas estén por encima */
+  .offcanvas__close,
+  .offcanvas__logo,
+  .offcanvas__top {
+    position: relative;
+    z-index: 10001 !important;
+  }
+  
+  .offcanvas__close button {
+    z-index: 10002 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
 }
 @media (max-width: 575px),
   only screen and (min-width: 576px) and (max-width: 767px),
@@ -4952,8 +5089,36 @@ h2.banner-title {
     display: none !important;
   }
   
+  /* Reordenar columnas en móvil: Logo primero, luego Our Services */
+  .footer-main .row {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  /* Logo y redes sociales - primera sección en móvil */
+  .footer-main .row > div:first-child {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  
+  /* Our Services - segunda sección en móvil con espacio de separación */
+  .footer-main .row > div.footer-services-mobile {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    margin-top: 30px !important; /* Espacio de separación entre Logo y Our Services */
+  }
+  
+  /* Asegurar que Quick Links esté oculto en móvil (ya tiene hide-on-mobile) */
+  .footer-main .row > div.hide-on-mobile {
+    display: none !important;
+  }
+  
   .footer-widget-1{
-    margin-bottom: 40px; /* Mayor separación */
+    margin-bottom: 0; /* Remover margen inferior ya que el espacio está en la columna */
     text-align: center;
   }
 
