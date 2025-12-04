@@ -169,12 +169,36 @@
   Aos Js
   ========================================*/
 
-  AOS.init({
-    duration: 600,
-    easing: 'ease-in-out',
-    once: true,
-    offset: 200,
-  })
+  // Inicializar AOS tan pronto como esté disponible
+  // Mejorar timing: intentar inicializar inmediatamente, si falla esperar a que AOS.js cargue
+  function initAOS() {
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 300,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100, // Reducido de 200px para activar animaciones antes
+      });
+      return true;
+    }
+    return false;
+  }
+
+  // Intentar inicializar inmediatamente
+  if (!initAOS()) {
+    // Si AOS aún no está cargado, esperar a que el script se cargue
+    $(document).ready(function() {
+      // Reintentar después de un breve delay para asegurar que AOS.js se haya cargado
+      setTimeout(function() {
+        if (!initAOS()) {
+          // Último intento después de que todos los scripts defer se carguen
+          window.addEventListener('load', function() {
+            initAOS();
+          });
+        }
+      }, 100);
+    });
+  }
 
   /*======================================
   Año automático en el footer
@@ -498,63 +522,129 @@
 
   if (jQuery('.banner-active').length > 0) {
     let sliderActive1 = '.banner-active'
-    let sliderInit1 = new Swiper(sliderActive1, {
-      // Optional parameters
-      slidesPerView: 1,
-      slidesPerColumn: 1,
-      paginationClickable: true,
-      fadeEffect: {
-        crossFade: true,
-      },
-      loop: true,
-      effect: 'fade',
-      autoplay: {
-        delay: 5000,
-      },
-      navigation: {
-        nextEl: '.slider__button-prev',
-        prevEl: '.slider__button-next',
-      },
-      pagination: {
-        el: '.banner-dot',
-        clickable: true,
-      },
-      a11y: false,
-    })
+    let sliderInit1 = null
+    let isMobile = window.innerWidth <= 767 // Consistente con CSS @media (max-width: 767px)
 
-    function animated_swiper(selector, init) {
-      let animated = function animated() {
-        $(selector + ' [data-animation]').each(function () {
-          let anim = $(this).data('animation')
-          let delay = $(this).data('delay')
-          let duration = $(this).data('duration')
-
-          $(this)
-            .removeClass('anim' + anim)
-            .addClass(anim + ' animated')
-            .css({
-              webkitAnimationDelay: delay,
-              animationDelay: delay,
-              webkitAnimationDuration: duration,
-              animationDuration: duration,
+    // Función para inicializar Swiper optimizada para móvil
+    function initBannerSwiper() {
+      // En móvil, diferir inicialización hasta después del LCP usando requestAnimationFrame
+      if (isMobile) {
+        // Esperar a que el LCP se complete antes de inicializar
+        if ('PerformanceObserver' in window) {
+          const lcpObserver = new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries()
+            const lastEntry = entries[entries.length - 1]
+            // Inicializar después del LCP usando requestAnimationFrame para evitar reflows
+            requestAnimationFrame(() => {
+              createSwiper()
             })
-            .one(
-              'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-              function () {
-                $(this).removeClass(anim + ' animated')
+            lcpObserver.disconnect()
+          })
+          try {
+            lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true })
+            // Timeout de seguridad si LCP no se detecta
+            setTimeout(() => {
+              if (!sliderInit1) {
+                requestAnimationFrame(() => {
+                  createSwiper()
+                })
               }
-            )
-        })
+            }, 3000)
+          } catch (e) {
+            // Fallback si PerformanceObserver no está disponible
+            requestAnimationFrame(() => {
+              createSwiper()
+            })
+          }
+        } else {
+          // Fallback sin PerformanceObserver
+          requestAnimationFrame(() => {
+            createSwiper()
+          })
+        }
+      } else {
+        // En escritorio, inicializar normalmente (sin cambios)
+        createSwiper()
       }
-      animated()
-      // Make animated when slide change
-      init.on('slideChange', function () {
-        $(sliderActive1 + ' [data-animation]').removeClass('animated')
-      })
-      init.on('slideChange', animated)
     }
 
-    animated_swiper(sliderActive1, sliderInit1)
+    function createSwiper() {
+      if (sliderInit1) return // Ya inicializado
+      
+      // Cachear dimensiones antes de crear Swiper para evitar reflows
+      const bannerElement = document.querySelector(sliderActive1)
+      if (bannerElement && isMobile) {
+        // Forzar layout calculation antes de crear Swiper
+        const rect = bannerElement.getBoundingClientRect()
+        const width = rect.width
+        const height = rect.height
+      }
+
+      sliderInit1 = new Swiper(sliderActive1, {
+        // Optional parameters
+        slidesPerView: 1,
+        slidesPerColumn: 1,
+        paginationClickable: true,
+        fadeEffect: {
+          crossFade: true,
+        },
+        loop: true,
+        effect: 'fade',
+        autoplay: {
+          delay: 5000,
+        },
+        navigation: {
+          nextEl: '.slider__button-next',
+          prevEl: '.slider__button-prev',
+        },
+        pagination: {
+          el: '.banner-dot',
+          clickable: true,
+        },
+        a11y: false,
+      })
+
+      function animated_swiper(selector, init) {
+        let animated = function animated() {
+          $(selector + ' [data-animation]').each(function () {
+            let anim = $(this).data('animation')
+            let delay = $(this).data('delay')
+            let duration = $(this).data('duration')
+
+            $(this)
+              .removeClass('anim' + anim)
+              .addClass(anim + ' animated')
+              .css({
+                webkitAnimationDelay: delay,
+                animationDelay: delay,
+                webkitAnimationDuration: duration,
+                animationDuration: duration,
+              })
+              .one(
+                'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+                function () {
+                  $(this).removeClass(anim + ' animated')
+                }
+              )
+          })
+        }
+        animated()
+        // Make animated when slide change
+        init.on('slideChange', function () {
+          $(sliderActive1 + ' [data-animation]').removeClass('animated')
+        })
+        init.on('slideChange', animated)
+      }
+
+      animated_swiper(sliderActive1, sliderInit1)
+    }
+
+    // Inicializar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBannerSwiper)
+    } else {
+      initBannerSwiper()
+    }
   }
 
   /*======================================

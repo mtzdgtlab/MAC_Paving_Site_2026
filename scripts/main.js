@@ -174,7 +174,7 @@
   function initAOS() {
     if (typeof AOS !== 'undefined') {
       AOS.init({
-        duration: 600,
+        duration: 300,
         easing: 'ease-in-out',
         once: true,
         offset: 100, // Reducido de 200px para activar animaciones antes

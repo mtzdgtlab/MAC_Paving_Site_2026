@@ -170,3 +170,58 @@
     }
   })();
 </script>
+
+<!-- Fallback para elementos con data-aos si AOS no se carga -->
+<script is:inline>
+  // Fallback: si AOS no se inicializa después de 5 segundos, mostrar los elementos usando clase CSS
+  // Usar clase CSS en lugar de estilos inline para que AOS pueda sobrescribir si se carga después
+  (function() {
+    var fallbackApplied = false;
+    
+    function applyFallback() {
+      if (fallbackApplied) return;
+      
+      // Verificar si AOS está disponible y se ha inicializado
+      var aosElements = document.querySelectorAll('[data-aos]');
+      var hasAOS = typeof AOS !== 'undefined';
+      var aosInitialized = hasAOS && document.querySelector('[data-aos].aos-init');
+      
+      // Si AOS no está disponible o no se ha inicializado, aplicar clase de fallback
+      if (!hasAOS || !aosInitialized) {
+        aosElements.forEach(function(element) {
+          // Solo aplicar fallback si no tiene las clases de AOS
+          if (!element.classList.contains('aos-init') && !element.classList.contains('aos-animate')) {
+            element.classList.add('aos-fallback');
+          }
+        });
+        fallbackApplied = true;
+      }
+    }
+    
+    // Aplicar fallback después de 5 segundos (más tiempo para que AOS se cargue)
+    setTimeout(applyFallback, 5000);
+    
+    // Si AOS se inicializa después del fallback, remover la clase de fallback
+    // Observar cuando AOS agrega clases a los elementos
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          var target = mutation.target;
+          // Si AOS inicializa el elemento, remover el fallback
+          if (target.classList.contains('aos-init') && target.classList.contains('aos-fallback')) {
+            // AOS puede manejar el elemento ahora, remover fallback
+            target.classList.remove('aos-fallback');
+          }
+        }
+      });
+    });
+    
+    // Observar todos los elementos con data-aos
+    document.querySelectorAll('[data-aos]').forEach(function(element) {
+      observer.observe(element, {
+        attributes: true,
+        attributeFilter: ['class']
+      });
+    });
+  })();
+</script>

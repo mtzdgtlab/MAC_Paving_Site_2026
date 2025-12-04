@@ -44,6 +44,48 @@ h5 {
   --theme-color-7: #4a4a4a;
 }
 
+/*----------------------------------------*/
+/*  AOS (Animate On Scroll) - Prevenir Flicker
+/*----------------------------------------*/
+/* Ocultar elementos con data-aos hasta que AOS los inicialice */
+/* Esto previene que aparezcan y luego desaparezcan al cargar */
+[data-aos] {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition-property: opacity, visibility, transform;
+  transition-duration: 0.6s;
+  transition-timing-function: ease-in-out;
+}
+
+/* Mostrar elementos cuando AOS los inicializa (AOS agrega esta clase) */
+[data-aos].aos-init {
+  visibility: visible !important;
+}
+
+/* Mostrar elementos cuando AOS los anima (AOS agrega esta clase cuando están en viewport) */
+[data-aos].aos-animate {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Clase de fallback para mostrar elementos si AOS no se carga */
+/* Esta clase tiene menor especificidad que las clases de AOS para que AOS pueda sobrescribirla */
+[data-aos].aos-fallback {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* AOS puede sobrescribir el fallback cuando se inicializa */
+[data-aos].aos-init.aos-fallback {
+  opacity: 0 !important;
+  visibility: visible !important;
+}
+
+[data-aos].aos-animate.aos-fallback {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -1591,6 +1633,30 @@ figure {
   }
 }
 
+/* Mejorar renderización del texto en botones de Google Calendar */
+.google-calendar-button-wrapper button,
+.google-calendar-button-wrapper a,
+.header-link button,
+.header-link a,
+.header-link .primary-btn-1 {
+  font-family: var(--primary-font, "Montserrat", sans-serif) !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* Asegurar que el texto del botón de Google Calendar se vea bien */
+.google-calendar-button-wrapper button *,
+.google-calendar-button-wrapper a *,
+.header-link .primary-btn-1 * {
+  font-family: inherit !important;
+  -webkit-font-smoothing: inherit !important;
+  -moz-osx-font-smoothing: inherit !important;
+  text-rendering: inherit !important;
+}
+
 .sticky {
   position: fixed !important;
   top: 0;
@@ -1613,20 +1679,27 @@ figure {
 .primary-btn-1 {
   color: #fff;
   text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--primary-font, "Montserrat", sans-serif);
   background-color: var(--theme-color);
   border: 1px solid var(--theme-color);
   display: inline-flex;
   align-items: center;
-  line-height: normal;
+  justify-content: center;
+  line-height: 1.4;
   white-space: nowrap;
-  padding: 20px 24px;
+  padding: 18px 28px;
   gap: 10px;
   overflow: hidden;
   position: relative;
   z-index: 1;
   transition: all 0.6s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0.4px;
+  text-shadow: none;
 }
 
 .primary-btn-1 span {
