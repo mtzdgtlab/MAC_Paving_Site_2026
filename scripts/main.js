@@ -169,12 +169,36 @@
   Aos Js
   ========================================*/
 
-  AOS.init({
-    duration: 600,
-    easing: 'ease-in-out',
-    once: true,
-    offset: 200,
-  })
+  // Inicializar AOS tan pronto como esté disponible
+  // Mejorar timing: intentar inicializar inmediatamente, si falla esperar a que AOS.js cargue
+  function initAOS() {
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 600,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100, // Reducido de 200px para activar animaciones antes
+      });
+      return true;
+    }
+    return false;
+  }
+
+  // Intentar inicializar inmediatamente
+  if (!initAOS()) {
+    // Si AOS aún no está cargado, esperar a que el script se cargue
+    $(document).ready(function() {
+      // Reintentar después de un breve delay para asegurar que AOS.js se haya cargado
+      setTimeout(function() {
+        if (!initAOS()) {
+          // Último intento después de que todos los scripts defer se carguen
+          window.addEventListener('load', function() {
+            initAOS();
+          });
+        }
+      }, 100);
+    });
+  }
 
   /*======================================
   Año automático en el footer
