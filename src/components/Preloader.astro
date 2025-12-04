@@ -12,6 +12,7 @@
     top: 0;
     background-color: #121212;
     z-index: 9999;
+    transition: opacity 0.2s ease-out;
   }
 
   .bd-loader-inner {
@@ -105,19 +106,48 @@
 <!-- preloader end -->
 
 <script is:inline>
-  // Optimización de preloader para mejorar FCP
-  document.addEventListener("DOMContentLoaded", () => {
-    // Ocultar preloader rápidamente
-    setTimeout(() => {
-      const preloader = document.getElementById("preloader");
-      if (preloader) {
-        preloader.classList.add("preloader-hidden");
-        setTimeout(() => {
-          preloader.style.display = "none";
-        }, 300);
-      }
-    }, 500);
-  });
+  // Optimización de preloader para mejorar FCP - especialmente en móvil
+  (function() {
+    // Detectar si es móvil
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                     (window.innerWidth <= 768);
+    
+    // Detectar conexión lenta (2G/3G)
+    const isSlowConnection = navigator.connection && 
+                             (navigator.connection.effectiveType === 'slow-2g' || 
+                              navigator.connection.effectiveType === '2g' ||
+                              navigator.connection.saveData === true);
+    
+    // Timeout más corto en móvil o conexión lenta
+    const timeout = (isMobile || isSlowConnection) ? 100 : 300;
+    
+    // Ocultar preloader inmediatamente cuando el DOM está listo
+    if (document.readyState === 'loading') {
+      document.addEventListener("DOMContentLoaded", hidePreloader);
+    } else {
+      // DOM ya está listo
+      hidePreloader();
+    }
+    
+    function hidePreloader() {
+      setTimeout(() => {
+        const preloader = document.getElementById("preloader");
+        if (preloader) {
+          // Establecer transition ANTES de cambiar opacity para que la animación funcione
+          preloader.style.transition = "opacity 0.2s ease-out";
+          
+          // Forzar reflow para que el navegador registre la transición antes del cambio
+          void preloader.offsetHeight;
+          
+          preloader.style.opacity = "0";
+          
+          setTimeout(() => {
+            preloader.style.display = "none";
+          }, 200);
+        }
+      }, timeout);
+    }
+  })();
 </script>
 
 <!-- Back to top start -->

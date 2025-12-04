@@ -29,8 +29,8 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
-<!-- FontAwesome CDN - Non-blocking load -->
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" />
+<!-- FontAwesome CDN - Non-blocking load, diferido en móvil -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" media="(min-width: 769px)" />
 
 <!-- Optimized Google Fonts loading with display=swap para evitar FOIT -->
 <link
@@ -61,14 +61,49 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
 />
+<!-- FontAwesome - Carga diferida en móvil para mejorar rendimiento -->
+<script is:inline>
+  // Marcar como diferido INMEDIATAMENTE en móvil, antes de que el link se cargue
+  if (window.innerWidth <= 768) {
+    // Usar MutationObserver para marcar el link tan pronto como se agregue al DOM
+    const observer = new MutationObserver((mutations) => {
+      const fontAwesomeLink = document.querySelector('link[rel="stylesheet"][href*="font-awesome"]');
+      if (fontAwesomeLink && !fontAwesomeLink.dataset.deferred) {
+        fontAwesomeLink.dataset.deferred = 'true';
+        observer.disconnect();
+      }
+    });
+    observer.observe(document.head || document.documentElement, { childList: true, subtree: true });
+    
+    // También intentar inmediatamente por si el link ya está en el DOM
+    setTimeout(() => {
+      const fontAwesomeLink = document.querySelector('link[rel="stylesheet"][href*="font-awesome"]');
+      if (fontAwesomeLink && !fontAwesomeLink.dataset.deferred) {
+        fontAwesomeLink.dataset.deferred = 'true';
+      }
+    }, 0);
+  }
+</script>
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
   media="print"
-  onload="this.media='all'"
+  onload="if(window.innerWidth>768||!this.dataset.deferred){this.media='all'}"
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
+<script is:inline>
+  // En móvil, diferir FontAwesome hasta después de la carga inicial
+  if (window.innerWidth <= 768) {
+    setTimeout(() => {
+      const fontAwesomeLink = document.querySelector('link[rel="stylesheet"][href*="font-awesome"]');
+      if (fontAwesomeLink && fontAwesomeLink.dataset.deferred === 'true') {
+        fontAwesomeLink.media = 'all';
+        delete fontAwesomeLink.dataset.deferred;
+      }
+    }, 2000);
+  }
+</script>
 <!-- Bootstrap CSS - Critical, load normally but with high priority -->
 <link
   rel="stylesheet"
@@ -77,11 +112,43 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
   referrerpolicy="no-referrer"
   fetchpriority="high"
 />
+<!-- CSS no crítico - Carga diferida en móvil -->
+<script is:inline>
+  // Marcar como diferido INMEDIATAMENTE en móvil, antes de que los links se carguen
+  if (window.innerWidth <= 768) {
+    // Usar MutationObserver para marcar los links tan pronto como se agreguen al DOM
+    const observer = new MutationObserver((mutations) => {
+      const nonCriticalCSS = document.querySelectorAll('link[rel="stylesheet"][href*="aos"], link[rel="stylesheet"][href*="swiper"], link[rel="stylesheet"][href*="magnific"], link[rel="stylesheet"][href*="animate"]');
+      let allMarked = true;
+      nonCriticalCSS.forEach(link => {
+        if (!link.dataset.deferred) {
+          link.dataset.deferred = 'true';
+          allMarked = false;
+        }
+      });
+      // Disconnect once all 4 links have been found and marked
+      if (nonCriticalCSS.length === 4 && allMarked) {
+        observer.disconnect();
+      }
+    });
+    observer.observe(document.head || document.documentElement, { childList: true, subtree: true });
+    
+    // También intentar inmediatamente por si los links ya están en el DOM
+    setTimeout(() => {
+      const nonCriticalCSS = document.querySelectorAll('link[rel="stylesheet"][href*="aos"], link[rel="stylesheet"][href*="swiper"], link[rel="stylesheet"][href*="magnific"], link[rel="stylesheet"][href*="animate"]');
+      nonCriticalCSS.forEach(link => {
+        if (!link.dataset.deferred) {
+          link.dataset.deferred = 'true';
+        }
+      });
+    }, 0);
+  }
+</script>
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
   media="print"
-  onload="this.media='all'"
+  onload="if(window.innerWidth>768||!this.dataset.deferred){this.media='all'}"
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
@@ -89,7 +156,7 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"
   media="print"
-  onload="this.media='all'"
+  onload="if(window.innerWidth>768||!this.dataset.deferred){this.media='all'}"
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
@@ -97,7 +164,7 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.2.0/magnific-popup.min.css"
   media="print"
-  onload="this.media='all'"
+  onload="if(window.innerWidth>768||!this.dataset.deferred){this.media='all'}"
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
@@ -105,10 +172,24 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   media="print"
-  onload="this.media='all'"
+  onload="if(window.innerWidth>768||!this.dataset.deferred){this.media='all'}"
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
+<script is:inline>
+  // En móvil, activar CSS no crítico después del delay
+  if (window.innerWidth <= 768) {
+    setTimeout(() => {
+      const nonCriticalCSS = document.querySelectorAll('link[rel="stylesheet"][href*="aos"], link[rel="stylesheet"][href*="swiper"], link[rel="stylesheet"][href*="magnific"], link[rel="stylesheet"][href*="animate"]');
+      nonCriticalCSS.forEach(link => {
+        if (link.dataset.deferred === 'true') {
+          link.media = 'all';
+          delete link.dataset.deferred;
+        }
+      });
+    }, 1500);
+  }
+</script>
 
 <!-- Fallback for browsers with JavaScript disabled -->
 <noscript>

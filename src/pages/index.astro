@@ -120,6 +120,47 @@ const homeSchema = {
     ></script>
     <link rel="preload" as="image" href={optimizedLogo.src} fetchpriority="high" />
     <CSSbase />
+    <script is:inline>
+      // Optimización móvil: cargar video de forma lazy
+      // El video tiene preload="none" y autoplay: se carga solo cuando es necesario,
+      // y luego se reproduce automáticamente gracias al atributo autoplay
+      (function() {
+        if (window.innerWidth <= 768) {
+          function loadMobileVideo() {
+            const mobileVideo = document.querySelector('.banner-video.mobile-only');
+            if (mobileVideo && mobileVideo.readyState === 0) {
+              // Cargar video cuando esté en viewport o después de un pequeño delay
+              if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                      mobileVideo.load();
+                      // autoplay se activará automáticamente cuando el video esté listo
+                      observer.disconnect();
+                    }
+                  });
+                }, { rootMargin: '50px' });
+                observer.observe(mobileVideo);
+              }
+              
+              // Fallback: cargar después de 1 segundo si no está en viewport
+              setTimeout(() => {
+                if (mobileVideo.readyState === 0) {
+                  mobileVideo.load();
+                  // autoplay se activará automáticamente cuando el video esté listo
+                }
+              }, 1000);
+            }
+          }
+          
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadMobileVideo);
+          } else {
+            loadMobileVideo();
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <Preloader />
@@ -155,7 +196,7 @@ const homeSchema = {
             muted
             loop
             playsinline
-            preload="metadata"
+            preload="none"
             width="1080"
             height="1080"
             onended="this.currentTime = 0; this.play();">
