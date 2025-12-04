@@ -54,6 +54,9 @@ h5 {
 html {
   font-size: 10px;
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /*---------------------------------
@@ -68,6 +71,14 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  position: relative;
+}
+
+main {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 h1,
@@ -255,6 +266,14 @@ figure {
   padding: 0 15px;
 }
 
+@media (max-width: 767px) {
+  .large-container {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
 @media (max-width: 575px) {
   .container,
   .container-fluid,
@@ -268,6 +287,50 @@ figure {
   body {
     font-size: 16px;
     line-height: 1.5;
+  }
+}
+
+@media (max-width: 767px) {
+  .container,
+  .container-fluid,
+  .small-container {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Prevent horizontal overflow on all sections */
+  section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  /* Ensure rows don't cause overflow */
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Fix common elements that might cause overflow */
+  div,
+  article,
+  aside,
+  header,
+  footer {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Ensure media elements respect viewport */
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -1799,6 +1862,9 @@ h2.banner-title,
     align-items: center;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .banner-area .banner-text {
@@ -1821,6 +1887,31 @@ h2.banner-title,
   .banner-section {
     padding: 0;
     margin: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  /* Fix swiper elements to prevent horizontal overflow */
+  .banner-section .swiper.banner-active {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .banner-section .swiper-wrapper {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .banner-section .swiper-slide {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   /* Ajustar el contenido del banner para que no tenga padding */
@@ -1845,10 +1936,14 @@ h2.banner-title,
     justify-content: center;
     align-items: center;
     width: 100%;
+    max-width: 100%;
     text-align: center;
     margin: 0 auto;
     gap: 0;
     position: relative;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   /* Hide banner-text with mb-15 class on mobile - HIGH SPECIFICITY */
@@ -3627,6 +3722,22 @@ h2.banner-title,
   font-size: 20px;
   line-height: 1.5;
   text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.95), 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 767px) {
+  .breadcrumb__area {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .breadcrumb__wrapper ul {
+    flex-wrap: wrap;
+    white-space: normal;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 
