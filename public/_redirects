@@ -85,8 +85,6 @@
 
 # URLs without /services/ in path
 /sealer /services/sealer-services-nj/ 301
-/pavers /services/belgium-blocks/ 301
-/asphalt-paving /services/paving-services-nj/ 301
 /about /services/ 301
 /driveway-paving-near-me /services/paving-services-nj/ 301
 /paving-services-near-me /services/paving-services-nj/ 301
