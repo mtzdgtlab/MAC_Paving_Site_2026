@@ -29,8 +29,8 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
-<!-- FontAwesome CDN - Non-blocking load, diferido en móvil -->
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" media="(min-width: 769px)" />
+<!-- FontAwesome Custom - Optimized local version with only used icons -->
+<link rel="preload" href="/assets/css/fontawesome-custom.css" as="style" media="(min-width: 769px)" />
 
 <!-- Optimized Google Fonts loading with display=swap para evitar FOIT -->
 <link
@@ -46,7 +46,7 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
   fetchpriority="high"
   crossorigin
 />
-<!-- Bootstrap CSS - Critical for layout, keep preload -->
+<!-- Bootstrap CSS - Preload only on desktop to avoid duplicate loading on mobile -->
 <link
   rel="preload"
   as="style"
@@ -54,6 +54,7 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
   fetchpriority="high"
+  media="(min-width: 769px)"
 />
 <!-- Non-critical CSS libraries - no preload, will load asynchronously -->
 
@@ -61,13 +62,13 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
 />
-<!-- FontAwesome - Carga diferida en móvil para mejorar rendimiento -->
+<!-- FontAwesome Custom - Optimized local version, carga diferida en móvil -->
 <script is:inline>
   // Marcar como diferido INMEDIATAMENTE en móvil, antes de que el link se cargue
   if (window.innerWidth <= 768) {
     // Usar MutationObserver para marcar el link tan pronto como se agregue al DOM
     const observer = new MutationObserver((mutations) => {
-      const fontAwesomeLink = document.querySelector('link[rel="stylesheet"][href*="font-awesome"]');
+      const fontAwesomeLink = document.querySelector('link[rel="stylesheet"][href*="fontawesome-custom"]') || document.querySelector('link[rel="stylesheet"][href*="font-awesome"]');
       if (fontAwesomeLink && !fontAwesomeLink.dataset.deferred) {
         fontAwesomeLink.dataset.deferred = 'true';
         observer.disconnect();
@@ -77,7 +78,7 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
     
     // También intentar inmediatamente por si el link ya está en el DOM
     setTimeout(() => {
-      const fontAwesomeLink = document.querySelector('link[rel="stylesheet"][href*="font-awesome"]');
+      const fontAwesomeLink = document.querySelector('link[rel="stylesheet"][href*="fontawesome-custom"]') || document.querySelector('link[rel="stylesheet"][href*="font-awesome"]');
       if (fontAwesomeLink && !fontAwesomeLink.dataset.deferred) {
         fontAwesomeLink.dataset.deferred = 'true';
       }
@@ -86,17 +87,15 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
 </script>
 <link
   rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  href="/assets/css/fontawesome-custom.css"
   media="print"
   onload="if(window.innerWidth>768||!this.dataset.deferred){this.media='all'}"
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
 />
 <script is:inline>
   // En móvil, diferir FontAwesome hasta después de la carga inicial
   if (window.innerWidth <= 768) {
     setTimeout(() => {
-      const fontAwesomeLink = document.querySelector('link[rel="stylesheet"][href*="font-awesome"]');
+      const fontAwesomeLink = document.querySelector('link[rel="stylesheet"][href*="fontawesome-custom"]') || document.querySelector('link[rel="stylesheet"][href*="font-awesome"]');
       if (fontAwesomeLink && fontAwesomeLink.dataset.deferred === 'true') {
         fontAwesomeLink.media = 'all';
         delete fontAwesomeLink.dataset.deferred;
@@ -229,9 +228,7 @@ import OptimizeAstroStyles from "./OptimizeAstroStyles.astro";
   />
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
+    href="/assets/css/fontawesome-custom.css"
   />
 </noscript>
 

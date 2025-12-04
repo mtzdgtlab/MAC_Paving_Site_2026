@@ -41,11 +41,18 @@
 /services/asphalt-paving/extension/ /services/paving-services-nj/driveway-extension/ 301
 /services/asphalt-paving* /services/paving-services-nj/ 301
 
-# Legacy sealer directory structure
+# Legacy sealer directory structure - specific redirects first
 /services/sealer/sealcoating/ /services/sealer-services-nj/sealcoating/ 301
 /services/sealer/crack-filling/ /services/sealer-services-nj/crack-filling/ 301
 /services/sealer/line-striping/ /services/sealer-services-nj/line-striping/ 301
-/services/sealer* /services/sealer-services-nj/ 301
+/services/sealer/ /services/sealer-services-nj/ 301
+# Redirects without trailing slash
+/services/sealer/sealcoating /services/sealer-services-nj/sealcoating/ 301
+/services/sealer/crack-filling /services/sealer-services-nj/crack-filling/ 301
+/services/sealer/line-striping /services/sealer-services-nj/line-striping/ 301
+/services/sealer /services/sealer-services-nj/ 301
+# Catch-all for any other sealer subpaths (must come after specific rules)
+/services/sealer/* /services/sealer-services-nj/:splat 301
 
 # Legacy pavers directory
 /services/pavers/belgium-blocks/ /services/belgium-blocks/ 301
