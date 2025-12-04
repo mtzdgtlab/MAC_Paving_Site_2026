@@ -865,39 +865,21 @@ figure {
   border-radius: 50px;
 }
 
-/* Ajustes para móvil: reducir tamaño del símbolo y aumentar espacio */
+/* Ocultar elementos decorativos en móvil - solo mostrar en escritorio */
+/* Unificar todos los subtítulos al centro en móvil */
 @media only screen and (max-width: 767px) {
   .section-sub-title,
   .section-sub-titledos {
-    margin-left: 50px; /* Más espacio entre símbolo y texto */
+    margin-left: 0; /* Eliminar margen ya que no hay elemento decorativo */
+    padding-left: 0;
+    text-align: center !important; /* Unificar todos al centro en móvil */
+    display: block;
+    width: 100%;
   }
 
   .section-sub-title:before,
   .section-sub-titledos:before {
-    height: 10px; /* Reducir altura */
-    width: 24px; /* Reducir ancho */
-    border: 3px solid; /* Reducir grosor del borde */
-    left: -1px; /* Ajustar posición */
-    top: 4px;
-    padding: 1px;
-    font-size: 6px; /* Reducir tamaño del icono interno */
-  }
-}
-
-@media only screen and (max-width: 425px) {
-  .section-sub-title,
-  .section-sub-titledos {
-    margin-left: 45px;
-  }
-
-  .section-sub-title:before,
-  .section-sub-titledos:before {
-    height: 8px;
-    width: 20px;
-    border: 2px solid;
-    left: -30px;
-    top: 5px;
-    font-size: 5px;
+    display: none; /* Ocultar completamente en móvil */
   }
 }
 
